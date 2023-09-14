@@ -1,0 +1,211 @@
+.welcome-to-dekhor {
+  position: absolute;
+  top: 42px;
+  left: 450px;
+  /* right: 180px; */
+  font-size: 50px;
+  font-family: var(--font-galindo);
+  text-align: center;
+  display: inline-block;
+  width: 585px;
+  height: 121px;
+}
+.sign-up-child {
+  position: absolute;
+  top: 138px;
+  left: 450px;
+  border-radius: var(--br-8xs);
+  background-color: var(--color-gainsboro);
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  width: 570px;
+  height: 55px;
+}
+.email {
+  position: absolute;
+  top: 17px;
+  left: 5px;
+  display: inline-block;
+  width: 313px;
+  height: 28px;
+}
+.rectangle-div,
+.sign-up-inner,
+.sign-up-item {
+  position: absolute;
+  top: 231px;
+  left: 450px;
+  border-radius: var(--br-8xs);
+  background-color: var(--color-gainsboro);
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  width: 570px;
+  height: 55px;
+}
+.rectangle-div,
+.sign-up-inner {
+  top: 93px;
+  left: 0px;
+}
+.rectangle-div {
+  top: 186px;
+  left: 0px;
+}
+.confirm-password,
+.or-sign-up,
+.passsword,
+.username {
+  position: absolute;
+  top: 17px;
+  left: 5px;
+  display: inline-block;
+  width: 313px;
+  height: 28px;
+}
+.confirm-password,
+.or-sign-up,
+.passsword {
+  top: 17px;
+}
+.confirm-password,
+.or-sign-up {
+  top: 17px;
+}
+.or-sign-up {
+  top: 564px;
+  left: 650px;
+  font-size: 24px;
+  text-align: center;
+  width: 195px;
+  height: 35px;
+}
+.line-div,
+.sign-up-child1 {
+  position: absolute;
+  top: 578.5px;
+  left: 845px;
+  border-top: 1px solid var(--color-gray);
+  box-sizing: border-box;
+  width: 217px;
+  height: 1px;
+}
+.sign-up-child1 {
+  top: 578.5px;
+  left: 420px;
+}
+.close-icon {
+  position: absolute;
+  top: 24px;
+  left: 1450px;
+  width: 37px;
+  height: 36px;
+  overflow: hidden;
+  object-fit: cover;
+}
+
+.icon{
+  position: absolute;
+  height: 50px;
+  width: 50px;
+  /* top: 88.71%;
+  right: 48%; */
+  bottom: 50px;
+  left: 550px;
+}
+
+.icon-ins{
+  position: absolute;
+  height: 50px;
+  top: 50px;
+  /* right: 0%;
+  bottom: 0%;
+  */
+  left: 150px;
+}
+
+.icon-face{
+  position: absolute;
+  height: 45px;
+  top: 50px;
+  /* right: 0%;
+  bottom: 0%;
+  */
+  left: 0px;
+}
+
+.icon-google{
+  position: absolute;
+  height: 45px;
+  top: 50px;
+  /* right: 0%;
+  bottom: 0%;
+  */
+  left: 300px;
+}
+
+/* .icon-facebook,
+.icon-google-1,
+.icon-instagram {
+  position: absolute;
+  height: 5px;
+  width: 5.2px;
+  top: 89.14px;
+  right: 48px;
+  bottom: 5.28px;
+  left: 46.67px;
+  max-width: 100%;
+  overflow: hidden;
+  max-height: 100%;
+  object-fit: cover;
+}
+.icon-facebook,
+.icon-google-1 {
+  height: 6.29%;
+  width: 5.87%;
+  top: 88.71%;
+  right: 48%;
+  bottom: 5%;
+  left: 27.73%;
+}
+.icon-google-1 {
+  height: 8.5px;
+  top:88%;
+  right: 0%;
+  bottom: 0%;
+  left: 50%;
+} */
+.group-child {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: var(--color);
+  width: 200px;
+  height: 55px;
+}
+.sign-up1 {
+  position: absolute;
+  top: 3px;
+  left: 46px;
+  display: inline-block;
+  width: 161px;
+  height: 35px;
+}
+.rectangle-parent {
+  position: absolute;
+  top: 495px;
+  left: 650px;
+  width: 207px;
+  height: 55px;
+  font-size: 35px;
+  font-family: var(--font-gaegu);
+}
+.sign-up {
+  position: relative;
+  border-radius: 50px;
+  background-color: var(--color-white);
+  width: 100%;
+  height: 700px;
+  overflow: hidden;
+  text-align: left;
+  font-size: var(--font-size-4xl);
+  color: var(--color-black);
+  font-family: var(--font-hubballi);
+}
