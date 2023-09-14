@@ -3,16 +3,22 @@ import { Link } from "react-router-dom";
 const LogIn = () => {
     return (
         <div className="Login">
-            <div className="DekHor">DekHor</div>
-            <div className="New-to-DekHor">New to DekHor?</div>
-            <div className="Sign-Up">Sign Up</div>
-            <div className="input-block">
-                <input id="username" type="text" placeholder="Username" />
-                <input type="password" placeholder="Password" />
+            <div className="container">
+                <h1>DekHor</h1>
+                <span>
+                    New to DekHor?
+                    <Link to="/signup" id="signup">Sign Up</Link>
+                </span>
+                <div className="input-block">
+                    <input id="username" type="text" placeholder="Username" />
+                    <input type="password" placeholder="Password" />
+                </div>
+                <div className="btn-group">
+                    <span><input type="checkbox" name="remember" id="remember" />Remember Me</span>
+                    <Link>Forget password</Link>
+                </div>
+                <Link to="/home" className="button">LOGIN</Link>
             </div>
-            <div className="remember">Remember Me</div>
-            <div className="Forget-password">Forget password</div>
-            <Link to={"/home"}>LOGIN</Link>
         </div>
     );
 };
