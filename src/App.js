@@ -7,6 +7,7 @@ import {
 import SignUp from "./pages/SignUp";
 import LogIn from "./pages/LogIn";
 import Home from "./pages/Home";
+import Report from "./pages/Report";
 import { useEffect } from "react";
 
 function App() {
@@ -50,6 +51,7 @@ function App() {
       <Route path="/signup" element={<SignUp />} />
       <Route path="/login" element={<LogIn />} />
       <Route path="/home" element={<Home />} />
+      <Route path="/report" element={<Report />} />
     </Routes>
   );
 }
