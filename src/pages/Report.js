@@ -8,6 +8,7 @@ const Report = () =>{
                 <textarea rows={10} id="typereport" type="text" placeholder="type your problem..." />
                 <Link id="send-1"to="/home" className="button">Send Report</Link>
             </div>
+            
         </div>
     );
 };
