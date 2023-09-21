@@ -1,6 +1,7 @@
 const express = require('express')
 const cors = require('cors');
 const mysql = require('mysql');
+const { log } = require('console');
 
 const app = express();
 
@@ -116,9 +117,38 @@ app.delete("/delete/:email",async (req,res) => {
     }
 })
 
-//REGISTER
-// app.post("/register",async(req,res) => {
-//     res.json({message: 'Hello wolrd register'})
-// })
+//signup
+app.post("/signup",async (req,res) => {
+    const sql = "INSERT INTO users(username,email,password) VALUES (?, ?, ?)";
+    const {username, email, password, confirmpassword} = req.body;
+    if (password == confirmpassword){
+        connection.query(sql,[username, email, password],(err,data) => {
+            if(err) {
+                return res.status(400).json(err.sqlMessage);
+            }
+            return res.status(200).json("This data is complete in table");
+        })
+    }
+    else {
+        return res.status(400).json("password must be the same");
+    }
+})
+
+//login
+app.get("/login",async (req,res) => {
+    const sql = "SELECT * FROM users WHERE email = ? AND password = ?";
+    connection.query(sql,[req.body.email,req.body.password],(err,data) =>{
+        console.log(data);
+        if (err) {
+            return res.json(err.sqlMessage);
+        }
+        if (data.length > 0){
+            return res.json("Success");
+        } else{
+            return res.json("Faile");
+        }
+    })
+})
 
 app.listen(3300, () => console.log('Server is running on port 3300'))
+
