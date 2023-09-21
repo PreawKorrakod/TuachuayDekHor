@@ -105,21 +105,22 @@ button.btn:hover{
 .login-signup{
     font-size: .9em;
     /* text-align: center; */
-    margin-left: 75px;
     font-weight: 500;
-    margin-bottom: 5px;
+    padding: 0;
+    display: flex;
+    justify-content: center;
 }
 
-.login-signup p a{
+/* .login-signup p a{
     color: #3D39BD;
     text-decoration: none;
     font-weight: 600;
     margin-left: 5px;
-}
+} */
 
-.login-signup p a:hover {
+/* .login-signup p a:hover {
     text-decoration: underline;
-}
+} */
 
 #icon-close{
     width: 30px;
@@ -159,4 +160,17 @@ button.btn:hover{
 
 .model-content{
     position: absolute;
+}
+
+#signup-click.btn.btn-secondary{
+    width: 60px;
+    padding: 0;
+    height: 0;
+    margin-bottom: 17px;
+    margin-left: 5px;
+    text-decoration: none;
+}
+
+#signup-click.btn.btn-secondary:hover{
+    text-decoration: underline;
 }

@@ -1,14 +1,21 @@
+import React from 'react';
 import "./Report.css";
 import { Link } from "react-router-dom";
+import NavHead from '../component/Nav';
 const Report = () =>{
     return (
         <div className="report">
-            <h1 id="report-h1">Report</h1>
-            <div className="input-report">
-                <textarea rows={10} id="typereport" type="text" placeholder="type your problem..." />
-                <Link id="send-1"to="/home" className="button">Send Report</Link>
+            <header>
+                <NavHead></NavHead>
+            </header>
+            <div className="report">
+                <h1 id='reporttitle'>Report</h1>
+                <textarea id="textreport" cols=" " rows="10"></textarea>
+                <div className="reportfooter">
+                    <button className='btn-report'>send report</button>
+                    <button id="btn-cancel" className='btn-report'>cancel</button>
+                </div>    
             </div>
-            
         </div>
     );
 };

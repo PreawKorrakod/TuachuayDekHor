@@ -1,6 +1,6 @@
+import React, { useState } from 'react';
 import "./signupPop.css"
 import 'bootstrap/dist/css/bootstrap.min.css';
-import React, { useState } from 'react';
 import { Button, Modal } from 'reactstrap';
 
 function Popsignup(args) {
@@ -10,8 +10,8 @@ function Popsignup(args) {
   
     return (
       <div>
-        <Button color="danger" onClick={toggle}>
-          Click Me
+        <Button id="signup-click" onClick={toggle}>
+          Sign Up
         </Button>
         <Modal isOpen={modal} toggle={toggle} {...args}>
           <div className="wrapper">

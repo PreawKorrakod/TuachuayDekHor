@@ -1,7 +1,9 @@
-import "./loginPop.css"
-import 'bootstrap/dist/css/bootstrap.min.css';
 import React, { useState } from 'react';
+import "./loginPop.css";
+import 'bootstrap/dist/css/bootstrap.min.css';
 import { Button, Modal } from 'reactstrap';
+import { Link } from "react-router-dom";
+import Popsignup from "./signupPop";
 
 function Poplogin(args) {
   const [modal, setModal] = useState(false);
@@ -20,8 +22,8 @@ function Poplogin(args) {
             <div className="form-box-login">
                 <h2>Login</h2>
                 <div className="login-signup">
-                    <p>Are you new DekHor?<a href="#" className="signup-link">Signup</a>
-                    </p>
+                    <p>Are you new DekHor?</p>
+                    <Popsignup></Popsignup>
                 </div>
                 <form action="#">
                     <div className="input-box">

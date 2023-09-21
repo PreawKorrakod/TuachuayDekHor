@@ -1,34 +1,75 @@
-#report-h1{
-    position: absolute;
-    width: 100%;
-    top: 0;
-    background-color:#3D39BD;
-    color: aliceblue;
-}
-.input-report{
-    display:flex ;
-    flex-direction: column;
-    padding: 33px;
-}
-
-#typereport{
-    color: #000;
-    font-family: Hubballi;
-    font-size: 30px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-}
-
 .report{
     width: 100vw;
-    height: 100vh;
-    flex-direction: column;
+    min-height: 100vh;
     display: flex;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
+    padding-left: 150px;
+    padding-right: 150px;
+    /* padding-top: 100px; */
     background-color: #FBF8E5;
 }
 
-#send-1{
+#reporttitle{
+    position: relative;
+    align-self: center;
+    font-size: 45px;
+    font-weight: 500;
+    color: black;
+    font-family: Galindo;
+}
+
+#textreport{
+    color: #000;
+    font-family: Hubballi;
+    background-color: #ffffffe6;
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    padding: 30px;
+    border-radius: 20px;
+    margin-top: 50px;
+    margin-left: 200px;
+    margin-right: 200px;
+    width: 1000px;
+    align-self: center;
+}
+
+.reportfooter{
+    margin-top: 30px;
+    display: flex;
+    justify-content:flex-end;
     align-self: flex-end;
+    padding: 10px;
+    padding-right: 120px;
+}
+
+.btn-report{
+    padding: 10px;
+    width: 150px;
+    background: #D9C029; 
+    border: none;
+    border-radius: 20px;
+    outline: none;
+    cursor: pointer;  
+    color: #000;
+    font: 1em sans-serif;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.btn-report:hover{
+    background: #cdaf07;
+    color: #fff;
+}
+
+#btn-cancel{
+    width: 100px;
+    margin-left: 20px;
+}
+
+#btn-cancel:hover{
+    color: red;
 }
