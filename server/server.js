@@ -9,7 +9,7 @@ app.use(express.json());
 
 //MySQL Connection
 const connection = mysql.createConnection({
-    host: 'localhost',
+    host: '127.0.0.1',
     user: 'root',
     password: '',
     database: 'mydb'
@@ -117,6 +117,8 @@ app.delete("/delete/:email",async (req,res) => {
 })
 
 //REGISTER
+// app.post("/register",async(req,res) => {
+//     res.json({message: 'Hello wolrd register'})
+// })
 
-
-app.listen(3000, () => console.log('Server is running on port 3000'))
+app.listen(3300, () => console.log('Server is running on port 3300'))
