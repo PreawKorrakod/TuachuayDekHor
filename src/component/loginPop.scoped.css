@@ -2,7 +2,7 @@
     position: relative;
     width: 800px;
     height: 650px;
-    background: white;
+    background: #fff;
     border: 6px solid rgba(255,255,255,.5);
     border-radius: 10px;
     backdrop-filter: blur(20px);
@@ -12,25 +12,28 @@
     overflow: hidden;
 }
 
-
-.wrapper, .form-box-login{
-    position: absolute;
-    display: flex;
-    width: 800px;
-    padding: 0px;
-}
-
 .form-box-login{
-    position: absolute;
+    position: relative;
     width: fit-content;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    padding: 0px;
     margin-left: 50%;
     width: 50%;
-    justify-self: center;
 }
 
-.form-box-login h2{
+.form{
+    position: relative;
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+h2{
     width: 100%;
     font-family: Galindo;
     font-size: 40px;
@@ -50,7 +53,7 @@
     background-color: #D9D9D9;
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
     color: #000;
-    font-family: Hubballi;
+    font-family: 'Hubballi';
     font-size: 1rem;
     font-style: normal;
     font-weight: 500;
@@ -69,6 +72,7 @@
     margin: -15px 0 15px;
     display: flex;
     justify-content: space-between;
+    font-weight: bolder;
 }
 
 .remember-forget label input{
@@ -85,20 +89,24 @@
     text-decoration: underline;
 }
 
-button.btn{
-    width: 50px;
+.login-submit{
+    width: 80px;
     height: 40px;
+    color: #000;
+    font-size: 1rem;
+    font-family: var(--font-Poppins);
     background: #D9C029; 
+    font-weight: 800;
     border: none;
     border-radius: 5px;
     outline: none;
-    cursor: pointer;  
-    color: #000;
-    font: 1em sans-serif;
-    font-weight: 500;
+    cursor: pointer;
+    position: relative;
+    margin-top: 5%;
+    margin-left: 35%; 
 }
 
-button.btn:hover{
+.login-submit:hover{
     background: #cdaf07;
 }
 
@@ -110,25 +118,21 @@ button.btn:hover{
     display: flex;
     justify-content: center;
 }
-
-/* .login-signup p a{
-    color: #3D39BD;
-    text-decoration: none;
+ 
+.login-signup p{
     font-weight: 600;
-    margin-left: 5px;
-} */
+} 
 
 /* .login-signup p a:hover {
     text-decoration: underline;
 } */
 
+
+
 #icon-close{
+    position: absolute;
     width: 30px;
     height: 30px;
-}
-
-.wrapper #icon-close{
-    position: absolute;
     top: 0;
     right: 0;
     background: #D9C029;
@@ -140,12 +144,10 @@ button.btn:hover{
     z-index: 1;
 }
 
+
 #login-img{
     width: 350px;
     height: 100%;
-}
-
-.wrapper #login-img{
     position: absolute;
     display: flex;
     justify-content:center;
@@ -158,19 +160,27 @@ button.btn:hover{
     border-bottom-right-radius: 0px;
 }
 
-.model-content{
-    position: absolute;
+.modal{
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
 }
 
-#signup-click.btn.btn-secondary{
-    width: 60px;
-    padding: 0;
-    height: 0;
-    margin-bottom: 17px;
-    margin-left: 5px;
-    text-decoration: none;
+.Loginbtn{
+    position: relative;
+    margin-right: 3rem;;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    position: relative;
+    display: flex;
+    align-items: end;
+    cursor: pointer;
+    background-color: #D9C029;
+    color: #000;
+    font-weight: bolder;
+    font-size: 16px;
 }
 
-#signup-click.btn.btn-secondary:hover{
-    text-decoration: underline;
+.Loginbtn:hover{
+    background-color: #cdaf07;
 }

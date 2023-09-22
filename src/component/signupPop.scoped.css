@@ -12,22 +12,15 @@
     overflow: hidden;
 }
 
-
-.wrapper, .form-box-signup{
-    position: absolute;
-    display: flex;
-    width: 800px;
-    padding: 0px;
-}
-
 .form-box-signup{
-    position: absolute;
+    position: relative;
     width: fit-content;
     display: flex;
     flex-direction: column;
     margin-left: 50%;
     width: 50%;
     justify-self: center;
+    padding: 0;
 }
 
 .form-box-signup h2{
@@ -87,24 +80,14 @@ button.btn{
     margin-top: 10px;
 }
 
-/* .login-signup #back-login p a{
-    color: #3D39BD;
-    text-decoration: none;
-    font-weight: 600;
-    margin-left: 5px;
-    margin-top: 5px;
-} */
-
 .login-signup #back-login p a:hover {
     text-decoration: underline;
 }
 
-#icon-close{
-    width: 30px;
-    height: 30px;
-}
 
 .wrapper #icon-close{
+    width: 30px;
+    height: 30px;
     position: absolute;
     top: 0;
     right: 0;
@@ -136,11 +119,19 @@ button.btn{
 }
 
 #signup-click{
+    position: relative;
     color: #3D39BD;
     text-decoration: none;
-    font-weight: 600;
-    background-color: transparent;
-    padding: 0;
-    margin: 0;
-    position: relative;
+    font-weight: 500;
+    /* font-family: var(--font-Poppins); */
+    font-family: Poppins; 
+    font-weight: bolder;
+    margin-bottom: 10px;
+    margin-left: 5px;
+    padding:0;
+    cursor: pointer;
+}
+
+#signup-click:hover{
+    text-decoration: underline;
 }

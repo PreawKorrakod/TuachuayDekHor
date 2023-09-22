@@ -1,0 +1,25 @@
+.home{
+    width: 100vw;
+    height: 100vh;
+}
+
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins',sans-serif;
+}
+
+header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px;
+    padding-left: 50px;
+    background: #3D39BD;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 99;
+}

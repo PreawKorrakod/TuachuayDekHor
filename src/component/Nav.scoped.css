@@ -1,0 +1,82 @@
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins',sans-serif;
+}
+
+header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px;
+    padding-left: 50px;
+    background: #3D39BD;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 99;
+}
+
+.nagetion{
+    position: relative;
+    padding-left: 45%;
+}
+
+.back-Home{
+    position: relative;
+    margin-right: 40%;
+    text-decoration: none;
+    color: #fff;
+    font-weight: bolder ;
+}
+
+.back-Home:hover{
+    width: 20px;
+    height: 20px;
+    text-decoration: underline;
+    /* background-color: #3733a8; */
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.Write{
+    position: relative;
+    padding-right: 40%;
+    text-decoration: none;
+    color: #fff;
+    font-weight: bolder ;
+}
+
+.Write:hover{
+    width: 20px;
+    height: 20px;
+    text-decoration: underline;
+    /* background-color: #3733a8; */
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.Contact{
+    position: relative;
+    text-decoration: none;
+    color: #fff;
+    font-weight: bolder ;
+}
+
+.Contact:hover{
+    width: 20px;
+    height: 20px;
+    text-decoration: underline;
+    /* background-color: #3733a8; */
+    padding-top: 10px;
+    padding-bottom: 10px;;
+}
+
+.logo{
+    font-family: Galindo;
+    color: #fff;
+}
+
+

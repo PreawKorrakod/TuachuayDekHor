@@ -1,5 +1,5 @@
 import React from 'react';
-import "./Report.css";
+import "./Report.scoped.css";
 import { Link } from "react-router-dom";
 import NavHead from '../component/Nav';
 const Report = () =>{

@@ -1,22 +1,20 @@
 import React from 'react';
-import "./Nav.css"
+import "./Nav.scoped.css"
 import Poplogin from "../component/loginPop";
 import { Link } from "react-router-dom";
 
 function NavHead() {
     return(
-        <div className="NavBar">
-            <header>
-               <h2 className="Logo">DekHor</h2> 
-               <nav className="Navigation">
-                <Link to="/writeblog" className="write-blog">Writing</Link>
-                <Link to="/contact" className="contact-us">Contact</Link>
-                {/* <img id="noti" src="/notifications-outline.svg" alt="" /> */}
-                <Poplogin></Poplogin>
-               </nav>
-            </header>
-        </div>
-
+        <header>
+            <h1 className='logo'>DekHor</h1>
+            <div className="nagetion">
+                <Link to={"/home"} className="back-Home">Home</Link>
+                <Link to={"/writeblog"} className="Write">Writing</Link>
+                <Link to={"/contact"} className="Contact">Contact</Link>
+                {/* <Poplogin id="loginnav"></Poplogin> */}
+            </div>
+            <Poplogin></Poplogin>
+        </header>
     );
 };
 

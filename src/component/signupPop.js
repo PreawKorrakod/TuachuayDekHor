@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import "./signupPop.css"
+import "./signupPop.scoped.css"
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Button, Modal } from 'reactstrap';
 
@@ -10,9 +10,9 @@ function Popsignup(args) {
   
     return (
       <div>
-        <Button id="signup-click" onClick={toggle}>
+        <p id="signup-click" onClick={toggle}>
           Sign Up
-        </Button>
+        </p>
         <Modal isOpen={modal} toggle={toggle} {...args}>
           <div className="wrapper">
               <img id="login-img" src="/login.png" alt="" />
@@ -33,8 +33,6 @@ function Popsignup(args) {
                           <input type="password" placeholder="confirm password" />
                       </div>
                       <button type="submit" className="btn" onClick={toggle} >Sign Up</button>
-                      <div id="back-login" className="login-signup">
-                        <p>Already have an account?<a href="#" className="signup-link">Login</a></p></div>
                   </form>
               </div>
           </div>

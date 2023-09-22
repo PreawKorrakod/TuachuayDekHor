@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Galindo:wght@400&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Hubballi:wght@400&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Gaegu:wght@400&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100&display=swap');
 body {
   margin: 0;
   line-height: normal;
@@ -14,6 +15,7 @@ body {
   --font-gaegu: Gaegu;
   --font-hubballi: Hubballi;
   --font-galindo: Galindo;
+  --font-Poppins: Poppins;
 
   /* font sizes */
   --font-size-4xl: 23px;

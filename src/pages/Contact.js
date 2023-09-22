@@ -1,9 +1,46 @@
 import React from 'react';
-import "./Contact.css";
+import "./Contact.scoped.css";
+import NavHead from '../component/Nav';
 
 const Contact = () => {
     return(
-        <div>Contact Us</div>
+        <div className="contact">
+            <header>
+                <NavHead></NavHead>
+            </header>
+            <body>
+            <div className="container">
+                <div className="title">
+                    <h1 className='title-contact'>Contact Us</h1>
+                    <p className='text-data'>Any Questions? Just write us a massage!</p>
+                </div>
+                <div className="contact-blog">
+                    <div className="contact-info">
+                        <h2 className='contact-info-title'>Contact Informations</h2>
+                        <p className='text-data2'>Fill up the form and our team will get back to you within 24 hours.</p>
+                        <div className="data">
+                            <div className="call">
+                                <img id="call" src="/call-outline.svg" alt="" />
+                                <p className='text-data2'>xxx-xxx-xxxx</p>
+                            </div>
+                            <div className="mail">
+                                <img id="mail" src="/mail-outline.svg" alt="" />
+                                <p className='text-data2'>example@email.com</p>
+                            </div>
+                            <div className="location">
+                                <img id="loca-icon" src="/location-outline.svg" alt="" />
+                                <p className='text-data2'>King mongkut's University of Technology North Bangkok</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="massage">
+                        <textarea className="write-massage" name="" id="" cols="30" rows="15"></textarea>
+                        <button className='send-massage'>Send massage</button>
+                    </div>
+                </div>
+            </div>
+            </body>
+        </div>
     );
 };
 

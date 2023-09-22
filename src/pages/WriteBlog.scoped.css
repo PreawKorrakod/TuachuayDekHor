@@ -1,3 +1,25 @@
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins',sans-serif;
+}
+
+header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px;
+    padding-left: 50px;
+    background: #3D39BD;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 99;
+}
+
+
 .writting{
     width: 100vw;
     min-height: 100vh;
@@ -8,7 +30,7 @@
     padding-left: 200px;
     padding-right: 200px;
     padding-top: 100px;
-    background-color: #FBF8E5;
+    background-color: #fff;
 }
 
 
@@ -70,18 +92,17 @@
 }
 
 
-
 .btn-draft{
     padding: 10px;
     width: 100px;
     background: #D9C029; 
     border: none;
-    border-radius: 20px;
+    border-radius: 10px;
     outline: none;
     cursor: pointer;  
     color: #000;
-    font: 1em sans-serif;
-    font-weight: 500;
+    font-family: Poppins;
+    font-weight: bolder;
     cursor: pointer;
 }
 
@@ -103,6 +124,7 @@
     margin-left: 10px;
     /* margin-bottom: 10px; */
     padding: 5px;
+    padding-left: 2.5rem;
     display: flex;
     justify-content: space-between;
 }
@@ -111,25 +133,31 @@
     color: #000;
     font-family: Hubballi;
     background-color: #ffffffe6;
-    font-size: 28px;
-    font-style: normal;
+    font-size: 24px;
+    /* font-style: normal; */
     font-weight: 400;
-    line-height: normal;
-    padding: 5px;
-    border-radius: 20px;
+    /* line-height: normal; */
+    padding: 1rem;
+    border-radius: 10px;
 }
 
 #write-blog{
     color: #000;
     font-family: Hubballi;
     background-color: #ffffffe6;
-    font-size: 28px;
+    font-size: 18px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
-    padding: 5px;
-    border-radius: 20px;
+    padding: 2rem;
+    border-radius: 5px;
     margin-left: 50px;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+#write-blog ::placeholder{
+    font-size: 18px;
 }
 
 .writefooter{
