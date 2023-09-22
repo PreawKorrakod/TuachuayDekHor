@@ -13,7 +13,7 @@ const Home = () =>{
                 <ImageSlider></ImageSlider>
                 <main>
                     <h1>TuaChuayDekHor</h1>
-                    <div className="search"></div>
+                    <div className="search">Search</div>
                     <div className="content">
                         <div className="cleaning">
                             <div className="clean-title">Cleaning</div>
