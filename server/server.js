@@ -2,7 +2,7 @@ const express = require('express')
 const cors = require('cors');
 const mysql = require('mysql');
 const { log } = require('console');
-const { URLSearchParams } = require('url');
+const { URLSearchParams, urlToHttpOptions, URL } = require('url');
 const { ListGroupItemHeading } = require('reactstrap');
 const axios = require('axios').default;
 
@@ -27,63 +27,38 @@ connection.connect((err) => {
     console.log('MySQL succesfully connected!');
 })
 
+////////////////////////////////////Register/////////////////////////////////////////////////
 
-// Check_username_email
-app.get("/check/:username&/check/:email",async (req,res) => {
-    const {username, password,confirmpassword} = req.body;
-    const email = email.split("/")
-    const sql = "SELECT * FROM users WHERE username = ? or email = ?"
-    connection.query(sql,[username,email],(err,data) => {
-        // console.log(data.map(item => item.email).toString().includes(req.body.email,0));
+//signup
+app.post("/signup", async (req,res) => {
+    const sql1 = "SELECT * FROM users WHERE username = ? or email = ?"
+    const sql2 = "INSERT INTO users(username,email,password) VALUES (?, ?, ?)";
+    const {username,email, password,confirmpassword} = req.body;
+    connection.query(sql1,[username,email],(err,data) => {
         if (err){
             return res.status(400).json(err.sqlMessage);
         }
-        if (data.map(item => item.username).toString() == username && data.map(item => item.email).toString() == email) {
-            return res.status(200).json({status: "account" ,msg:"You already have an account"});
-        }
-        if (data.map(item => item.username).toString().includes(req.body.username,0)){
-            return res.status(200).json({status: "fail_username" ,msg:"This username has already use!"});
-        }
-        if (data.map(item => item.email).toString().includes(req.body.email,0)){
-            return res.status(200).json({status: "fail_email" ,msg:"This email has already use!"});
-        }
-        else{
-            return res.status(200).json({status: "create" ,msg:"You can create an account"});
-        }
-    })        
-})
-
-
-//signup
-app.post("/signup",async (req,res) => {
-    const sql = "INSERT INTO users(username,email,password) VALUES (?, ?, ?)";
-    const {username, email, password, confirmpassword} = req.body;
-    axios.get('https://localhost:3300/check/' + new URLSearchParams(username)+ '/' + new URLSearchParams(email))
-    .then(status =>{
-        if (status.status == create){
-            if (password == confirmpassword){
-                connection.query(sql,[username, email, password],(err,data) => {
-                    if(err) {
-                        return res.status(400).json(err.sqlMessage);
-                    }
-                    return res.status(200).json("This data is complete in table");
-                })
+        if (password == confirmpassword){
+            if (data.map(item => item.username).toString() == username && data.map(item => item.email).toString() == email) {
+                return res.status(200).json({status: "account" ,msg:"You already have an account"});
             }
-            else {
-                return res.status(400).json("password must be the same");
+            if (data.map(item => item.username).toString().includes(req.body.username,0)){
+                return res.status(200).json({status: "fail_username" ,msg:"This username has already use!"});
             }
+            if (data.map(item => item.email).toString().includes(req.body.email,0)){
+                return res.status(200).json({status: "fail_email" ,msg:"This email has already use!"});
+            }
+            connection.query(sql2,[username, email, password],(err,data) => {
+                if(err) {
+                    return res.status(400).json(err.sqlMessage);
+                }
+                return res.status(200).json("This data is complete in table");
+            })
         }
-        if (status.status == account){
-            return res.status(200).json({status: "account" ,msg:"You already have an account"});
-        }
-        if (status.status = fail_username){
-            return res.status(200).json({status: "fail_username" ,msg:"This username has already use!"});
-        }
-        if (status.status == fail_email){
-            return res.status(200).json({status: "fail_email" ,msg:"This email has already use!"});
-        }
-
-    })
+        else {
+            return res.status(400).json("password must be the same");
+        }    
+    })     
 })
 
 //login
@@ -95,7 +70,7 @@ app.get("/login",async (req,res) => {
             return res.status(400).json(err.sqlMessage);
         }
         if (data.length > 0){
-            return res.status(200).json({status:'login',msg: "Success to login"});
+            return res.status(200).json({status:'complete_login',msg: "Success to login"});
         } else{
             return res.status(400).json({status: 'not login',msg:"Faile to login"});
         }
@@ -144,23 +119,105 @@ app.get("/profile", async (req,res) => {
 })
 
 
-//blog
-app.post("/writeblog",async (req,res) => {
-    const sql = "INSERT INTO title(title_name,image_title) VALUES (?, ?)";
-    const {title_name,image_title} = req.body;
-    axios.get('http://localhost:3300/login/' + new URLSearchParams(req.body.email))
-    .then(status =>{
-        if (status.status == login){
-            connection.query(sql,[title_name,image_title],(err,data) =>{
-                if (err) {
+////////////////////////////////////////////writeblog/////////////////////////////////////////////////////////
+
+//cleaning
+app.post("/writeblog/cleaning",async (req,res) => {
+    const sql1 = "SELECT * FROM users WHERE id = ? ";
+    const sql2 = "INSERT INTO cleaning(id,title_name,image_title,content) VALUES (?, ?, ?, ?)";
+    const {id,title_name,image_title,content} = req.body;
+    connection.query(sql1,[id],(err,data) => {
+        if (err) {
+            return res.status(400).json(err.sqlMessage);
+        }
+        if (data[0].id == id){
+            connection.query(sql2,[id,title_name,image_title,content],(err,data) => {
+                if(err) {
                     return res.status(400).json(err.sqlMessage);
                 }
-                return res.status(200).json("This data is complete in table");
+                return res.status(200).json("Your blog will be posted");
             })
         }
-        return res.status(400).json("You should login before write the blog")
+        else{
+            return res.status(400).json({status: "fail" ,msg:"You should login before write the blog!"});
+        }
     })
 })
+
+//decoration
+app.post("/writeblog/decoration",async (req,res) => {
+    const sql1 = "SELECT * FROM users WHERE id = ? ";
+    const sql2 = "INSERT INTO decoration(id,title_name,image_title,content) VALUES (?, ?, ?, ?)";
+    const {id,title_name,image_title,content} = req.body;
+    connection.query(sql1,[id],(err,data) => {
+        if (err) {
+            return res.status(400).json(err.sqlMessage);
+        }
+        if (data[0].id == id){
+            connection.query(sql2,[id,title_name,image_title,content],(err,data) => {
+                if(err) {
+                    return res.status(400).json(err.sqlMessage);
+                }
+                return res.status(200).json("Your blog will be posted");
+            })
+        }
+        else{
+            return res.status(400).json({status: "fail" ,msg:"You should login before write the blog!"});
+        }
+    })
+})
+
+//food
+app.post("/writeblog/food",async (req,res) => {
+    const sql1 = "SELECT * FROM users WHERE id = ? ";
+    const sql2 = "INSERT INTO food(id,title_name,image_title,content) VALUES (?, ?, ?, ?)";
+    const {id,title_name,image_title,content} = req.body;
+    connection.query(sql1,[id],(err,data) => {
+        if (err) {
+            return res.status(400).json(err.sqlMessage);
+        }
+        if (data[0].id == id){
+            connection.query(sql2,[id,title_name,image_title,content],(err,data) => {
+                if(err) {
+                    return res.status(400).json(err.sqlMessage);
+                }
+                return res.status(200).json("Your blog will be posted");
+            })
+        }
+        else{
+            return res.status(400).json({status: "fail" ,msg:"You should login before write the blog!"});
+        }
+    })
+})
+
+//dekhor_story
+app.post("/writeblog/dekhor_story",async (req,res) => {
+    const sql1 = "SELECT * FROM users WHERE id = ? ";
+    const sql2 = "INSERT INTO dekhor_story(id,title_name,image_title,content) VALUES (?, ?, ?, ?)";
+    const {id,title_name,image_title,content} = req.body;
+    connection.query(sql1,[id],(err,data) => {
+        if (err) {
+            return res.status(400).json(err.sqlMessage);
+        }
+        if (data[0].id == id){
+            connection.query(sql2,[id,title_name,image_title,content],(err,data) => {
+                if(err) {
+                    return res.status(400).json(err.sqlMessage);
+                }
+                return res.status(200).json("Your blog will be posted");
+            })
+        }
+        else{
+            return res.status(400).json({status: "fail" ,msg:"You should login before write the blog!"});
+        }
+    })
+})
+
+
+
+//yourblog
+app.get("/")
+
 
 
 app.listen(3300, () => console.log('Server is running on port 3300'))
