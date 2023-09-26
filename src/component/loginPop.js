@@ -30,7 +30,7 @@ function Poplogin(args) {
                         <input type="username" placeholder="Username" />
                     </div>
                     <div className="input-box">
-                        <input type="password" placeholder="password" />
+                        <input type="password" placeholder="Password" />
                     </div>
                     <div className="remember-forget">
                         <label><input type="checkbox" />Remember me</label>

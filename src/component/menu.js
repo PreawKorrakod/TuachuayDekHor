@@ -1,4 +1,4 @@
-import "./menu.css";
+import "./Menu.scoped.css";
 import React,{useState} from "react";
 
 

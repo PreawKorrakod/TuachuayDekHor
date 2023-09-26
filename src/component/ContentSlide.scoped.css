@@ -1,0 +1,68 @@
+.contentslide{
+    width: 100%;
+    height: 70px;
+}
+
+img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+.main_content{
+    width: 100%;
+    height: 100%;
+    padding: 1rem;
+    display: flex;
+    
+}
+
+/* rgba(178, 178, 178, 0.74) */
+.singleDest{
+    width: 100%;
+    height: 400px;
+    overflow: hidden;
+    border-radius: 1rem;
+    box-shadow: 0 2px 8px 2px rgba(178, 178, 178, 0.45);
+    
+}
+
+.dastImage{
+    width: 100%;
+    height: 300px;
+    position: relative;
+    overflow: hidden;
+}
+
+.dastFooter{
+    padding: 1rem; 
+}
+
+.heart{
+    font-size: 16px;
+    position: relative;
+    background-color: #D9C029 ;
+    float: right;
+    width: max-content;
+    padding: 0.5rem;
+    border-bottom-left-radius: 10px;
+}
+
+.destText{
+    justify-content: space-between;
+    padding: 1rem; 
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+}
+
+.icon{
+    position: relative;
+    margin-left: 1rem;
+    color: #3D39BD ;
+    &:hover{
+        color: #332fab;
+    }
+}

@@ -12,7 +12,7 @@ const Contact = () => {
             <div className="container">
                 <div className="title">
                     <h1 className='title-contact'>Contact Us</h1>
-                    <p className='text-data'>Any Questions? Just write us a massage!</p>
+                    <p className= 'text-data'>Any Questions? Just write us a massage!</p>
                 </div>
                 <div className="contact-blog">
                     <div className="contact-info">
