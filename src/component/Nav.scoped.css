@@ -102,7 +102,7 @@ input::placeholder{
     display: none;
 }
 
-/* Dropdown เหนื่อยโว้ย */
+/* Dropdown */
 
 .Dropdown{
     display: flex;
@@ -137,6 +137,26 @@ input::placeholder{
 
 .navigation2:hover{
     background: #332fab;
+}
+
+.Loginbtn{
+    width: 100%;
+    margin: 1em;
+    /* padding-left: 1em;
+    padding-right: 1em; */
+    padding: 0.5rem;
+    position: relative;
+    cursor: pointer;
+    background-color: #D9C029;
+    color: #000;
+    font-size: 16px;
+    text-align: center;
+    border: none;
+    border-radius: 10px;
+}
+
+.Loginbtn:hover{
+    background-color: #cdaf07;
 }
 
 /* Responsive */

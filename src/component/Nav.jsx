@@ -1,6 +1,5 @@
 import React,{useState, useRef} from 'react';
 import "./Nav.scoped.css"
-import Poplogin from "./loginPop";
 import { Link } from "react-router-dom";
 import {AiOutlineMenu, AiOutlineClose, AiOutlineSearch, AiOutlineUser,AiFillCloseSquare,FaSearch} from 'react-icons/ai'
 import DropdownProfile from './DropdownProfile';
@@ -75,7 +74,7 @@ function Navbar() {
                 </li>
                 <li>
                     <div className="login_blog">
-                        <Poplogin/>
+                        <Link to={"/login"}><button className='Loginbtn'>Log in</button></Link>
                     </div>
                 </li>
                 <div className="closeNavBar" onClick={removeNav} >

@@ -12,46 +12,88 @@
 
 main{
     width: 100%;
-    height: 70vh;
+    height: 60vh;
     padding: 4rem;
     display: flex;
     flex-direction: column;
-    align-items: self-start;
+    align-items: center;
     margin-top: 2rem;
-    margin-left: auto;
-    background: linear-gradient(#6f707254,#6f707254),url(../../src/Assets/background.png);
+    background: linear-gradient(#35477dde,#546baf65),url(../../src/Assets/Home.png);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
 }
 
 .title{
-    padding-top: 2rem;
+    padding-top: 3rem;
+    font-size: 40px;
+    font-family: 'Galindo';
+    color: #f8f8f8;
+    margin-bottom: 3rem;
 }
 
-.subTitle{
-    padding-top: 1rem;
-    padding-bottom: 2rem;
-}
 
 .start-btn{
+    display: flex;
     padding: 1rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
     background-color: #D9C029;
+    box-shadow:  2px 8px 2px rgba(146, 144, 144, 0.139);
     border: none;
     border-radius: 20px;
     color: #f8f8f8;
+    font-size: 1rem;
+    cursor: pointer;
 }
 
-.content{
-    width: 100%;
-    height: 100%;
-    text-align: center;
-    padding: 2rem;
+.start-btn:hover{
+    scale: 1.2;
+    background-color: #cdaf07;
 }
 
-.reccomend{
+.rec{
     display: flex;
+    flex-direction: column;
+}
+
+.rec__title{
+    display:flex ;
+    margin-left: 4rem;
+    align-items: center;
+    justify-content: space-between;
+    padding-right: 7rem;
+    font-family: 'Poppins';
+}
+
+.title_sub{
+    margin-top: 3rem;
+    position: relative;
+    padding-top: 1rem;
+    font-size:30px;
+}
+
+.Container{
     width: 100%;
     height: 100%;
-    padding: 20px;
+    padding: 2rem;
+    padding-left: 10rem;
+    padding-right: 10rem;
+    justify-content: center;
+}
+
+.btn__See{
+    margin-top: 3rem;
+    align-items: center;
+    width: 60px;
+    height: 30px;
+    cursor: pointer;
+    border-radius: 10px;
+    border: none;
+    background-color: #D9C029;
+}
+
+.btn__See:hover{
+    scale: 1.2;
+    background-color: #cdaf07;
 }

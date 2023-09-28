@@ -1,6 +1,6 @@
 import React from "react";
 import "./Profile.scoped.css";
-import NavHead from "../component/Nav";
+import NavHead from "../component/Nav"
 
 const Profile = () => {
     return(
@@ -8,8 +8,10 @@ const Profile = () => {
             <header>
                 <NavHead></NavHead>
             </header>
-            <div className="container">
+            <div className="profile__head">
+                <img src="" alt="" />
             </div>
+            
         </div>
     );
 };

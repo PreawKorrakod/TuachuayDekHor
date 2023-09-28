@@ -2,13 +2,14 @@
 @import url("https://fonts.googleapis.com/css2?family=Hubballi:wght@400&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Gaegu:wght@400&display=swap");
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Bai+Jamjuree:ital,wght@0,300;0,400;1,300&family=Poppins:wght@100;300&display=swap');
 
 *{
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Poppins',sans-serif;
+  font-family: 'Bai Jamjuree', sans-serif;
   transition: .3s ease;
 }
 
@@ -22,7 +23,9 @@ body {
   margin: 0;
   line-height: normal;
   font-family: 'Poppins', sans-serif;
+  font-family: 'Bai Jamjuree', sans-serif;
 }
+
 #root{
   width: 100vw;
   height: 100vh;
@@ -34,6 +37,7 @@ body {
   --font-hubballi: Hubballi;
   --font-galindo: Galindo;
   --font-Poppins: Poppins;
+  --font--Jamjuree : Bai+Jamjuree;
 
   /* font sizes */
   --font-size-4xl: 23px;

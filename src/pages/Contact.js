@@ -1,6 +1,8 @@
 import React from 'react';
 import "./Contact.scoped.css";
 import NavHead from '../component/Nav';
+import {Input,Label} from 'reactstrap'
+import {GoPaperAirplane} from "react-icons/go";
 
 const Contact = () => {
     return(
@@ -34,8 +36,12 @@ const Contact = () => {
                         </div>
                     </div>
                     <div className="massage">
-                        <textarea className="write-massage" name="" id="" cols="30" rows="15"></textarea>
-                        <button className='send-massage'>Send massage</button>
+                        <div className="email__1">
+                            <Label for='email'>Email</Label>
+                            <Input type="text" className='email__mas' placeholder='Your email'/>
+                        </div>
+                        <textarea className="write-massage" name="" id="" cols="30" rows="15" placeholder='type your massage here'></textarea>
+                        <button className='send-massage'>Send</button>
                     </div>
                 </div>
             </div>

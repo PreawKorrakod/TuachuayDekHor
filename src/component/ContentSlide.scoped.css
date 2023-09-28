@@ -1,42 +1,54 @@
-.contentslide{
+.content{
     width: 100%;
-    height: 70px;
+    height: 100%;
+    padding: 2rem;
 }
 
 img{
+    position: relative;
     width: 100%;
     height: 100%;
     object-fit: cover;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
 }
 
 
 .main_content{
-    width: 100%;
-    height: 100%;
-    padding: 1rem;
+    position: relative;
     display: flex;
-    
+    flex-wrap: wrap;
 }
 
 /* rgba(178, 178, 178, 0.74) */
 .singleDest{
-    width: 100%;
-    height: 400px;
+    position: relative;
+    width: 30%;
+    height: 350px;
     overflow: hidden;
     border-radius: 1rem;
+    padding: 1rem;
     box-shadow: 0 2px 8px 2px rgba(178, 178, 178, 0.45);
+    margin: 0.9rem;
+    cursor: pointer;
     
 }
 
+.singleDest:hover{
+    box-shadow: 0 2px 8px 2px rgba(178, 178, 178, 0.74);
+    scale: 1.1;
+}
+
 .dastImage{
-    width: 100%;
-    height: 300px;
     position: relative;
+    width: 100%;
+    height: 60%;
     overflow: hidden;
 }
 
 .dastFooter{
-    padding: 1rem; 
+    position: relative;
+    /* padding: 1rem;  */
 }
 
 .heart{
@@ -46,10 +58,10 @@ img{
     float: right;
     width: max-content;
     padding: 0.5rem;
-    border-bottom-left-radius: 10px;
 }
 
 .destText{
+    color: black;
     justify-content: space-between;
     padding: 1rem; 
     display: flex;
@@ -58,11 +70,21 @@ img{
 
 }
 
+.destText a{
+    color: black;
+    font-family:'Poppins' ;
+}
+
 .icon{
     position: relative;
-    margin-left: 1rem;
     color: #3D39BD ;
-    &:hover{
-        color: #332fab;
-    }
+}
+
+.userwrite{
+    display: flex;
+}
+
+
+.name{
+    margin-top: 2rem;
 }

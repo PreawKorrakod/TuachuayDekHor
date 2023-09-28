@@ -1,29 +1,34 @@
-import React from "react";
-import Poplogin from "./loginPop";
-import {AiOutlineUser} from 'react-icons/ai'
-
+import React, { useRef, useState } from "react";
+import User from "../Assets/User.png"
+import "./DropdownProfile.scoped.css";
+import {BiLogOut,BiUserCircle} from "react-icons/bi";
 
 function DropdownProfile(){
+
+    const[open,setOpen] = useState(false)
+
+    const menuRef = useRef();
+    const imgRef = useRef();
+
+    window.addEventListener('click', (e)=>{
+        if(e.target !== menuRef.current && e.target !== imgRef.current){
+            setOpen(false);
+        }
+    })
     return(
         <div className="profile">
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDarkDropdown" aria-controls="navbarNavDarkDropdown" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
-            <ul class="navbar-nav">
-                <li class="nav-item dropdown">
-                <button class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                    Dropdown
-                </button>
-                <ul class="dropdown-menu dropdown-menu-dark">
-                    <li><a class="dropdown-item" href="#">Action</a></li>
-                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+           <img ref={imgRef}src={User} alt="" className="User__profile" onClick={()=>setOpen(!open)} />
+           {open && 
+           <div className="menus" ref={menuRef} onClick={()=>setOpen(!open)}>
+                <ul>
+                    <li><a href="/profile"><BiUserCircle className="icon-profile" size={25}/>My profile</a></li>
+                    <li><a href="/home" id="logout"><BiLogOut size={25} className="icon-logOut"/>Log out</a></li>
                 </ul>
-                </li>
-            </ul>
-            </div>
-            </div>
+           </div>
+           }
+        </div>
+
+        
     );
 };
 
