@@ -15,7 +15,7 @@ function AddPost() {
                         <Input 
                         type="text" 
                         id='title'
-                        placeholder='Enter here'
+                        placeholder='Type your title blog...'
                         className='rounded-2'
                         />
                     </div>
@@ -62,7 +62,7 @@ function AddPost() {
                         <Input 
                         type="textarea" 
                         id='content'
-                        placeholder='Enter here'
+                        placeholder='Type your content...'
                         className='rounded-2'
                         style={{height:'500px', marginLeft: '1rem', fontSize: '1rem', padding:'1rem'}}
                         />

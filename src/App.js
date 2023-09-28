@@ -16,6 +16,9 @@ import DecorationDetails from './pages/DecorationDetails';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import Resetpassword from './pages/Resetpassword';
+import Reportfinish from './pages/Reportfinish';
+import Forget from './pages/Forget';
+import Contactfinish from './pages/Contactfinish';
 import { useEffect } from "react";
 
 
@@ -74,6 +77,9 @@ function App() {
       <Route path="/decoration/:id" element={<DecorationDetails />}/>
       <Route path="/story" element={<Story />}/>
       <Route path="/story/:id" element={<StoryDetails />}/>
+      <Route path="/reportfinish" element={<Reportfinish />}/>
+      <Route path="/forget" element={<Forget />}/>
+      <Route path="/contactfinish" element={<Contactfinish />}/>
     </Routes>
   );
 }

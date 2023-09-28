@@ -1,9 +1,7 @@
 .profile{
     width: 100vw;
     height:100vh;
-    display: flex;
-    flex-direction: column;
-
+    font-family: 'Poppins';
 }
 
 header{
@@ -17,12 +15,118 @@ header{
     z-index: 99;
 } 
 
-section{
+
+.wrapper{
+    width: 100%;
+    height: 60%;
+    padding: 6rem;
+    padding-left: 10rem;
+    padding-right: 10rem;
+    font-family: 'Poppins';
+}
+
+.profile__head{
+    height: 100%;
+    width: 100%;
+    border-radius: 10px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    background: url(../../src/Assets/background_Profile.png);
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.person{
+    margin-top: 11rem;
+    margin-left: 2rem;
+    width: 200px;
+    height: 200px;
+    background-color: #f8f8f8;
+    border-radius: 100px;
+    box-shadow:  3px 5px 5px rgba(146, 144, 144, 0.365);
+}
+
+.profile_title{
+    display: flex;
+    justify-content: space-between;
+    padding-left: 15rem;
+    padding-bottom: 6rem;
+    background-color: #f8f8f8;
+    box-shadow: 0 0 30px rgba(207, 203, 203, 0.436);
+}
+
+h2{
+    font-family: 'Poppins';
+}
+.content{
+    position: relative;
     width: 100%;
     height: 100%;
-    padding: 6rem;
-    align-items: center;
-    justify-content: center;
+}
+
+.show p.post_id{
+    background-color: #D9C029;
+    color: black;
+}
+
+.tab-pane {
+    display: none;
+}
+
+.tab-pane.active {
+    display: block;
 }
 
 
+li.nav-item{
+    text-align: center;
+    width: 100%;
+}
+
+
+ul.nav.nav-tabs{
+    display: flex;
+    text-align: center;
+    border-radius: 5px;
+    color: black;
+}
+
+p{
+    width: 100%;
+    padding: 1rem;
+    font-family: 'Poppins';
+}
+
+p.post_id{
+    width: 100%;
+    background-color: #3D39BD;
+    color: #f8f8f8;
+    cursor: pointer;
+}
+
+nav-link{
+    width: 50%;
+}
+
+.edit__profile{
+    margin-top: 0.5rem;
+    margin-right: 0.5rem;
+    align-items: center;
+    width: 100px;
+    height: 40px;
+    cursor: pointer;
+    border-radius: 10px;
+    border: none;
+    background-color: #D9C029;
+    font-family: 'Poppins';
+}
+
+.edit__profile:hover{
+    scale: 1.2;
+    background-color: #cdaf07;
+}
+
+.tab-content{
+    background-color: #f8f8f8;
+    box-shadow: 0 0 30px rgba(194, 193, 193, 0.646);
+}

@@ -12,6 +12,7 @@
 }
 
 #reporttitle{
+    padding-top: 5rem;
     position: relative;
     align-self: center;
     font-size: 45px;
@@ -47,7 +48,7 @@
 }
 
 .btn-report{
-    padding: 10px;
+    padding: 15px;
     width: 150px;
     background: #D9C029; 
     border: none;
@@ -55,14 +56,26 @@
     outline: none;
     cursor: pointer;  
     color: #000;
-    font: 1em sans-serif;
+    font-family: 'Poppins';
     font-weight: 500;
     cursor: pointer;
+    margin-bottom: 2rem;
+}
+
+.btn-report a{
+    color: black;
+    font-family: 'Poppins';
+    font-size: 16px;
+}
+
+.btn-report a:hover{
+    color: #f8f8f8;
+    font-family: 'Poppins';
+    font-size: 16px;
 }
 
 .btn-report:hover{
     background: #cdaf07;
-    color: #fff;
 }
 
 #btn-cancel{
@@ -70,6 +83,6 @@
     margin-left: 20px;
 }
 
-#btn-cancel:hover{
+#btn-cancel a:hover{
     color: red;
 }

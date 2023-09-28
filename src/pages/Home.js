@@ -7,6 +7,7 @@ import SlideCooking from "../component/SlideCooking";
 import DecSlide from "../component/DecSlide";
 import CleanSlide from "../component/CleanSlide";
 import StorySlide from "../component/StorySlide";
+import { Link } from "react-router-dom";
 
 
 
@@ -20,20 +21,20 @@ const Home = () =>{
                 <h1 className="title">
                     Let's know how to be a professional DekHor.
                 </h1>
-                <button className="start-btn">Get Started</button>
+                <Link to={'/signup'}><button className="start-btn">Get Started</button></Link>
+                
             </main>
             <div className="Container">
                 <div className="rec">
                     <div className="rec__title">
                         <h2 className="title_sub">DekHor Recommended</h2>
-                        <button className="btn__See">See All</button>
                     </div>
                     <ContentSlide></ContentSlide>
                 </div>
                 <div className="rec">
                     <div className="rec__title">
                         <h2 className="title_sub">Cooking</h2>
-                        <button className="btn__See">See All</button>
+                        <Link to={'/cooking'}><button className="btn__See">See All</button></Link>
                     </div>
                     <SlideCooking></SlideCooking>
                 </div>
@@ -41,7 +42,7 @@ const Home = () =>{
                 <div className="rec">
                     <div className="rec__title">
                         <h2 className="title_sub">Decoration</h2>
-                        <button className="btn__See">See All</button>
+                        <Link to={'/decoration'}><button className="btn__See">See All</button></Link>
                     </div>
                     <DecSlide></DecSlide>
                 </div>
@@ -49,7 +50,7 @@ const Home = () =>{
                 <div className="rec">
                     <div className="rec__title">
                         <h2 className="title_sub">Cleaning</h2>
-                        <button className="btn__See">See All</button>
+                        <Link to={'cleaning'}><button className="btn__See">See All</button></Link>
                     </div>
                     <CleanSlide></CleanSlide>
                 </div>
@@ -57,7 +58,7 @@ const Home = () =>{
                 <div className="rec">
                     <div className="rec__title">
                         <h2 className="title_sub">Story's DekHor</h2>
-                        <button className="btn__See">See All</button>
+                        <Link to={'/story'}><button className="btn__See">See All</button></Link>
                     </div>
                     <StorySlide></StorySlide>
                 </div>

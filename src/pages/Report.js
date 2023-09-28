@@ -12,7 +12,7 @@ const Report = () =>{
                 <h1 id='reporttitle'>Report</h1>
                 <textarea id="textreport" cols=" " rows="10" placeholder='type your report here...'></textarea>
                 <div className="reportfooter">
-                    <button className='btn-report'>send report</button>
+                    <button className='btn-report'><a href="reportfinish">send report</a></button>
                     <button id="btn-cancel" className='btn-report'><a href="home">cancel</a></button>
                 </div>    
             </div>

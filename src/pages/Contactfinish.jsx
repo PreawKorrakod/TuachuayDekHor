@@ -1,21 +1,20 @@
 import React from 'react'
-import "./Reportfinish.scoped.css"
-import { Link } from "react-router-dom";
-import Navbar from '../component/Nav';
+import './Reportfinish.scoped.css'
+import Navbar from '../component/Nav'
 
-function Reportfinish() {
+function Contactfinish() {
   return (
     <div className="report">
       <header>
         <Navbar></Navbar>
       </header>        
         <div className="noti-box">
-            <h2>Report Success</h2>
-            <p>Thank you for your feedback</p>
+            <h2>Send Message Complete!</h2>
+            <p>We will respond to you within 24 hours.</p>
             <button><a href="home">Back Home</a></button>
         </div>
     </div>
   )
 }
 
-export default Reportfinish;
+export default Contactfinish

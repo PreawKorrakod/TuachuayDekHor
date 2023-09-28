@@ -16,7 +16,7 @@ function Login() {
                 </div>
                 <form action="#">
                     <div className="input-box">
-                        <input type="username" placeholder="Username" />
+                        <input type="username" placeholder="Email" />
                     </div>
                     <div className="input-box">
                         <input type="password" placeholder="Password" />
@@ -25,7 +25,7 @@ function Login() {
                         <label><input type="checkbox" />Remember me</label>
                         <a href="#">Forget Password?</a>
                     </div>
-                    <button type="submit" className="login-submit">Login</button>
+                    <Link to={'/profile'}><button type="submit" className="login-submit">Login</button></Link>
                 </form>
             </div>
         </div>

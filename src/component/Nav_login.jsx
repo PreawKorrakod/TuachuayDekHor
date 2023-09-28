@@ -5,9 +5,10 @@ import {AiOutlineMenu, AiOutlineClose, AiOutlineSearch, AiOutlineUser,AiFillClos
 import DropdownProfile from './DropdownProfile';
 import e from 'cors';
 import {BsFillCaretDownFill} from "react-icons/bs";
+
 // Responsive Navbar
 
-function Navbar() {
+function NavLogin() {
 
     //  Code to toggle Navbar
     const [active, setActive] = useState('menu_content')
@@ -74,7 +75,7 @@ function Navbar() {
                 </li>
                 <li>
                     <div className="login_blog">
-                        <Link to={"/login"}><button className='Loginbtn'>Log in</button></Link>
+                        <DropdownProfile/>
                     </div>
                 </li>
                 <div className="closeNavBar" onClick={removeNav} >
@@ -86,4 +87,4 @@ function Navbar() {
         </header>
     );
 };
-export default Navbar;
+export default NavLogin;

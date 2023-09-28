@@ -3,6 +3,7 @@ import "./Contact.scoped.css";
 import NavHead from '../component/Nav';
 import {Input,Label} from 'reactstrap'
 import {GoPaperAirplane} from "react-icons/go";
+import { Link } from 'react-router-dom';
 
 const Contact = () => {
     return(
@@ -41,7 +42,9 @@ const Contact = () => {
                             <Input type="text" className='email__mas' placeholder='Your email'/>
                         </div>
                         <textarea className="write-massage" name="" id="" cols="30" rows="15" placeholder='type your massage here'></textarea>
-                        <button className='send-massage'>Send</button>
+                        <div className="posi__btn">
+                            <Link to={'/contactfinish'}><button className='send-massage'>Send</button></Link>
+                        </div>
                     </div>
                 </div>
             </div>
