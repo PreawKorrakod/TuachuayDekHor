@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import "./loginPop.css";
+import "./loginPop.scoped.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Button, Modal } from 'reactstrap';
 import { Link } from "react-router-dom";
@@ -12,8 +12,8 @@ function Poplogin(args) {
 
   return (
     <div>
-      <Button className="btn-Login" onClick={toggle}>
-        Login
+      <Button className="Loginbtn" onClick={toggle}>
+        Log in
       </Button>
       <Modal isOpen={modal} toggle={toggle} {...args}>
         <div className="wrapper">
@@ -30,17 +30,17 @@ function Poplogin(args) {
                         <input type="username" placeholder="Username" />
                     </div>
                     <div className="input-box">
-                        <input type="password" placeholder="password" />
+                        <input type="password" placeholder="Password" />
                     </div>
                     <div className="remember-forget">
                         <label><input type="checkbox" />Remember me</label>
                         <a href="#">Forget Password?</a>
                     </div>
-                    <button type="submit" className="btn" onClick={toggle} >Login</button>
+                    <button type="submit" className="login-submit" onClick={toggle} >Login</button>
                 </form>
             </div>
         </div>
-        </Modal>
+      </Modal>
     </div>
   );
 }

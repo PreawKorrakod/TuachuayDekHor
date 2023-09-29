@@ -1,0 +1,99 @@
+.home{
+    width: 100vw;
+    height: 100vh;
+}
+
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins',sans-serif;
+}
+
+main{
+    width: 100%;
+    height: 60vh;
+    padding: 4rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 2rem;
+    background: linear-gradient(#35477dde,#546baf65),url(../../src/Assets/Home.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.title{
+    padding-top: 3rem;
+    font-size: 40px;
+    font-family: 'Galindo';
+    color: #f8f8f8;
+    margin-bottom: 3rem;
+}
+
+
+.start-btn{
+    display: flex;
+    padding: 1rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    background-color: #D9C029;
+    box-shadow:  2px 8px 2px rgba(146, 144, 144, 0.139);
+    border: none;
+    border-radius: 20px;
+    color: black;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.start-btn:hover{
+    scale: 1.2;
+    background-color: #cdaf07;
+}
+
+.rec{
+    display: flex;
+    flex-direction: column;
+}
+
+.rec__title{
+    display:flex ;
+    margin-left: 4rem;
+    align-items: center;
+    justify-content: space-between;
+    padding-right: 7rem;
+    font-family: 'Poppins';
+}
+
+.title_sub{
+    margin-top: 3rem;
+    position: relative;
+    padding-top: 1rem;
+    font-size:30px;
+}
+
+.Container{
+    width: 100%;
+    height: 100%;
+    padding: 2rem;
+    padding-left: 10rem;
+    padding-right: 10rem;
+    justify-content: center;
+}
+
+.btn__See{
+    margin-top: 3rem;
+    align-items: center;
+    width: 60px;
+    height: 30px;
+    cursor: pointer;
+    border-radius: 10px;
+    border: none;
+    background-color: #D9C029;
+}
+
+.btn__See:hover{
+    scale: 1.2;
+    background-color: #cdaf07;
+}

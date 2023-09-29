@@ -1,0 +1,65 @@
+.Decoration{
+    width: 100vw;
+    height: 100vh;
+}
+
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins',sans-serif;
+}
+
+main{
+    width: 100%;
+    height: 60vh;
+    padding: 4rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 2rem;
+    background: linear-gradient(#35477dde,#546baf65),url(../../src/Assets/back1.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.title{
+    padding-top: 8rem;
+    font-size: 60px;
+    font-family: 'Galindo';
+    color: #f8f8f8;
+    margin-bottom: 3rem;
+}
+
+
+.rec{
+    display: flex;
+    flex-direction: column;
+}
+
+.rec__title{
+    display:flex ;
+    margin-left: 4rem;
+    align-items: center;
+    text-align: center;
+    padding-right: 7rem;
+}
+
+.title_sub{
+    margin-top: 3rem;
+    position: relative;
+    padding-top: 1rem;
+    font-size:30px;
+    text-align: center;
+}
+
+.Container{
+    width: 100%;
+    height: 100%;
+    padding: 2rem;
+    padding-left: 10rem;
+    padding-right: 10rem;
+    justify-content: center;
+}
+

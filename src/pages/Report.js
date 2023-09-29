@@ -1,19 +1,19 @@
 import React from 'react';
-import "./Report.css";
+import "./Report.scoped.css";
 import { Link } from "react-router-dom";
-import NavHead from '../component/Nav';
+import Navbar from '../component/Nav';
 const Report = () =>{
     return (
         <div className="report">
             <header>
-                <NavHead></NavHead>
+                <Navbar></Navbar>
             </header>
             <div className="report">
                 <h1 id='reporttitle'>Report</h1>
-                <textarea id="textreport" cols=" " rows="10"></textarea>
+                <textarea id="textreport" cols=" " rows="10" placeholder='type your report here...'></textarea>
                 <div className="reportfooter">
-                    <button className='btn-report'>send report</button>
-                    <button id="btn-cancel" className='btn-report'>cancel</button>
+                    <button className='btn-report'><a href="reportfinish">send report</a></button>
+                    <button id="btn-cancel" className='btn-report'><a href="home">cancel</a></button>
                 </div>    
             </div>
         </div>

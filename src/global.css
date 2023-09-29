@@ -1,19 +1,43 @@
 @import url("https://fonts.googleapis.com/css2?family=Galindo:wght@400&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Hubballi:wght@400&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Gaegu:wght@400&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bai+Jamjuree:ital,wght@0,300;0,400;1,300&family=Poppins:wght@100;300&display=swap');
+
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins',sans-serif;
+  font-family: 'Bai Jamjuree', sans-serif;
+  transition: .3s ease;
+}
+
+
+h1{
+  font-family: var(--font-galindo);
+  font-size: 34px;
+}
+ 
 body {
   margin: 0;
   line-height: normal;
+  font-family: 'Poppins', sans-serif;
+  font-family: 'Bai Jamjuree', sans-serif;
 }
+
 #root{
   width: 100vw;
   height: 100vh;
 }
+
 :root {
   /* fonts */
   --font-gaegu: Gaegu;
   --font-hubballi: Hubballi;
   --font-galindo: Galindo;
+  --font-Poppins: Poppins;
+  --font--Jamjuree : Bai+Jamjuree;
 
   /* font sizes */
   --font-size-4xl: 23px;
@@ -28,3 +52,21 @@ body {
   /* Border radiuses */
   --br-8xs: 5px;
 }
+
+a{
+  text-decoration: none;
+}
+
+li{
+  list-style: none;
+}
+
+.section{
+  padding: 4rem 0 2rem;
+}
+
+.container{
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
