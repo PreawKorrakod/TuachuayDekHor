@@ -12,16 +12,16 @@ function Signup() {
                   <h2 id="Welcome">Welcome to DekHor</h2>
                   <form action="#">
                       <div className="input-box">
-                          <input type="text" placeholder="email" />
+                          <input type="text" placeholder="Email" />
                       </div>
                       <div className="input-box">
-                          <input type="username" placeholder="username" />
+                          <input type="username" placeholder="Username" />
                       </div>
                       <div className="input-box">
-                          <input type="password" placeholder="password" />
+                          <input type="password" placeholder="Password" />
                       </div>
                       <div className="input-box">
-                          <input type="password" placeholder="confirm password" />
+                          <input type="password" placeholder="Confirm password" />
                       </div>
                       <Link to={"/login"}><button type="submit" className="btn">Sign Up</button></Link>
                   </form>

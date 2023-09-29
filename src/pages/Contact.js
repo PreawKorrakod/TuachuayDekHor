@@ -1,11 +1,19 @@
-import React from 'react';
+import React,{useState} from 'react';
 import "./Contact.scoped.css";
 import NavHead from '../component/Nav';
 import {Input,Label} from 'reactstrap'
 import {GoPaperAirplane} from "react-icons/go";
 import { Link } from 'react-router-dom';
+import Contactfinish from './Contactfinish';
 
 const Contact = () => {
+    const [showContactFinish, setShowContactFinish] = useState(false); // State variable to control visibility
+
+    // Function to toggle the visibility of Contactfinish
+    const toggleContactFinish = () => {
+        setShowContactFinish(!showContactFinish);
+    };
+
     return(
         <div className="contact">
             <header>
@@ -43,12 +51,15 @@ const Contact = () => {
                         </div>
                         <textarea className="write-massage" name="" id="" cols="30" rows="15" placeholder='type your massage here'></textarea>
                         <div className="posi__btn">
-                            <Link to={'/contactfinish'}><button className='send-massage'>Send</button></Link>
+                            {/* <Link to={'/contactfinish'}> */}
+                                <button className='send-massage' onClick={toggleContactFinish}>Send</button>
+                                {/* </Link> */}
                         </div>
-                    </div>
+                    </div>  
                 </div>
             </div>
             </body>
+            {showContactFinish && <Contactfinish />}
         </div>
     );
 };

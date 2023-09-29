@@ -59,7 +59,7 @@ const DecSlide =() => {
                                     </div>
                                     <div className="destText">
                                         <h4>
-                                            <Link to={`/decoration/${id}`}>{destTitle}</Link>
+                                            <Link to={`/story/${id}`}>{destTitle}</Link>
                                         </h4>
                                         <span className="userwrite">
                                             <span className="name"><BiSolidPencil size={20} className="icon_pencil"/>
