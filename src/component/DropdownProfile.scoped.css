@@ -1,16 +1,20 @@
 .Profile{
     width: 100%;
     height: 100%;
-    align-items: flex-start;
+    align-items: center;
+    justify-content: center;
+
 }
+
 .User__profile{
     margin-left: 1.5rem;
+    overflow: hidden;
     height: 45px;
     width: 45px;
     border-radius: 50px;
     border: Solid 3px #D9C029;
-    align-items: start;
-    text-align: start;
+    align-items: center;
+    text-align: center;
     background-color: #f8f8f8;
 }
 

@@ -8,6 +8,8 @@ import {BsFillCaretDownFill} from "react-icons/bs";
 // Responsive Navbar
 
 function Navbar() {
+    // change button__login --> profile image
+    const user = false
 
     //  Code to toggle Navbar
     const [active, setActive] = useState('menu_content')
@@ -74,7 +76,7 @@ function Navbar() {
                 </li>
                 <li>
                     <div className="login_blog">
-                        <Link to={"/login"}><button className='Loginbtn'>Log in</button></Link>
+                       {user? <DropdownProfile/> :<Link to={"/login"}><button className='Loginbtn'>Log in</button></Link>}
                     </div>
                 </li>
                 <div className="closeNavBar" onClick={removeNav} >

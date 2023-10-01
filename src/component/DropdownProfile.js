@@ -1,6 +1,7 @@
 import React, { useRef, useState } from "react";
 import "./DropdownProfile.scoped.css";
 import {BiLogOut,BiUserCircle} from "react-icons/bi";
+import Avatar from "./Avatar";
 
 function DropdownProfile(){
 
@@ -16,7 +17,7 @@ function DropdownProfile(){
     })
     return(
         <div className="profile">
-           <img ref={imgRef} src="/person-circle-outline.svg" alt="" className="User__profile" onClick={()=>setOpen(!open)} />
+           <img ref={imgRef} src={Avatar} alt="" className="User__profile" onClick={()=>setOpen(!open)} />
            {open && 
            <div className="menus" ref={menuRef} onClick={()=>setOpen(!open)}>
                 <ul>

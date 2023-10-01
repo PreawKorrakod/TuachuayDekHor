@@ -80,6 +80,7 @@ input{
 }
 
 .search_blog{
+    outline: none;
     position: relative;
     color: #f8f8f8;
     width: 100%;
@@ -112,6 +113,9 @@ input::placeholder{
     top: 70px;
     padding-top: 1rem;
     width: max-content;
+    box-shadow: 0 2px 4px rgba(76, 74, 74, 0.598);
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
 }
 .drop{
     display: flex;

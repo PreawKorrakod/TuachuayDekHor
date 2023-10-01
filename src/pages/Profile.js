@@ -3,7 +3,8 @@ import "./Profile.scoped.css";
 import PostSlide from "../component/PostSlide";
 import LikeSlide from "../component/LikedSlide";
 import { TabContent, TabPane, Nav, NavItem, NavLink, Card, Button, CardTitle, CardText, Row, Col } from 'reactstrap';
-import NavLogin from "../component/Nav_login";
+import Navbar from "../component/Nav";
+import Avatar from "../component/Avatar";
 
 const Profile = (props) => {
     const [activeTab,setactiveTab] = useState('1')
@@ -18,12 +19,12 @@ const Profile = (props) => {
     return(
         <div className="profile">
             <header>
-                <NavLogin></NavLogin>
+                <Navbar></Navbar>
             </header>
             <div className="wrapper">
                 <div className="profile__head">
                     <div className="profile__img">
-                        <img src="/person-circle-outline.svg" className="person" alt="" />
+                        <img src={Avatar} className="person" alt="" />
                     </div>
                 </div>
                 <div className="profile_title">
