@@ -1,8 +1,27 @@
 import React from 'react'
 import "./Login.scoped.css"
 import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
-function Login() {
+
+const Login= () => {
+    const navigate = useNavigate();
+    const get_data = (event) =>{
+        console.log(event);
+        event.preventDefault();
+        axios.post("http://localhost:3300/login",{
+            email : event.target[0].value,
+            password : event.target[1].value
+        })
+        .then(res => {
+            navigate("/home");
+        })
+        .catch((err) => {
+            alert(err);
+        })
+    }
+   
   return (
     <div className="login">
        <div className="wrapper">
@@ -14,7 +33,7 @@ function Login() {
                     <p>Are you new DekHor?</p>
                     <a href="signup">Sign up</a>
                 </div>
-                <form action="#">
+                <form action="#" onSubmit={get_data}>
                     <div className="input-box">
                         <input type="username" placeholder="Email" />
                     </div>
@@ -25,7 +44,7 @@ function Login() {
                         <label><input type="checkbox" />Remember me</label>
                         <a href="#">Forget Password?</a>
                     </div>
-                    <Link to={'/profile'}><button type="submit" className="login-submit">Login</button></Link>
+                    <button type="submit" className="login-submit">Login</button>
                 </form>
             </div>
         </div>

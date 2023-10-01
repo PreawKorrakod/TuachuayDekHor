@@ -1,11 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 // const mysql = require('mysql');
-const { log } = require('console');
-const { URLSearchParams, urlToHttpOptions, URL } = require('url');
-const { ListGroupItemHeading } = require('reactstrap');
 const { createClient } = require('@supabase/supabase-js');
-const axios = require('axios').default;
 require("dotenv").config();
 
 
@@ -13,7 +9,7 @@ const app = express();
 
 app.use(cors());
 app.use(express.json());
-
+const port= 3300;
 const supabaseUrl = "https://kykxspcgnsbnzvbofapj.supabase.co";
 const supabaseKey = process.env.SUPABASE_KEY;
 const supabase = createClient(supabaseUrl,supabaseKey);
@@ -38,51 +34,22 @@ const supabase = createClient(supabaseUrl,supabaseKey);
 
 //signup
 app.post("/signup", async (req,res) => {
-    const {username,email,password} = req.body;
+    const {email,username,password} = req.body;
     const { data, error } = await supabase.auth.signUp({
-        username: username,
         email: email,
         password: password
     });
-    if (error){
-        res.status(400).json(err.sqlMessage);
+    await supabase.from("user_profile").insert({email:email ,username:username});
+    if (error ){
+        res.status(400).json({error});
     }
     else{
-        res.status(200).json(data)
+        res.status(200).json(data);
     }
 });
-    // const sql1 = "SELECT * FROM users WHERE username = ? or email = ?"
-    // const sql2 = "INSERT INTO users(username,email,password) VALUES (?, ?, ?)";
-    // const {username,email, password,confirmpassword} = req.body;
-    // connection.query(sql1,[username,email],(err,data) => {
-    //     if (err){
-    //         return res.status(400).json(err.sqlMessage);
-    //     }
-    //     if (password == confirmpassword){
-    //         if (data.map(item => item.username).toString() == username && data.map(item => item.email).toString() == email) {
-    //             return res.status(200).json({status: "account" ,msg:"You already have an account"});
-    //         }
-    //         if (data.map(item => item.username).toString().includes(req.body.username,0)){
-    //             return res.status(200).json({status: "fail_username" ,msg:"This username has already use!"});
-    //         }
-    //         if (data.map(item => item.email).toString().includes(req.body.email,0)){
-    //             return res.status(200).json({status: "fail_email" ,msg:"This email has already use!"});
-    //         }
-    //         connection.query(sql2,[username, email, password],(err,data) => {
-    //             if(err) {
-    //                 return res.status(400).json(err.sqlMessage);
-    //             }
-    //             return res.status(200).json("This data is complete in table");
-    //         })
-    //     }
-    //     else {
-    //         return res.status(400).json("password must be the same");
-    //     }    
-    // })    
-//})
 
 //login
-app.get("/login",async (req,res) => {
+app.post("/login",async (req,res) => {
     const{email,password} = req.body;
     const { data, error } = await supabase.auth.signInWithPassword({
         email: email,
@@ -332,4 +299,4 @@ app.get("/")
 
 
 
-app.listen(3300, () => console.log('Server is running on port 3300'))
+app.listen(port, () => console.log(`Server is running on port ${port}`));
