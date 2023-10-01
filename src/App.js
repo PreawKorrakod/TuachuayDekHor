@@ -19,6 +19,7 @@ import Resetpassword from './pages/Resetpassword';
 import Reportfinish from './pages/Reportfinish';
 import Forget from './pages/Forget';
 import Contactfinish from './pages/Contactfinish';
+import Blogger from './pages/Blogger';
 import { useEffect } from "react";
 
 
@@ -80,6 +81,7 @@ function App() {
       <Route path="/reportfinish" element={<Reportfinish />}/>
       <Route path="/forget" element={<Forget />}/>
       <Route path="/contactfinish" element={<Contactfinish />}/>
+      <Route path="/blogger" element={<Blogger />}/>
     </Routes>
   );
 }

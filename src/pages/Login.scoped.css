@@ -83,7 +83,7 @@ h2{
     font-weight: 500;
     margin: -15px 0 15px;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
     font-weight: bolder;
 }
 
