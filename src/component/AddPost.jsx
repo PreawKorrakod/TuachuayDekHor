@@ -2,7 +2,6 @@ import React, { useRef, useState } from 'react'
 import { Card, CardBody, Form, Input, Label, Button, Container, FormGroup } from 'reactstrap'
 import "./AddPost.scoped.css"
 import JoditEditor from 'jodit-react';
-import { createPoolCluster } from 'mysql';
 
 function AddPost() {
 
