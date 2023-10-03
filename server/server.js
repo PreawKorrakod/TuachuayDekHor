@@ -37,11 +37,16 @@ app.post("/signup", async (req,res) => {
     const {email,username,password} = req.body;
     const { data, error } = await supabase.auth.signUp({
         email: email,
-        password: password
+        password: password,
+        options: {
+            data: {
+                username: username,
+            }
+        }
     });
-    await supabase.from("user_profile").insert({email:email ,username:username});
+    // await supabase.from("user_profile").insert({email:email ,username:username});
     if (error ){
-        res.status(400).json({error});
+        res.status(500).json(error);
     }
     else{
         res.status(200).json(data);

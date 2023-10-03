@@ -7,7 +7,7 @@ import axios from 'axios';
 const Signup=()=> {
     const navigate = useNavigate();
     const recieve_data = (event) =>{
-        console.log(event);
+        // console.log(event);
         event.preventDefault();
         if (event.target[2].value === event.target[3].value){
             axios.post("http://localhost:3300/signup",{
@@ -18,11 +18,11 @@ const Signup=()=> {
                 navigate("/login");
             })
             .catch((err) => {
-                if (event.target[2].value != event.target[3].value){
-                    alert("Password must be the same");
-                    return;
-                }
+                alert(err)
             })
+        }
+        else{
+            return alert("Password must be the same");
         }
     }
 
