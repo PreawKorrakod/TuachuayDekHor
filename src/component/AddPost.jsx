@@ -13,6 +13,7 @@ function AddPost() {
             content:'',
             category:'',
         })
+        
 
     // fieldChanged function
     const fieldChanged = (event) =>{
