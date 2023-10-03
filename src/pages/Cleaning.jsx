@@ -1,10 +1,22 @@
 import React from 'react'
 import "./Decoration.scoped.css"
 import Navbar from "../component/Nav";
-import CleanSlide from '../component/CleanSlide';
+// import CleanSlide from '../component/CleanSlide';
+import ContentSlide from '../component/ContentSlide';
 import {Col} from 'reactstrap';
 
 function Cleaning() {
+  const data = [
+    {
+      id: 1,
+      title: "TEST",
+    },
+    {
+      id: 2,
+      title: "TEST2",
+    }
+  ]
+
   return (
     <div className="Decoration">
       <header>
@@ -20,7 +32,7 @@ function Cleaning() {
             <div className="rec__title">
               <h2 className="title_sub">Cleaning Ideas By DekHor</h2>
             </div>
-          <CleanSlide></CleanSlide>
+          <ContentSlide/>
         </div>
       </div>
     </div>   

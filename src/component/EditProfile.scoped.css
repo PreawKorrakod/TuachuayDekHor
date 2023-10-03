@@ -1,0 +1,35 @@
+/* .wrapper{
+    width: 1000px;
+} */
+.Modal .dialogClassName{
+
+    width: 100%;
+
+}
+
+.Modal .modal{
+    --bs-modal-width: 1000px;
+}
+
+.head{
+    /* border-b border-gray-900/10 pb-12 */
+    border-bottom-width: 1px ;
+    --tw-border-opacity:1;
+    border-color: rgb(17, 24, 39/var(--tw-border-opacity));
+    padding-bottom: 3rem;
+}
+
+.edit__profile{
+    align-items: center;
+    width: 100px;
+    height: 40px;
+    cursor: pointer;
+    border-radius: 10px;
+    border: none;
+    background-color: #D9C029;
+    font-family: 'Poppins';
+}
+
+.edit__profile:hover{
+    background-color: #cdaf07;
+}

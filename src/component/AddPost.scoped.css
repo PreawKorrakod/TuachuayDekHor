@@ -59,6 +59,7 @@
 }
 
 .content__head{
+    /* height: 500px; */
     padding: 1rem;
     display: flex;
     flex-direction: column;

@@ -20,6 +20,7 @@ const Data =[
             destTitle: 'ห้องน่ารักๆ สำหรับเด็กหอ',
             writer: 'Pikachu',
             heart : 123,
+            category:'decoration',
         },
     
         {
@@ -28,6 +29,7 @@ const Data =[
             destTitle: 'How to study by DekHor',
             writer: 'PumZaZa',
             heart : 143,
+            category:'story',
         },
     
         {
@@ -36,6 +38,34 @@ const Data =[
             destTitle: '10 Awesome Books',
             writer: 'Narak',
             heart : 423,
+            category:'story',
+        },
+
+        {
+            id:4,
+            imgSrc: img3,
+            destTitle: '10 Awesome Books',
+            writer: 'Narak',
+            heart : 423,
+            category:'cleaning',
+        },
+
+        {
+            id:5,
+            imgSrc: img4,
+            destTitle: '10 Awesome Books',
+            writer: 'Narak',
+            heart : 423,
+            category:'cooking',
+        },
+
+        {
+            id:6,
+            imgSrc: img1,
+            destTitle: 'ห้องน่ารักๆ สำหรับเด็กหอ',
+            writer: 'Pikachu',
+            heart : 123,
+            category:'cooking',
         },
     
     ]
@@ -47,7 +77,7 @@ const ContentSlide =() => {
         <div className="content">
             <div className="main_content">
                 {
-                    Data.map(({id,imgSrc,destTitle,writer,heart})=>{
+                    Data.map(({id,imgSrc,destTitle,writer,heart,category})=>{
                         return(
                             <div className="singleDest">
                                 <div className="dastImage">
@@ -59,7 +89,7 @@ const ContentSlide =() => {
                                     </div>
                                     <div className="destText">
                                         <h4>
-                                            <Link to={`/story/${id}`}>{destTitle}</Link>
+                                            <Link to={`/${category}/${id}`}>{destTitle}</Link>
                                         </h4>
                                         <span className="userwrite">
                                             <span className="name"><BiSolidPencil size={20} className="icon_pencil"/>

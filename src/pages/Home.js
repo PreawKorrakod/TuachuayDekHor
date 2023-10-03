@@ -8,6 +8,7 @@ import DecSlide from "../component/DecSlide";
 import CleanSlide from "../component/CleanSlide";
 import StorySlide from "../component/StorySlide";
 import { Link } from "react-router-dom";
+import CategorySlide from "../component/CategorySlide";
 
 
 
@@ -25,6 +26,7 @@ const Home = () =>{
                 
             </main>
             <div className="Container">
+                {/* <CategorySlide/> */}
                 <div className="rec">
                     <div className="rec__title">
                         <h2 className="title_sub">DekHor Recommended</h2>
@@ -36,7 +38,7 @@ const Home = () =>{
                         <h2 className="title_sub">Cooking</h2>
                         <Link to={'/cooking'}><button className="btn__See">See All</button></Link>
                     </div>
-                    <SlideCooking></SlideCooking>
+                    {/* <SlideCooking></SlideCooking> */}
                 </div>
 
                 <div className="rec">
@@ -44,7 +46,7 @@ const Home = () =>{
                         <h2 className="title_sub">Decoration</h2>
                         <Link to={'/decoration'}><button className="btn__See">See All</button></Link>
                     </div>
-                    <DecSlide></DecSlide>
+                    {/* <DecSlide></DecSlide> */}
                 </div>
 
                 <div className="rec">
@@ -52,7 +54,7 @@ const Home = () =>{
                         <h2 className="title_sub">Cleaning</h2>
                         <Link to={'cleaning'}><button className="btn__See">See All</button></Link>
                     </div>
-                    <CleanSlide></CleanSlide>
+                    {/* <CleanSlide></CleanSlide> */}
                 </div>
 
                 <div className="rec">
@@ -60,7 +62,7 @@ const Home = () =>{
                         <h2 className="title_sub">Story's DekHor</h2>
                         <Link to={'/story'}><button className="btn__See">See All</button></Link>
                     </div>
-                    <StorySlide></StorySlide>
+                    {/* <StorySlide></StorySlide> */}
                 </div>
             </div>
         </div>
