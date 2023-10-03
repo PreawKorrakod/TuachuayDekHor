@@ -15,7 +15,7 @@
     display: none;
 }
 
-header{
+/* header{
     position: fixed;
     top: 0;
     left: 0;
@@ -24,15 +24,16 @@ header{
     display: flex;
     align-items: center;
     z-index: 99;
-} 
+}  */
 
 .Navbar {
-    position: fixed;
+    position: sticky;
     display: flex;
     width: 100%;
     justify-content: space-between;
     padding-left: 4rem;
     padding-right: 4rem;
+    background-color: #3D39BD;
     box-shadow: 0 2px 4px rgba(76, 74, 74, 0.598);
 }
 
@@ -86,7 +87,7 @@ input{
     width: 100%;
     display: flex;
     justify-content: flex-end;
-    align-items: flex-end;
+    align-items: center;
 }
 
 input::placeholder{

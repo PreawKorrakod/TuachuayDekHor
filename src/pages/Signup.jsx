@@ -1,8 +1,31 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import "./Signup.scoped.css"
+import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
-function Signup() {
+const Signup=()=> {
+    const navigate = useNavigate();
+    const recieve_data = (event) =>{
+        console.log(event);
+        event.preventDefault();
+        if (event.target[2].value === event.target[3].value){
+            axios.post("http://localhost:3300/signup",{
+                email: event.target[0].value,
+                username: event.target[1].value,
+                password: event.target[2].value
+            }).then(res => {
+                navigate("/login");
+            })
+            .catch((err) => {
+                if (event.target[2].value != event.target[3].value){
+                    alert("Password must be the same");
+                    return;
+                }
+            })
+        }
+    }
+
   return (
     <div className="signup">
       <div className="wrapper">
@@ -10,7 +33,7 @@ function Signup() {
               <Link to={"/home"}><img id="icon-close" src="close-outline.svg" alt=""/></Link>
               <div className="form-box-signup">
                   <h2 id="Welcome">Welcome to DekHor</h2>
-                  <form action="#">
+                  <form action='#'on onSubmit={recieve_data}>
                       <div className="input-box">
                           <input type="text" placeholder="Email" />
                       </div>
@@ -23,7 +46,7 @@ function Signup() {
                       <div className="input-box">
                           <input type="password" placeholder="Confirm password" />
                       </div>
-                      <Link to={"/login"}><button type="submit" className="btn">Sign Up</button></Link>
+                      <button type="submit" className="btn">Sign Up</button>
                   </form>
               </div>
           </div>
@@ -31,4 +54,4 @@ function Signup() {
   )
 }
 
-export default Signup
+export default Signup;
