@@ -5,7 +5,7 @@ import { BsFillArrowRightCircleFill,BsFillArrowLeftCircleFill } from "react-icon
 import {BsHeartFill} from "react-icons/bs";
 import {Col} from 'reactstrap'
 import { Link } from "react-router-dom";
-import {BiSolidPencil} from "react-icons/bi";
+import {BiSolidPencil} from "react-icons/bi"; 
 // import image
 import img1 from '../../src/Assets/slide1.png'
 import img2 from '../../src/Assets/slide2.png'
@@ -72,6 +72,8 @@ const Data =[
 
 
 const ContentSlide =() => {
+
+    
 
     return (
         <div className="content">

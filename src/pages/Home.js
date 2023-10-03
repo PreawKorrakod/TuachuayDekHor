@@ -9,6 +9,7 @@ import CleanSlide from "../component/CleanSlide";
 import StorySlide from "../component/StorySlide";
 import { Link } from "react-router-dom";
 import CategorySlide from "../component/CategorySlide";
+import ContactModal from "../component/ContactModel";
 
 
 
@@ -23,7 +24,6 @@ const Home = () =>{
                     Let's know how to be a professional DekHor.
                 </h1>
                 <Link to={'/signup'}><button className="start-btn">Get Started</button></Link>
-                
             </main>
             <div className="Container">
                 {/* <CategorySlide/> */}

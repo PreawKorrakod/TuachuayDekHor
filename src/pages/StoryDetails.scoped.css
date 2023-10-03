@@ -6,7 +6,7 @@
 }
 
 .story{
-    padding: 1rem;
+    /* padding: 1rem; */
     width: 100%;
     height: 100%;
     background-color: #f8f8f8;
@@ -16,9 +16,8 @@
 .story__content{
     width: 100vw;
     height:100vh;
-    padding-left: 200px;
-    padding-right: 200px ;
-    padding-top: 70px;
+    /* padding-left: 200px;
+    padding-right: 200px ; */
     background-color: #f8f8f8;
 }
 

@@ -11,7 +11,7 @@ function AddPost() {
     const[post,setPost] = useState({
             title:'',
             content:'',
-            category:''
+            category:'',
         })
 
     // fieldChanged function

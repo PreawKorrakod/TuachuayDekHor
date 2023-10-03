@@ -7,8 +7,10 @@ import Navbar from "../component/Nav";
 import Avatar from "../component/Avatar";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Editprofile from "../component/EditProfile";
+import ContactModal from "../component/ContactModel";
 
 const Profile = () => {
+  const user = true;
   const [activeTab, setactiveTab] = useState("1");
 
   const [name, setName] = useState("Username");
@@ -42,14 +44,14 @@ const Profile = () => {
           </div>
           <div className="edit">
             {/* ---Button triger modal--- */}
-            <button className="edit__profile">
+            {user? <ContactModal/> : <button className="edit__profile">
               <Editprofile
                 name={name}
                 setName={setName}
                 describe={describe}
                 setDescribe={setDescribe}
               />
-            </button>
+            </button>}
           </div>
         </div>
         <div className="contents__box">
