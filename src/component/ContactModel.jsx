@@ -24,7 +24,7 @@ function ContactModal() {
         </Modal.Header>
         <Modal.Body>
           <Form>
-            {/* mail user ต้องเอาเข้าตรงนี้ */}
+            {/* mail user ต้องเอาเข้าตรงนี้  ไปแสดงในปุ๋มยัง*/}
             <Form.Group className="mb-3" controlId={mail_user}>
               <Form.Label>To:</Form.Label>
               <Form.Control
