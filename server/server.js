@@ -49,19 +49,19 @@ app.post("/signup", async (req,res) => {
 });
 
 //login
-app.post("/login",async (req,res) => {
-    const{email,password} = req.body;
-    const { data, error } = await supabase.auth.signInWithPassword({
-        email: email,
-        password: password
-    });
-    if (error){
-        res.status(400).json(err.sqlMessage);
-    }
-    else{
-        res.status(200).json(data)
-    }
-});
+// app.post("/login",async (req,res) => {
+//     const{email,password} = req.body;
+//     const { data, error } = await supabase.auth.signInWithPassword({
+//         email: email,
+//         password: password
+//     });
+//     if (error){
+//         res.status(400).json(err.sqlMessage);
+//     }
+//     else{
+//         res.status(200).json(data)
+//     }
+// });
 
     // const sql = "SELECT * FROM users WHERE email = ? AND password = ?";
     // connection.query(sql,[req.body.email,req.body.password],(err,data) =>{

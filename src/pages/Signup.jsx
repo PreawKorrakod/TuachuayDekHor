@@ -18,7 +18,10 @@ const Signup=()=> {
                 navigate("/login");
             })
             .catch((err) => {
-                alert(err);
+                if (event.target[2].value != event.target[3].value){
+                    alert("Password must be the same");
+                    return;
+                }
             })
         }
     }

@@ -1,10 +1,10 @@
 import React,{useState} from 'react';
 import "./Contact.scoped.css";
-import NavHead from '../component/Nav';
 import {Input,Label} from 'reactstrap'
 import {GoPaperAirplane} from "react-icons/go";
 import { Link } from 'react-router-dom';
 import Contactfinish from './Contactfinish';
+import Navbar from '../component/Nav';
 
 const Contact = () => {
     // const [showContactFinish, setShowContactFinish] = useState(false); // State variable to control visibility
@@ -16,9 +16,7 @@ const Contact = () => {
 
     return(
         <div className="contact">
-            <header>
-                <NavHead></NavHead>
-            </header>
+            <Navbar/>
             <body>
             <div className="container">
                 <div className="title">

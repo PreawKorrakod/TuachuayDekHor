@@ -1,26 +1,26 @@
-import React from 'react'
+import React, { useContext, useEffect } from 'react'
 import "./Login.scoped.css"
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
+import { General } from '../App';
 
 
 const Login= () => {
     const navigate = useNavigate();
-    const get_data = (event) =>{
-        console.log(event);
-        event.preventDefault();
-        axios.post("http://localhost:3300/login",{
-            email : event.target[0].value,
-            password : event.target[1].value
-        })
-        .then(res => {
-            navigate("/home");
-        })
-        .catch((err) => {
-            alert(err);
-        })
+    const {supabase_for_use : supabase,session} = useContext(General);
+    const check_login = (event) => {
+        event.preventDefault()
+        supabase.auth.signInWithPassword({
+            email: event.target[0].value,
+            password: event.target[1].value
+        })   
     }
+    useEffect(()=>{
+        if(session){
+            navigate("/home");
+        }
+    }, [session])
+    
    
   return (
     <div className="login">
@@ -33,7 +33,7 @@ const Login= () => {
                     <p>Are you new DekHor?</p>
                     <a href="signup">Sign up</a>
                 </div>
-                <form action="#" onSubmit={get_data}>
+                <form action="#" onSubmit={check_login}>
                     <div className="input-box">
                         <input type="username" placeholder="Email" />
                     </div>

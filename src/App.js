@@ -1,5 +1,5 @@
-import React from 'react';
-import {Routes,Route,Navigate} from "react-router-dom";
+import React, { useEffect,useState ,createContext} from 'react';
+import {Routes,Route,Navigate,useNavigationType,useLocation} from 'react-router-dom';
 import Home from './pages/Home';
 import Report from "./pages/Report";
 import WriteBlog from './pages/WriteBlog';
@@ -20,69 +20,98 @@ import Reportfinish from './pages/Reportfinish';
 import Forget from './pages/Forget';
 import Contactfinish from './pages/Contactfinish';
 import Blogger from './pages/Blogger';
-import { useEffect } from "react";
+import { createClient } from '@supabase/supabase-js';
 
+const supabaseUrl = "https://kykxspcgnsbnzvbofapj.supabase.co";
+const supabaseKey = process.env.REACT_APP_SUPABASE_ANON_KEY;
+const supabase = createClient(supabaseUrl,supabaseKey);
+
+export const General =createContext({});
 
 function App() {
-  // const action = useNavigationType();
-  // const location = useLocation();
-  // const pathname = location.pathname;
+  const [session,setSession] =useState(null);
+  const action = useNavigationType();
+  const location = useLocation();
+  const pathname = location.pathname;
 
-  // useEffect(() => {
-  //   if (action !== "POP") {
-  //     window.scrollTo(0, 0);
-  //   }
-  // }, [action, pathname]);
+  useEffect(() => {
+    supabase.auth.getSession().then(({ data: { session } }) => {
+      setSession(session);
+    });
 
-  // useEffect(() => {
-  //   let title = "";
-  //   let metaDescription = "";
+    const {
+      data: { subscription },
+    } = supabase.auth.onAuthStateChange((_event, session) => {
+      setSession(session);
+    });
+    return () => subscription.unsubscribe();
+  }, []);
 
-  //   switch (pathname) {
-  //     case "/":
-  //       title = "";
-  //       metaDescription = "";
-  //       break;
-  //   }
+  useEffect(() => {
+    if (action !== "POP") {
+      window.scrollTo(0, 0);
+    }
+  }, [action, pathname]);
 
-  //   if (title) {
-  //     document.title = title;
-  //   }
+  useEffect(() => {
+    let title = "";
+    let metaDescription = "";
 
-  //   if (metaDescription) {
-  //     const metaDescriptionTag = document.querySelector(
-  //       'head > meta[name="description"]'
-  //     );
-  //     if (metaDescriptionTag) {
-  //       metaDescriptionTag.content = metaDescription;
-  //     }
-  //   }
-  // }, [pathname]);
+    switch (pathname) {
+      case "/":
+        title = "";
+        metaDescription = "";
+        break;
+    }
+
+    if (title) {
+      document.title = title;
+    }
+
+    if (metaDescription) {
+      const metaDescriptionTag = document.querySelector(
+        'head > meta[name="description"]'
+      );
+      if (metaDescriptionTag) {
+        metaDescriptionTag.content = metaDescription;
+      }
+    }
+  }, [pathname]);
+
+  const value = {
+    supabase_for_use: supabase,
+    session: session,
+    user: session?.user,
+  };
 
   return (
-    <Routes>
-      <Route path="/" element={<Navigate to ='/home'/>} />
-      <Route path="/home" element={<Home />} />
-      <Route path="/login" element={<Login />} />
-      <Route path="/signup" element={<Signup />} />
-      <Route path="/resetpassword" element={<Resetpassword />} />
-      <Route path="/report" element={<Report />} />
-      <Route path="/writeblog" element={<WriteBlog />} />
-      <Route path="/contact" element={<Contact />}/>
-      <Route path="/profile" element={<Profile />}/>
-      <Route path="/cleaning" element={<Cleaning />}/>
-      <Route path="/cleaning/:id" element={<CleaningDetails />}/>
-      <Route path="/cooking" element={<Cooking />}/>
-      <Route path="/cooking/:id" element={<CookingDetails />}/>
-      <Route path="/decoration" element={<Decoration />}/>
-      <Route path="/decoration/:id" element={<DecorationDetails />}/>
-      <Route path="/story" element={<Story />}/>
-      <Route path="/story/:id" element={<StoryDetails />}/>
-      <Route path="/reportfinish" element={<Reportfinish />}/>
-      <Route path="/forget" element={<Forget />}/>
-      <Route path="/contactfinish" element={<Contactfinish />}/>
-      <Route path="/blogger" element={<Blogger />}/>
-    </Routes>
+    <General.Provider
+      value = {value}
+    >
+      <Routes>
+        <Route path="/" element={<Navigate to ='/home'/>} />
+        <Route path="/home" element={<Home />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/resetpassword" element={<Resetpassword />} />
+        <Route path="/report" element={<Report />} />
+        <Route path="/writeblog" element={<WriteBlog />} />
+        <Route path="/contact" element={<Contact />}/>
+        <Route path="/profile" element={<Profile />}/>
+        <Route path="/cleaning" element={<Cleaning />}/>
+        <Route path="/cleaning/:id" element={<CleaningDetails />}/>
+        <Route path="/cooking" element={<Cooking />}/>
+        <Route path="/cooking/:id" element={<CookingDetails />}/>
+        <Route path="/decoration" element={<Decoration />}/>
+        <Route path="/decoration/:id" element={<DecorationDetails />}/>
+        <Route path="/story" element={<Story />}/>
+        <Route path="/story/:id" element={<StoryDetails />}/>
+        <Route path="/reportfinish" element={<Reportfinish />}/>
+        <Route path="/forget" element={<Forget />}/>
+        <Route path="/contactfinish" element={<Contactfinish />}/>
+        <Route path="/blogger" element={<Blogger />}/>
+      </Routes>
+    </General.Provider> 
   );
 }
 export default App;
