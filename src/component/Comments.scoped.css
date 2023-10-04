@@ -1,0 +1,27 @@
+p{
+    margin-left: 0.5rem;
+}
+
+.comment-icon{
+    color: rgba(0, 0, 0, 0.402);
+    cursor: pointer;
+}
+
+.comment-icon:hover{
+    color: black;
+    scale: 1.2;
+}
+
+.btn{
+    display: flex;
+    padding: 0;
+}
+
+.title{
+    width:100%;
+    padding-top: 1rem;
+    display: flex ;
+    color: black;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.402) ;
+}
+

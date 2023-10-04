@@ -15,8 +15,8 @@
     display: none;
 }
 
-/* header{
-    position: fixed;
+header{
+    position: sticky;
     top: 0;
     left: 0;
     width: 100%;
@@ -24,10 +24,11 @@
     display: flex;
     align-items: center;
     z-index: 99;
-}  */
+} 
+
 
 .Navbar {
-    position: sticky;
+    position: sticky ;
     display: flex;
     width: 100%;
     justify-content: space-between;
@@ -35,6 +36,7 @@
     padding-right: 4rem;
     background-color: #3D39BD;
     box-shadow: 0 2px 4px rgba(76, 74, 74, 0.598);
+    z-index: 99;
 }
 
 .menu_content{
