@@ -44,7 +44,7 @@ app.post("/signup", async (req,res) => {
             }
         }
     });
-    // await supabase.from("user_profile").insert({email:email ,username:username});
+    await supabase.from("profile_user").insert({email:email ,username:username});
     if (error ){
         res.status(500).json(error);
     }
@@ -52,6 +52,30 @@ app.post("/signup", async (req,res) => {
         res.status(200).json(data);
     }
 });
+
+//edit_profile
+app.post("/edit_profile",async (req,res) =>{
+    const {username,email,id} = req.body;
+    const { data:user, error } = await supabase.auth.admin.updateUserById(
+        id,
+        { user_metadata: { username: username } }
+    )
+    // if (error ){
+    //     res.status(500).json(error);
+    // }
+    // else{
+    //     res.status(200).json(user);
+    const { ERROR } = await supabase
+    .from("profile_user")
+    .update({ username:username })
+    .eq("email",email )
+    if (error ){
+        res.status(500).json(error);
+    }
+    else{
+        res.status(200).json(user);
+    }
+})
 
 //login
 // app.post("/login",async (req,res) => {
