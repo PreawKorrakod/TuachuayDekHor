@@ -1,4 +1,4 @@
-import React,{useState, useEffect} from 'react'
+import React,{useState, useEffect, useContext} from 'react'
 import img1 from '../../src/Assets/slide1.png'
 import img2 from '../../src/Assets/slide2.png'
 import img3 from '../../src/Assets/slide3.png'
@@ -41,7 +41,7 @@ const LikeSlide = () => {
     <div className="content">
             <div className="main_content">
                 {
-                    Data.map(({id,imgSrc,destTitle,writer})=>{
+                    Data.map(({id,imgSrc,destTitle,writer,category})=>{
                         return(
                             <div className="singleDest">
                                 <div className="dastImage">
@@ -53,7 +53,7 @@ const LikeSlide = () => {
                                     </div>
                                     <div className="destText">
                                         <h4>
-                                            <Link to={`/${category}/${session}`}>{destTitle}</Link>
+                                            <Link to={`/${category}/${id}`}>{destTitle}</Link>
                                         </h4>
                                         <span className="userwrite">
                                             <span className="name"><BiSolidPencil size={20} className="icon_pencil"/>

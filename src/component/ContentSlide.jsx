@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useContext} from "react";
 import "./ContentSlide.scoped.css";
 import { TiArrowRight } from "react-icons/ti";
 import { BsFillArrowRightCircleFill,BsFillArrowLeftCircleFill } from "react-icons/bs";
@@ -11,6 +11,12 @@ import img1 from '../../src/Assets/slide1.png'
 import img2 from '../../src/Assets/slide2.png'
 import img3 from '../../src/Assets/slide3.png'
 import img4 from '../../src/Assets/slide4.png'
+// import { General } from '../App';
+
+
+
+
+// const { supabase_for_use: supabase, session, user } = useContext(General);
 
 
 const Data =[
@@ -73,6 +79,7 @@ const Data =[
 
 const ContentSlide =() => {
 
+    const { supabase_for_use: supabase, session, user } = useContext(General);
 
     return (
         <div className="content">
@@ -90,7 +97,7 @@ const ContentSlide =() => {
                                     </div>
                                     <div className="destText">
                                         <h4>
-                                            <Link to={`/${category}/${session}`}>{destTitle}</Link>
+                                            <Link to={`/${category}/${id}`}>{destTitle}</Link>
                                         </h4>
                                         <span className="userwrite">
                                             <span className="name"><BiSolidPencil size={20} className="icon_pencil"/>

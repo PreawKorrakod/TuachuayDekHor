@@ -106,13 +106,13 @@ function App() {
         <Route path="/contact" element={<Contact />}/>
         <Route path="/profile" element={<Profile />}/>
         <Route path="/cleaning" element={<Cleaning />}/>
-        <Route path="/cleaning/:session" element={<CleaningDetails />}/>
+        <Route path="/cleaning/:id" element={<CleaningDetails />}/>
         <Route path="/cooking" element={<Cooking />}/>
-        <Route path="/cooking/:session" element={<CookingDetails />}/>
+        <Route path="/cooking/:id" element={<CookingDetails />}/>
         <Route path="/decoration" element={<Decoration />}/>
-        <Route path="/decoration/:session" element={<DecorationDetails />}/>
+        <Route path="/decoration/:id" element={<DecorationDetails />}/>
         <Route path="/story" element={<Story />}/>
-        <Route path="/story/:session" element={<StoryDetails />}/>
+        <Route path="/story/:id" element={<StoryDetails />}/>
         <Route path="/reportfinish" element={<Reportfinish />}/>
         <Route path="/contactfinish" element={<Contactfinish />}/>
         <Route path="/blogger" element={<Blogger />}/>

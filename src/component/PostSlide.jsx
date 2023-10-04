@@ -4,7 +4,7 @@ import img1 from '../../src/Assets/slide1.png'
 import img2 from '../../src/Assets/slide2.png'
 import img3 from '../../src/Assets/slide3.png'
 import img4 from '../../src/Assets/slide4.png'
-import {BsHeartFill} from "react-icons/bs";
+import {BsHeartFill,BsFillTrashFill} from "react-icons/bs";
 import { Link } from "react-router-dom";
 import {BiSolidPencil} from "react-icons/bi";
 
@@ -31,7 +31,7 @@ const PostSlide = () => {
     <div className="content">
             <div className="main_content">
                 {
-                    Data.map(({id,imgSrc,destTitle,writer,heart})=>{
+                    Data.map(({id,imgSrc,destTitle,writer,category})=>{
                         return(
                             <div className="singleDest">
                                 <div className="dastImage">
@@ -39,7 +39,7 @@ const PostSlide = () => {
                                 </div>
                                 <div className="destFooter">
                                     <div className="heart">
-                                        <BsHeartFill size={25}/><p>{heart}</p>
+                                        <BsFillTrashFill size={25} className='icon-delete'/>
                                     </div>
                                     <div className="destText">
                                         <h4>
