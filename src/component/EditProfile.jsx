@@ -1,24 +1,38 @@
-import React, { useState } from 'react';
+import React, { useState,useContext  } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import "./EditProfile.scoped.css";
+import axios from 'axios';
+import { General } from '../App';
 
 function Editprofile(props) {
+    const{supabase_for_use : supabase,user} = useContext(General);
     const [show, setShow] = useState(false);
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
-
+    
     function handleUpdate(event) {
         event.preventDefault();
         const newName = event.target[0].value;
-        const newDescribe = event.target[1].value;
+        // const newDescribe = event.target[1].value;
         if (newName !== props.name) {
-            props.setName(newName);
+            axios.post("http://localhost:3300/edit_profile",{
+                id: user.id,
+                username: newName,
+                email: user.email,
+            }).then(res=>{
+                supabase.auth.refreshSession();
+                props.setName(newName);
+            })
+            .catch((err) => {
+                alert(err)
+            })
+
         }
-        if (newDescribe !== props.describe) {
-            props.setDescribe(newDescribe);
-        }
+        // if (newDescribe !== props.describe) {
+        //     props.setDescribe(newDescribe);
+        // }
         handleClose();
     }
 
@@ -55,7 +69,7 @@ function Editprofile(props) {
                                             </div>
                                         </div>
 
-                                        <div className='descisbe__text'>
+                                        {/* <div className='descisbe__text'>
                                             <label for="descisbe" className='descisbe'>Describe about yoursellf</label>
                                             <div className='describe__box'>
                                                 <textarea
@@ -65,7 +79,7 @@ function Editprofile(props) {
                                                     defaultValue={props.describe} >
                                                 </textarea>
                                             </div>
-                                        </div>
+                                        </div> */}
                                     </div>
                                 </div>
                                 <div class="input__Image">
