@@ -77,6 +77,19 @@ app.post("/edit_profile",async (req,res) =>{
     }
 })
 
+//creatpost
+app.post("/creatpost", async (req,res)=>{
+    const {title,content,category,email} = req.body;
+    const {data ,error} = await supabase.from("Create_Post").insert({title:title,content:content,category:category,email:email})
+    if (error){
+        res.status(500).json(error);
+    }
+    else{
+        res.status(200).json(data);
+    }
+
+})
+
 //login
 // app.post("/login",async (req,res) => {
 //     const{email,password} = req.body;

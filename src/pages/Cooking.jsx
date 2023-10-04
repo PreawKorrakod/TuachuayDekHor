@@ -3,9 +3,7 @@ import "./Decoration.scoped.css"
 import Navbar from "../component/Nav";
 import ImgSlide from '../component/ImgSlide';
 import {Container} from 'reactstrap'
-import SlideCooking from '../component/SlideCooking';
 import ContentSlide from '../component/ContentSlide';
-
 
 function Cooking() {
   return (
@@ -23,7 +21,7 @@ function Cooking() {
             <div className="rec__title">
               <h2 className="title_sub">Let's make easy food with DekHor</h2>
             </div>
-            <ContentSlide></ContentSlide>
+          <ContentSlide></ContentSlide>
         </div>
       </div>
     </div>   

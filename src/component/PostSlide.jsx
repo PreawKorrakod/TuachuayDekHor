@@ -14,7 +14,7 @@ const Data =[
             imgSrc: img1,
             destTitle: 'ห้องน่ารักๆ สำหรับเด็กหอ',
             writer: 'Username',
-            heart : 123,
+            category:'story',
         },
     
         {
@@ -22,7 +22,7 @@ const Data =[
             imgSrc: img2,
             destTitle: 'How to study by DekHor',
             writer: 'Username',
-            heart : 143,
+            category:'cooking',
         },
     ]
 
@@ -43,7 +43,7 @@ const PostSlide = () => {
                                     </div>
                                     <div className="destText">
                                         <h4>
-                                            <Link to={`/story/${id}`}>{destTitle}</Link>
+                                            <Link to={`/${category}/${id}`}>{destTitle}</Link>
                                         </h4>
                                         <span className="userwrite">
                                             <span className="name"><BiSolidPencil size={20} className="icon_pencil"/>

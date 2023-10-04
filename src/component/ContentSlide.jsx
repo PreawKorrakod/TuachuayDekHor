@@ -90,7 +90,7 @@ const ContentSlide =() => {
                                     </div>
                                     <div className="destText">
                                         <h4>
-                                            <Link to={`/${category}/${id}`}>{destTitle}</Link>
+                                            <Link to={`/${category}/${session}`}>{destTitle}</Link>
                                         </h4>
                                         <span className="userwrite">
                                             <span className="name"><BiSolidPencil size={20} className="icon_pencil"/>

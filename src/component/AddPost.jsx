@@ -1,10 +1,13 @@
-import React, { useRef, useState } from 'react'
+import React, { useRef, useState ,useContext} from 'react'
 import { Card, CardBody, Form, Input, Label, Button, Container, FormGroup } from 'reactstrap'
 import "./AddPost.scoped.css"
 import JoditEditor from 'jodit-react';
+import { General } from '../App';
+import axios from 'axios';
 
 function AddPost() {
-
+    const {supabase_for_use:supabase,session,user} = useContext(General);
+    
     const editor = useRef(null);
     // const [content, setContent] = useState('')
 
@@ -12,7 +15,7 @@ function AddPost() {
             title:'',
             content:'',
             category:'',
-        })
+    })
         
 
     // fieldChanged function
@@ -31,10 +34,23 @@ function AddPost() {
 
     // create post function
     const createPost = (event) =>{
-
-        event.preventDefault();
-    
+        // console.log(user?.email)
         console.log(post)
+        event.preventDefault();
+       
+        axios.post("http://localhost:3300/creatpost",{
+            title: post.title,
+            content: post.content,
+            category: post.category,
+        })
+        .then(data =>{
+            alert("post created")
+        })
+        .catch((err) => {
+            alert(err)
+        })
+    
+        // console.log(post)
         if(post.title.trim()==''){
            alert('post is required!!')
            return; 
@@ -49,13 +65,13 @@ function AddPost() {
         }
 
         // submit the form 
-        createPost(post).then(data =>{
-            alert("post created")
-            console.log(post)
-        }).catch((error)=>{
-            alert('error')
-            console.log(error)
-        })
+        // createPost(post).then(data =>{
+        //     alert("post created")
+            // console.log(post)
+        // }).catch((error)=>{
+        //     alert('error')
+        //     console.log(error)
+        // })
     }
 
     return (
@@ -65,6 +81,7 @@ function AddPost() {
                     {/* check */}
                     {JSON.stringify(post)}
                     {/* <p>Let's make your blog</p> */}
+                    <Form action='#' onSubmit={createPost}>
                     <Form onSubmit={createPost}>
                         <div className="img_cover">
                             <Input

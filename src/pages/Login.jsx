@@ -12,7 +12,7 @@ const Login= () => {
         event.preventDefault()
         supabase.auth.signInWithPassword({
             email: event.target[0].value,
-            password: event.target[1].value
+            password: event.target[1].value,
         })   
     }
     useEffect(()=>{
