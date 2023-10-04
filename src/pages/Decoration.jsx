@@ -2,8 +2,7 @@ import React from 'react'
 import "./Decoration.scoped.css"
 import Navbar from "../component/Nav";
 import {Col,Row,Container} from "reactstrap";
-import DecSlide from '../component/DecSlide';
-import CategorySlide from '../component/CategorySlide';
+import ContentSlide from '../component/ContentSlide';
 
 function Decoration() {
   return (
@@ -11,8 +10,7 @@ function Decoration() {
       <header>
         <Navbar/>
       </header>
-      <CategorySlide/>
-      {/* <main>
+      <main>
         <h1 className="title">
             DECORATION
         </h1>
@@ -22,9 +20,9 @@ function Decoration() {
             <div className="rec__title">
               <h2 className="title_sub">Idea for Your Room By DekHor</h2>
             </div>
-          <DecSlide></DecSlide>
+          <ContentSlide/>
         </div>
-      </div> */}
+      </div>
     </div>   
     )
 }

@@ -14,7 +14,7 @@ const Data =[
             imgSrc: img3,
             destTitle: '10 Awesome Books',
             writer: 'Narak',
-            heart : 123,
+            category:'story',
         },
     
         {
@@ -22,7 +22,7 @@ const Data =[
             imgSrc: img4,
             destTitle: 'Pasta by DekHor',
             writer: 'Sleep_more',
-            heart : 143,
+            category:'cooking',
         },
     ]
 
@@ -43,7 +43,7 @@ const LikeSlide = () => {
                                     </div>
                                     <div className="destText">
                                         <h4>
-                                            <Link to={`/story/${id}`}>{destTitle}</Link>
+                                            <Link to={`/${category}/${session}`}>{destTitle}</Link>
                                         </h4>
                                         <span className="userwrite">
                                             <span className="name"><BiSolidPencil size={20} className="icon_pencil"/>

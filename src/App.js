@@ -1,4 +1,4 @@
-import React, { useEffect,useState ,createContext} from 'react';
+import React, { useEffect,useState ,createContext,useRef} from 'react';
 import {Routes,Route,Navigate,useNavigationType,useLocation} from 'react-router-dom';
 import Home from './pages/Home';
 import Report from "./pages/Report";
@@ -15,12 +15,11 @@ import CookingDetails from './pages/CookingDetails';
 import DecorationDetails from './pages/DecorationDetails';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
-import Resetpassword from './pages/Resetpassword';
 import Reportfinish from './pages/Reportfinish';
-import Forget from './pages/Forget';
 import Contactfinish from './pages/Contactfinish';
 import Blogger from './pages/Blogger';
 import { createClient } from '@supabase/supabase-js';
+import guarderout from './component/guarderout';
 
 const supabaseUrl = "https://kykxspcgnsbnzvbofapj.supabase.co";
 const supabaseKey = process.env.REACT_APP_SUPABASE_ANON_KEY;
@@ -33,6 +32,8 @@ function App() {
   const action = useNavigationType();
   const location = useLocation();
   const pathname = location.pathname;
+  const[isFetching,setFetching] = useState(true);
+  const didMount = useRef(false);
 
   useEffect(() => {
     supabase.auth.getSession().then(({ data: { session } }) => {
@@ -46,6 +47,12 @@ function App() {
     });
     return () => subscription.unsubscribe();
   }, []);
+  useEffect(()=>{
+    if (!didMount.current){
+      return() =>(didMount.current = true);
+    }
+    setFetching(false);
+  },[session]);
 
   useEffect(() => {
     if (action !== "POP") {
@@ -79,6 +86,7 @@ function App() {
   }, [pathname]);
 
   const value = {
+    isFetching: isFetching,
     supabase_for_use: supabase,
     session: session,
     user: session?.user,
@@ -93,23 +101,26 @@ function App() {
         <Route path="/home" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
-        <Route path="/resetpassword" element={<Resetpassword />} />
         <Route path="/report" element={<Report />} />
         <Route path="/writeblog" element={<WriteBlog />} />
         <Route path="/contact" element={<Contact />}/>
         <Route path="/profile" element={<Profile />}/>
         <Route path="/cleaning" element={<Cleaning />}/>
-        <Route path="/cleaning/:id" element={<CleaningDetails />}/>
+        <Route path="/cleaning/:session" element={<CleaningDetails />}/>
         <Route path="/cooking" element={<Cooking />}/>
-        <Route path="/cooking/:id" element={<CookingDetails />}/>
+        <Route path="/cooking/:session" element={<CookingDetails />}/>
         <Route path="/decoration" element={<Decoration />}/>
-        <Route path="/decoration/:id" element={<DecorationDetails />}/>
+        <Route path="/decoration/:session" element={<DecorationDetails />}/>
         <Route path="/story" element={<Story />}/>
-        <Route path="/story/:id" element={<StoryDetails />}/>
+        <Route path="/story/:session" element={<StoryDetails />}/>
         <Route path="/reportfinish" element={<Reportfinish />}/>
-        <Route path="/forget" element={<Forget />}/>
         <Route path="/contactfinish" element={<Contactfinish />}/>
         <Route path="/blogger" element={<Blogger />}/>
+        {/* <Route element = {<guarderout/>}>
+          <Route path="/profile" element={<Profile />}/>
+          <Route path="/writeblog" element={<WriteBlog />} />
+          <Route path="/report" element={<Report />} />
+        </Route> */}
       </Routes>
     </General.Provider> 
   );

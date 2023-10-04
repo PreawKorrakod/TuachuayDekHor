@@ -3,13 +3,8 @@ import React from 'react';
 import Navbar from "../component/Nav";
 import { Container } from "reactstrap";
 import ContentSlide from "../component/ContentSlide";
-import SlideCooking from "../component/SlideCooking";
-import DecSlide from "../component/DecSlide";
-import CleanSlide from "../component/CleanSlide";
-import StorySlide from "../component/StorySlide";
 import { Link } from "react-router-dom";
-import CategorySlide from "../component/CategorySlide";
-import ContactModal from "../component/ContactModel";
+
 
 
 
