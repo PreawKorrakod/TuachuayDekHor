@@ -15,6 +15,16 @@
     background-color: #f8f8f8;
 }
 
+header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: #3D39BD;
+    display: flex;
+    align-items: center;
+    z-index: 99;
+} 
 
 .noti-box h2{
     padding: 2rem;

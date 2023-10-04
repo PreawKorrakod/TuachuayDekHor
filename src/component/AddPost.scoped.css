@@ -115,3 +115,9 @@
     display: flex;
     justify-content: center;
 }
+
+.img_cover{
+    width: 50%;
+    padding-top: 2rem;
+    padding-left: 1rem;
+}

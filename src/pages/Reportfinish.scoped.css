@@ -11,6 +11,17 @@
     background-size: cover;
 }
 
+header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: #3D39BD;
+    display: flex;
+    align-items: center;
+    z-index: 99;
+} 
+
 .noti-box{
     width: 100%;
     height: max-content;

@@ -66,6 +66,14 @@ function AddPost() {
                     {JSON.stringify(post)}
                     {/* <p>Let's make your blog</p> */}
                     <Form onSubmit={createPost}>
+                        <div className="img_cover">
+                            <Input
+                                type="file"
+                                id='Photo'
+                                className='rounded-2'
+                            >
+                            </Input>
+                        </div>
                         <div className='title__head'>
                             <Label for='title'>Title</Label>
                             <Input

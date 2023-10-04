@@ -18,7 +18,7 @@ const Profile = () => {
 
   const [activeTab, setactiveTab] = useState("1");
 
-  const [name, setName] = useState(user.user_metadata.username);
+  const [name, setName] = useState(user?.user_metadata.username);
   // const [describe, setDescribe] = useState("Describe");
 
   function toggle(tab) {

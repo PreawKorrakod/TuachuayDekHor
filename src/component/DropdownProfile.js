@@ -12,7 +12,7 @@ import { General } from '../App';
 
 
 function DropdownProfile(){
-    const {session,user} = useContext(General);
+    const {supabase_for_use : supabase,session,user} = useContext(General);
 
     const sign__out = () =>{
         supabase.auth.signOut();

@@ -2,6 +2,7 @@ import React from 'react'
 import "./Decoration.scoped.css"
 import Navbar from "../component/Nav";
 import StorySlide from '../component/StorySlide';
+import ContentSlide from '../component/ContentSlide';
 
 function Story() {
   return (
@@ -19,7 +20,7 @@ function Story() {
             <div className="rec__title">
               <h2 className="title_sub">Story By DekHor</h2>
             </div>
-          <StorySlide></StorySlide>
+          <ContentSlide></ContentSlide>
         </div>
       </div>
     </div>   

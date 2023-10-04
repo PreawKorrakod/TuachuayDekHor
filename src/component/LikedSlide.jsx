@@ -1,5 +1,4 @@
-import React from 'react'
-import './ContentSlide.scoped.css'
+import React,{useState, useEffect} from 'react'
 import img1 from '../../src/Assets/slide1.png'
 import img2 from '../../src/Assets/slide2.png'
 import img3 from '../../src/Assets/slide3.png'
@@ -7,6 +6,8 @@ import img4 from '../../src/Assets/slide4.png'
 import {BsHeartFill} from "react-icons/bs";
 import { Link } from "react-router-dom";
 import {BiSolidPencil} from "react-icons/bi";
+import './LikeSlide.scoped.css'
+// import "./ContentSlide.scoped.css"
 
 const Data =[
         {
@@ -14,7 +15,6 @@ const Data =[
             imgSrc: img3,
             destTitle: '10 Awesome Books',
             writer: 'Narak',
-            heart : 123,
         },
     
         {
@@ -22,16 +22,24 @@ const Data =[
             imgSrc: img4,
             destTitle: 'Pasta by DekHor',
             writer: 'Sleep_more',
-            heart : 143,
         },
     ]
 
 const LikeSlide = () => {
+
+    const [like,setLike] = useState(0);
+
+    console.log(like)
+
+    const addlike = () =>{
+        
+    }
+
   return (
     <div className="content">
             <div className="main_content">
                 {
-                    Data.map(({id,imgSrc,destTitle,writer,heart})=>{
+                    Data.map(({id,imgSrc,destTitle,writer})=>{
                         return(
                             <div className="singleDest">
                                 <div className="dastImage">
@@ -39,7 +47,7 @@ const LikeSlide = () => {
                                 </div>
                                 <div className="destFooter">
                                     <div className="heart">
-                                        <BsHeartFill size={25}/><p>{heart}</p>
+                                        <BsHeartFill size={25} className='like-icon' onClick={()=>setLike(like+1) ? "like":"nolike"} onSubmit={addlike}/>
                                     </div>
                                     <div className="destText">
                                         <h4>

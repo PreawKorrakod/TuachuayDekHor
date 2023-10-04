@@ -3,7 +3,7 @@ import Navbar from '../component/Nav'
 import './StoryDetails.scoped.css'
 import {Container,Input,Card} from 'reactstrap'
 import {RiFlag2Line,RiMessage2Line,RiSendPlaneFill} from "react-icons/ri";
-import {BsHeart,BsFillTrashFill} from "react-icons/bs";
+import {BsHeart,BsFillTrashFill,BsHeartFill} from "react-icons/bs";
 import {AiFillEdit} from "react-icons/ai";
 import { Link } from 'react-router-dom';
 import Avatar from '../component/Avatar';
@@ -11,6 +11,10 @@ import Comments from '../component/Comments';
 
 
 function StoryDetails() {
+
+  const [like,setLike] = useState(0);
+
+  console.log(like)
 
   const user = false;
 
@@ -37,8 +41,8 @@ function StoryDetails() {
               <div className="first">
                 <div className="like__box">
                   <div className="heart">
-                    <BsHeart size={25} className='like__icon'/>
-                    <p>102</p>
+                    <BsHeart size={25} className={like === 0 ? "nolike" : "like"} onClick={()=> setLike(like+1)}/>
+                    <p>{like}</p>
                   </div>
                 </div>
                 <div className="comment__icon">

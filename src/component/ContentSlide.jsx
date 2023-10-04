@@ -73,7 +73,6 @@ const Data =[
 
 const ContentSlide =() => {
 
-    
 
     return (
         <div className="content">

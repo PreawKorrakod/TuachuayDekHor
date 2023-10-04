@@ -171,10 +171,21 @@ img{
     cursor: pointer;
 }
 
-.like__icon{
+.nolike{
     color: rgba(0, 0, 0, 0.402);
     cursor: pointer;
 }
+
+.like{
+    color: rgb(209, 89, 89);
+    fill: rgb(209, 89, 89);
+}
+
+/* .like__icon:active{
+    color: rgb(209, 89, 89);
+    cursor: pointer;
+} */
+
 /* .story__content{
     width: 100vw;
     height:100vh;
