@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useContext } from "react";
 import "./Profile.scoped.css";
 import PostSlide from "../component/PostSlide";
 import LikeSlide from "../component/LikedSlide";
@@ -8,13 +8,18 @@ import Avatar from "../component/Avatar";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Editprofile from "../component/EditProfile";
 import ContactModal from "../component/ContactModel";
+import { General } from '../App';
+import axios from 'axios';
 
 const Profile = () => {
-  const user = true;
+  const {supabase_for_use : supabase,session,user} = useContext(General);
+  // supabase.auth.refreshSession()
+  // console.log(user.user_metadata.username)
+
   const [activeTab, setactiveTab] = useState("1");
 
-  const [name, setName] = useState("Username");
-  const [describe, setDescribe] = useState("Describe");
+  const [name, setName] = useState(user.user_metadata.username);
+  // const [describe, setDescribe] = useState("Describe");
 
   function toggle(tab) {
     if (activeTab !== tab) {
@@ -38,20 +43,20 @@ const Profile = () => {
             <div className="User_name">
               <h2>{name}</h2>
               {/* <h2>Username</h2> */}
-              <p>{describe}</p>
+              {/* <p>{describe}</p> */}
               {/* <p>describe..</p> */}
             </div>
           </div>
           <div className="edit">
             {/* ---Button triger modal--- */}
-            {user? <ContactModal/> : <button className="edit__profile">
+            {session? <button className="edit__profile">
               <Editprofile
                 name={name}
                 setName={setName}
-                describe={describe}
-                setDescribe={setDescribe}
+                // describe={describe}
+                // setDescribe={setDescribe}
               />
-            </button>}
+            </button> : <ContactModal/>}
           </div>
         </div>
         <div className="contents__box">
