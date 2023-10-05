@@ -3,6 +3,7 @@ import './CheckDelete.scoped.css'
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import {BsFillTrashFill} from "react-icons/bs";
+import axios from 'axios';
 
 const CheckDelete = () => {
   const [show, setShow] = useState(false);
@@ -11,7 +12,13 @@ const CheckDelete = () => {
   const handleShow = () => setShow(true);
 
   const handledelete = () => {
-    // ปุ๋มมาทำตรงนี้
+        // event.preventDefault();
+        axios.delete("http://localhost:3300/deletepost", {
+        //     // id_post: 2,
+        })
+        .catch((err) => {
+            alert(err)
+        })
   }
 
   return (

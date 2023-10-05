@@ -1,53 +1,57 @@
-import React,{useState} from 'react'
+import React, { useState } from 'react'
 import './ContentSlide.scoped.css'
 import img1 from '../../src/Assets/slide1.png'
 import img2 from '../../src/Assets/slide2.png'
-import {BsFillTrashFill} from "react-icons/bs";
+import { BsHeartFill, BsFillTrashFill } from "react-icons/bs";
 import { Link } from "react-router-dom";
-import {BiSolidPencil} from "react-icons/bi";
+import { BiSolidPencil } from "react-icons/bi";
+import axios from 'axios';
 import CheckDelete from './CheckDelete'
 
-const Data =[
-        {
-            id:1,
-            imgSrc: img1,
-            destTitle: 'ห้องน่ารักๆ สำหรับเด็กหอ',
-            writer: 'Username',
-            category:'story',
-        },
-    
-        {
-            id:2,
-            imgSrc: img2,
-            destTitle: 'How to study by DekHor',
-            writer: 'Username',
-            category:'cooking',
-        },
-    ]
+const Data = [
+    {
+        id_post: 1,
+        imgSrc: img1,
+        destTitle: 'ห้องน่ารักๆ สำหรับเด็กหอ',
+        writer: 'Username',
+        category: 'story',
+    },
 
+    {
+        id_post: 2,
+        imgSrc: img2,
+        destTitle: 'How to study by DekHor',
+        writer: 'Username',
+        category: 'cooking',
+    },
+]
+////////////แก้///////////////////////////////////////////
 const PostSlide = () => {
 
-  return (
-    <div className="content">
+    // const [click,setClick] = useState(0)
+
+    // console.log(click)
+    return (
+        <div className="content">
             <div className="main_content">
                 {
-                    Data.map(({id,imgSrc,destTitle,writer,category})=>{
-                        return(
+                    Data.map(({ id_post, imgSrc, destTitle, writer, category }) => {
+                        return (
                             <div className="singleDest">
                                 <div className="dastImage">
-                                    <img src= {imgSrc} alt="" />
+                                    <img src={imgSrc} alt="" />
                                 </div>
                                 <div className="destFooter">
-                                    <div className="heart">
-                                        {/* {CheckDelete && <BsFillTrashFill size={25} className='icon-delete' onClick={handledelete}/>} */}
+                                    <div className="heart"  >
+                                        {/* {CheckDelete && <BsFillTrashFill size={25} type='submit' className='icon-delete'onSubmit={data}  onClick={handledelete}/>} */}
                                         <CheckDelete/>
                                     </div>
                                     <div className="destText">
                                         <h4>
-                                            <Link to={`/${category}/${id}`}>{destTitle}</Link>
+                                            <Link to={`/${category}/${id_post}`}>{destTitle}</Link>
                                         </h4>
                                         <span className="userwrite">
-                                            <span className="name"><BiSolidPencil size={20} className="icon_pencil"/>
+                                            <span className="name"><BiSolidPencil size={20} className="icon_pencil" />
                                                 {writer}
                                             </span>
                                         </span>
@@ -58,10 +62,10 @@ const PostSlide = () => {
                     }
                     )
                 }
-                
+
             </div>
         </div>
-  )
+    )
 }
 
 export default PostSlide;
