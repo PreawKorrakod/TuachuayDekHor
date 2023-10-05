@@ -87,11 +87,11 @@ app.post("/creatpost", async (req,res)=>{
 
 //delete
 app.delete("/deletepost",async (req,res)=>{
-    const id_post = req.body;
-    const {error } = await supabase
+    // const id_post = req.body;
+    const {error} = await supabase
     .from("Create_Post")
     .delete()
-    .eq('id_post', id_post)
+    .eq('id_post', 3)
     if (error){
         res.status(500).json(error);
     }
