@@ -60,11 +60,6 @@ app.post("/edit_profile",async (req,res) =>{
         id,
         { user_metadata: { username: username } }
     )
-    // if (error ){
-    //     res.status(500).json(error);
-    // }
-    // else{
-    //     res.status(200).json(user);
     const { ERROR } = await supabase
     .from("profile_user")
     .update({ username:username })
@@ -77,7 +72,7 @@ app.post("/edit_profile",async (req,res) =>{
     }
 })
 
-//creatpost
+//createpost
 app.post("/creatpost", async (req,res)=>{
     const {title,content,category,email} = req.body;
     const {data ,error} = await supabase.from("Create_Post").insert({title:title,content:content,category:category,email:email})
@@ -88,6 +83,18 @@ app.post("/creatpost", async (req,res)=>{
         res.status(200).json(data);
     }
 
+})
+
+//delete
+app.delete("/deletepost",async (req,res)=>{
+    const id_post = req.body;
+    const {error } = await supabase
+    .from("Create_Post")
+    .delete()
+    .eq('id_post', id_post)
+    if (error){
+        res.status(500).json(error);
+    }
 })
 
 //login
