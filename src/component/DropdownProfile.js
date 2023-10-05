@@ -4,6 +4,7 @@ import {BiLogOut,BiUserCircle} from "react-icons/bi";
 import Avatar from "./Avatar";
 import { Link } from "react-router-dom";
 import { General } from '../App';
+import Profile_img from '../../src/Assets/person-circle-outline.svg'
 
 // const supabaseUrl = "https://kykxspcgnsbnzvbofapj.supabase.co";
 // const supabaseKey = process.env.REACT_APP_SUPABASE_ANON_KEY;
@@ -30,7 +31,7 @@ function DropdownProfile(){
     })
     return(
         <div className="profile">
-           <img ref={imgRef} src={Avatar} alt="" className="User__profile" onClick={()=>setOpen(!open)} />
+           <img ref={imgRef} src={Profile_img} alt="" className="User__profile" onClick={()=>setOpen(!open)} />
            {open && 
            <div className="menus" ref={menuRef} onClick={()=>setOpen(!open)}>
                 <ul>

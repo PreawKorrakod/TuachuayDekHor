@@ -79,7 +79,7 @@ const Data =[
 
 const ContentSlide =() => {
 
-    const { supabase_for_use: supabase, session, user } = useContext(General);
+    // const { supabase_for_use: supabase, session, user } = useContext(General);
 
     return (
         <div className="content">

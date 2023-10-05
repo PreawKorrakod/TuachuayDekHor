@@ -22,7 +22,7 @@ function OffCanvasExample({ name, ...props }) {
         <Offcanvas.Header closeButton>
           <Offcanvas.Title>
             <div className="title">
-              <h4>Comments</h4><p>(20)</p>
+              <h4>Comments</h4><p>(3)</p>
             </div>
           </Offcanvas.Title>
         </Offcanvas.Header>
@@ -30,9 +30,51 @@ function OffCanvasExample({ name, ...props }) {
           <textarea
             name="comments" id="comments"
             rows="5" className='comments__input'
-            placeholder= 'What are your thoughts?'
+            placeholder= 'Write a comment...'
           >
           </textarea>
+          <div className="send_btn">
+            <button type='submit' className='send__btn'>
+              Submit
+            </button>
+          </div>
+
+          <div className="comment_blog">
+
+          <div className="comments_wrap">
+            <div className="comment">
+              <div className="username">
+                <img src="/person-circle-outline.svg" alt="" className='imgUser'/>
+                <h5>Username</h5>
+              </div>
+              <p className='comment-text'>this is helpful.</p>
+            </div>
+          </div>
+          
+          <div className="comments_wrap">
+            <div className="comment">
+              <div className="username">
+                <img src="/person-circle-outline.svg" alt="" className='imgUser'/>
+                <h5>Username</h5>
+              </div>
+              <p className='comment-text'>this is helpful very much.</p>
+            </div>
+          </div>
+
+          <div className="comments_wrap">
+            <div className="comment">
+              <div className="username">
+                <img src="/person-circle-outline.svg" alt="" className='imgUser'/>
+                <h5>Username</h5>
+              </div>
+              <p className='comment-text'>wow this is helpful.</p>
+            </div>
+          </div>
+
+
+
+            
+          </div>
         </Offcanvas.Body>
       </Offcanvas>
     </>

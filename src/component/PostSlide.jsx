@@ -1,12 +1,11 @@
-import React from 'react'
+import React,{useState} from 'react'
 import './ContentSlide.scoped.css'
 import img1 from '../../src/Assets/slide1.png'
 import img2 from '../../src/Assets/slide2.png'
-import img3 from '../../src/Assets/slide3.png'
-import img4 from '../../src/Assets/slide4.png'
-import {BsHeartFill,BsFillTrashFill} from "react-icons/bs";
+import {BsFillTrashFill} from "react-icons/bs";
 import { Link } from "react-router-dom";
 import {BiSolidPencil} from "react-icons/bi";
+import CheckDelete from './CheckDelete'
 
 const Data =[
         {
@@ -27,6 +26,7 @@ const Data =[
     ]
 
 const PostSlide = () => {
+
   return (
     <div className="content">
             <div className="main_content">
@@ -39,7 +39,8 @@ const PostSlide = () => {
                                 </div>
                                 <div className="destFooter">
                                     <div className="heart">
-                                        <BsFillTrashFill size={25} className='icon-delete'/>
+                                        {/* {CheckDelete && <BsFillTrashFill size={25} className='icon-delete' onClick={handledelete}/>} */}
+                                        <CheckDelete/>
                                     </div>
                                     <div className="destText">
                                         <h4>
