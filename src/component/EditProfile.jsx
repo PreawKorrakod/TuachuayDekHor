@@ -23,7 +23,7 @@ function Editprofile(props) {
                 email: user.email,
             }).then(res=>{
                 supabase.auth.refreshSession();
-                props.setName(newName);
+                // props.setName(newName);
             })
             .catch((err) => {
                 alert(err)

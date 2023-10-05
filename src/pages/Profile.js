@@ -13,12 +13,13 @@ import axios from 'axios';
 
 const Profile = () => {
   const {supabase_for_use : supabase,session,user} = useContext(General);
+  const name = user?.user_metadata.username;
   // supabase.auth.refreshSession()
   // console.log(user?.user_metadata.username)
 
   const [activeTab, setactiveTab] = useState("1");
 
-  const [name, setName] = useState(user?.user_metadata.username);
+  // const [name, setName] = useState(user?.user_metadata.username);
   // const [describe, setDescribe] = useState("Describe");
 
   function toggle(tab) {
@@ -52,7 +53,6 @@ const Profile = () => {
             {session? <button className="edit__profile">
               <Editprofile
                 name={name}
-                setName={setName}
                 // describe={describe}
                 // setDescribe={setDescribe}
               />
