@@ -91,11 +91,27 @@ app.delete("/deletepost",async (req,res)=>{
     const {error} = await supabase
     .from("Create_Post")
     .delete()
-    .eq('id_post', 3)
+    .eq('id_post', 4)
     if (error){
         res.status(500).json(error);
     }
 })
+
+//show_who_like_title
+app.post("/showwholike",async (req,res)=>{
+    const {id_post} = req.body;
+    const {data,error} = await supabase
+    .from('Create_Post')
+    .select('title, likes:profile_user(username)').eq("id_post", id_post)
+    if (error){
+        res.status(400).json(error);
+    }
+    else{
+        res.status(200).json(data);
+    }
+})
+
+
 
 //login
 // app.post("/login",async (req,res) => {
