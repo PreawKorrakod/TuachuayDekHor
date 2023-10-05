@@ -85,12 +85,13 @@ main{
 }
 
 .Container{
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
     padding: 2rem;
     padding-left: 10rem;
     padding-right: 10rem;
     justify-content: center;
+    background-color: #f8f8f8;
 }
 
 .btn__See{

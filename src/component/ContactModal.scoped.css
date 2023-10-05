@@ -1,8 +1,14 @@
 .mail_edit{
-    width: 40px;
+    width: 50px;
     height: 40px;
-    background-color: blue;
+    background-color: #D9C029;
     cursor: pointer;
     margin-top: 1rem;
     margin-right: 1rem;
+    border-radius: 10px;
+    transition: .3s ease-in;
+}
+
+.mail_edit:hover{
+    scale: 1.5rem;
 }

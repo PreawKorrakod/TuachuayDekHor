@@ -47,7 +47,7 @@ img{
 }
 
 .dastFooter{
-    position: relative;
+    /* position: relative; */
     padding: 2rem; 
 }
 
@@ -72,6 +72,7 @@ img{
 
 .destText a{
     color: black;
+    font-size: 1.1rem;
     font-family:'Poppins' ;
 }
 
@@ -87,4 +88,19 @@ img{
 
 .name{
     margin-top: 2rem;
+}
+
+.delete{
+    color: #f8f8f8;
+    position: relative;
+    border-radius: 10px;
+    background-color: rgb(209, 89, 89) ;
+    margin-top: 1rem;
+    float: right;
+    width: max-content;
+    padding: 0.5rem;
+}
+
+.delete:hover{
+    background-color: rgb(177, 63, 63) ;
 }

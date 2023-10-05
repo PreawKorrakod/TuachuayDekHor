@@ -4,6 +4,7 @@ import Navbar from "../component/Nav";
 import { Container } from "reactstrap";
 import ContentSlide from "../component/ContentSlide";
 import { Link } from "react-router-dom";
+import SlidePost from "../component/SlidePost";
 
 const Home = () =>{
     return (
@@ -18,43 +19,13 @@ const Home = () =>{
                 <Link to={'/signup'}><button className="start-btn">Get Started</button></Link>
             </main>
             <div className="Container">
-                {/* <CategorySlide/> */}
+                <h1>Our Blogger</h1>
+                <SlidePost></SlidePost>
                 <div className="rec">
                     <div className="rec__title">
                         <h2 className="title_sub">DekHor Recommended</h2>
                     </div>
                     <ContentSlide></ContentSlide>
-                </div>
-                <div className="rec">
-                    <div className="rec__title">
-                        <h2 className="title_sub">Cooking</h2>
-                        <Link to={'/cooking'}><button className="btn__See">See All</button></Link>
-                    </div>
-                    {/* <SlideCooking></SlideCooking> */}
-                </div>
-
-                <div className="rec">
-                    <div className="rec__title">
-                        <h2 className="title_sub">Decoration</h2>
-                        <Link to={'/decoration'}><button className="btn__See">See All</button></Link>
-                    </div>
-                    {/* <DecSlide></DecSlide> */}
-                </div>
-
-                <div className="rec">
-                    <div className="rec__title">
-                        <h2 className="title_sub">Cleaning</h2>
-                        <Link to={'cleaning'}><button className="btn__See">See All</button></Link>
-                    </div>
-                    {/* <CleanSlide></CleanSlide> */}
-                </div>
-
-                <div className="rec">
-                    <div className="rec__title">
-                        <h2 className="title_sub">Story's DekHor</h2>
-                        <Link to={'/story'}><button className="btn__See">See All</button></Link>
-                    </div>
-                    {/* <StorySlide></StorySlide> */}
                 </div>
             </div>
         </div>

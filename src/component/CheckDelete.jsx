@@ -25,18 +25,20 @@ const CheckDelete = () => {
     <>
       <BsFillTrashFill size={25} onClick={handleShow}/>
       <Modal show={show} onHide={handleClose}>
-        <Modal.Header closeButton>
-          <Modal.Title>Delete</Modal.Title>
+        <Modal.Header className='modal-header'closeButton>
+            <h1 className='text-wraning'>Warning!</h1>
         </Modal.Header>
-        <Modal.Body>Woohoo, you are reading this text in a modal!</Modal.Body>
-        <Modal.Footer>
+        <Modal.Body>
+          <p className='text-delete'>Confirm Delete?</p>
+          </Modal.Body>
+        <div className='btn_blog'>
           <button className='Close_btn' onClick={handleClose}>
             Close
           </button>
           <button className='Delete_btn'onClick={handledelete}>
             Delete
           </button>
-        </Modal.Footer>
+        </div>
       </Modal>
     </>
   );

@@ -99,11 +99,11 @@ const ContentSlide =() => {
                                         <h4>
                                             <Link to={`/${category}/${id}`}>{destTitle}</Link>
                                         </h4>
-                                        <span className="userwrite">
-                                            <span className="name"><BiSolidPencil size={20} className="icon_pencil"/>
-                                                {writer}
-                                            </span>
-                                        </span>
+                                    </div>
+                                </div>
+                                <div className="userwrite">
+                                    <div className="name"><BiSolidPencil size={20} className="icon_pencil"/>
+                                        {writer}
                                     </div>
                                 </div>
                             </div>

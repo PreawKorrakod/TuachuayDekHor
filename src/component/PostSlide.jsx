@@ -20,7 +20,7 @@ const Data = [
     {
         id_post: 2,
         imgSrc: img2,
-        destTitle: 'How to study by DekHor',
+        destTitle: "Let's study by DekHor",
         writer: 'Username',
         category: 'cooking',
     },
@@ -42,7 +42,7 @@ const PostSlide = () => {
                                     <img src={imgSrc} alt="" />
                                 </div>
                                 <div className="destFooter">
-                                    <div className="heart"  >
+                                    <div className="delete"  >
                                         {/* {CheckDelete && <BsFillTrashFill size={25} type='submit' className='icon-delete'onSubmit={data}  onClick={handledelete}/>} */}
                                         <CheckDelete/>
                                     </div>
