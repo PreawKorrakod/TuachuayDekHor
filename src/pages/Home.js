@@ -5,9 +5,6 @@ import { Container } from "reactstrap";
 import ContentSlide from "../component/ContentSlide";
 import { Link } from "react-router-dom";
 
-
-
-
 const Home = () =>{
     return (
         <div className="home">

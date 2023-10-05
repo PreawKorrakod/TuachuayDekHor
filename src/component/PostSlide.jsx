@@ -6,6 +6,7 @@ import { BsHeartFill, BsFillTrashFill } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import { BiSolidPencil } from "react-icons/bi";
 import axios from 'axios';
+import CheckDelete from './CheckDelete'
 
 const Data = [
     {
@@ -42,7 +43,8 @@ const PostSlide = () => {
                                 </div>
                                 <div className="destFooter">
                                     <div className="heart"  >
-                                        <BsFillTrashFill size={25} type='submit' className='icon-delete'onSubmit={data} />
+                                        {/* {CheckDelete && <BsFillTrashFill size={25} type='submit' className='icon-delete'onSubmit={data}  onClick={handledelete}/>} */}
+                                        <CheckDelete/>
                                     </div>
                                     <div className="destText">
                                         <h4>
