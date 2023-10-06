@@ -10,7 +10,6 @@ const WriteBlog = () =>{
         <div className="writting">
             <Navbar/>
             <Container>
-                <h1>Blog</h1>
                 <AddPost></AddPost>
             </Container>
         </div>

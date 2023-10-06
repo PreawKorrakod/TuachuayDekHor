@@ -6,6 +6,7 @@
 }
 
 .wrapper{
+    padding: 2rem;
     width: 100%;
     height: 100%;
     display: flex;
@@ -21,36 +22,61 @@
 
 }
 
+.img_cover Label{
+    width: 100%;
+    text-align: left;
+    padding-bottom: 1rem;
+}
+
+.img_cover{
+    width: 50%;
+    padding: 1rem;
+}
+
+.img_cover Input{
+    padding: 0.2rem;
+    width: 100%;
+}
+
 .title__head{
+    width: 50%;
     padding: 1rem;
 }
 
 .title__head Label{
-    padding: 1rem;
+    width: 100%;
+    text-align: left;
+    padding-bottom: 1rem;
 }
 
 .title__head Input{
     font-size: 1rem;
     padding: 0.2rem;
-    border: 0.2px solid;
+    border: 0.2px solid rgba(0, 0, 0, 0.151);
     border-radius: 5px;
-    width: 50%;
+    width: 100%;
 }
 
 .Catagory{
+    width: 50%;
     padding: 1rem;
 }
 
 .Catagory Label{
-    padding: 1rem;
+    width: 100%;
+    text-align: left;
+    padding-bottom: 1rem;
 }
 
 .choose{
+    width: 50%;
     padding: 1rem; 
 }
 
 .choose Label{
-    padding: 1rem;
+    width: 100%;
+    text-align: left;
+    padding-bottom: 1rem;
 }
 
 .choose Input{
@@ -66,7 +92,9 @@
 }
 
 .content__head Label{
-    padding: 1rem;
+    width: 100%;
+    text-align: left;
+    padding-bottom: 1rem;
 }
 
 .Post-btn{
@@ -120,4 +148,12 @@
     width: 50%;
     padding-top: 2rem;
     padding-left: 1rem;
+}
+
+h1{
+    font-family: 'Galindo';
+    font-size: 4rem;
+    margin-left: 2rem;
+    padding-bottom: 1rem;
+    margin-bottom: 1rem;
 }

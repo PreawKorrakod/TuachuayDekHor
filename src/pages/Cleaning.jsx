@@ -1,5 +1,5 @@
 import React from 'react'
-import "./Decoration.scoped.css"
+import "./Cleaning.scoped.css"
 import Navbar from "../component/Nav";
 import ContentSlide from '../component/ContentSlide';
 import {Col} from 'reactstrap';

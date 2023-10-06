@@ -43,10 +43,10 @@ const Contact = () => {
                         </div>
                     </div>
                     <div className="massage">
-                        <div className="email__1">
+                        {/* <div className="email__1">
                             <Label for='email'>Email</Label>
                             <Input type="text" className='email__mas' placeholder='Your email'/>
-                        </div>
+                        </div> */}
                         <textarea className="write-massage" name="" id="" cols="30" rows="15" placeholder='type your massage here'></textarea>
                         <div className="posi__btn">
                             <Link to={'/contactfinish'}>
