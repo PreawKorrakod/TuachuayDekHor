@@ -1,11 +1,11 @@
-import React, { useState } from 'react'
+import React, { useState,useContext } from 'react'
 import { Input } from 'reactstrap'
 import Offcanvas from 'react-bootstrap/Offcanvas';
 import { FaRegComment } from "react-icons/fa";
 import './Comments.scoped.css'
 import { RiFlag2Line, RiMessage2Line, RiSendPlaneFill } from "react-icons/ri";
 import { CiChat1 } from "react-icons/ci";
-
+import { General } from '../App';
 
 function OffCanvasExample({ name, ...props }) {
   const [show, setShow] = useState(false);
@@ -13,6 +13,16 @@ function OffCanvasExample({ name, ...props }) {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
+  const {session} = useContext(General);
+  
+  const Chackcomment=()=>{
+    if (session){
+      alert('Comment Success!')
+    }else{
+      alert('Please Login')
+    }
+  }
+  
   return (
     <>
       <div className="btn" onClick={handleShow} >
@@ -34,7 +44,7 @@ function OffCanvasExample({ name, ...props }) {
           >
           </textarea>
           <div className="send_btn">
-            <button type='submit' className='send__btn'>
+            <button type='submit' className='send__btn' onClick={Chackcomment}>
               Submit
             </button>
           </div>

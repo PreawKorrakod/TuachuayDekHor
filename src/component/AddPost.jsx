@@ -43,12 +43,22 @@ function AddPost() {
             content: post.content,
             category: post.category,
         })
-            .then(data => {
-                alert("post created")
-            })
-            .catch((err) => {
-                alert(err)
-            })
+        .then(data => {
+            if(session){
+                if (post.title.trim() != ''){
+                    if (post.content.trim() != ''){
+                        if (post.category != ''){
+                            alert("post created")
+                        }
+                    }
+                }
+            }else{
+                alert("Please Login")
+            } 
+        })
+        .catch((err) => {
+            alert(err)
+        })
 
         // console.log(post)
         if (post.title.trim() == '') {

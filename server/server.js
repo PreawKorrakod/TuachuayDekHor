@@ -53,6 +53,12 @@ app.post("/signup", async (req,res) => {
     }
 });
 
+//check_email_or_password
+// app.get("/check",async (req,res) =>{
+//     const {email} = req.body;
+//     const{data,error} = await supabase.from("profile_user").getUser({email:email});
+//     if data.map(data=>)
+// })
 //edit_profile
 app.post("/edit_profile",async (req,res) =>{
     const {username,email,id} = req.body;
