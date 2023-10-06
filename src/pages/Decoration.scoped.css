@@ -29,7 +29,7 @@ main{
     flex-direction: column;
     align-items: center;
     margin-top: 2rem;
-    background: linear-gradient(#35477dde,#546baf65),url(../../src/Assets/back1.png);
+    background: linear-gradient(#35477dde,#546baf65),url(../../src/Assets/img_Dec/covercook.png);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;

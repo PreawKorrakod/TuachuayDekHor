@@ -79,10 +79,13 @@ function AddPost() {
             <Card>
                 <CardBody>
                     {/* check */}
-                    {JSON.stringify(post)}
+                    {/* {JSON.stringify(post)} */}
                     {/* <p>Let's make your blog</p> */}
+                    <h1>Blogging</h1>
                         <Form onSubmit={createPost}>
+                            
                             <div className="img_cover">
+                                <Label for='imgCover'>Cover Photo</Label>
                                 <Input
                                     type="file"
                                     id='Photo'

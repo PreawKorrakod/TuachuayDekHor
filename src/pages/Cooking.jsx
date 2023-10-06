@@ -1,5 +1,5 @@
 import React from 'react'
-import "./Decoration.scoped.css"
+import "./Cooking.scoped.css"
 import Navbar from "../component/Nav";
 import ImgSlide from '../component/ImgSlide';
 import {Container} from 'reactstrap'
