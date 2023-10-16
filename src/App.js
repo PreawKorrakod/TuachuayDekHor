@@ -9,10 +9,7 @@ import Cleaning from './pages/Cleaning';
 import Cooking from './pages/Cooking';
 import Decoration from './pages/Decoration';
 import Story from './pages/Story';
-import CleaningDetails from './pages/CleaningDetails';
-import StoryDetails from './pages/StoryDetails';
-import CookingDetails from './pages/CookingDetails';
-import DecorationDetails from './pages/DecorationDetails';
+import Details from './pages/Details';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import Reportfinish from './pages/Reportfinish';
@@ -106,13 +103,13 @@ function App() {
         <Route path="/contact" element={<Contact />}/>
         <Route path="/profile" element={<Profile />}/>
         <Route path="/cleaning" element={<Cleaning />}/>
-        <Route path="/cleaning/:id" element={<CleaningDetails />}/>
+        <Route path="/cleaning/:id" element={<Details />}/>
         <Route path="/cooking" element={<Cooking />}/>
-        <Route path="/cooking/:id" element={<CookingDetails />}/>
+        <Route path="/cooking/:id" element={<Details />}/>
         <Route path="/decoration" element={<Decoration />}/>
-        <Route path="/decoration/:id" element={<DecorationDetails />}/>
+        <Route path="/decoration/:id" element={<Details />}/>
         <Route path="/story" element={<Story />}/>
-        <Route path="/story/:id" element={<StoryDetails />}/>
+        <Route path="/story/:id" element={<Details />}/>
         <Route path="/reportfinish" element={<Reportfinish />}/>
         <Route path="/contactfinish" element={<Contactfinish />}/>
         <Route path="/blogger" element={<Blogger />}/>

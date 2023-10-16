@@ -1,10 +1,24 @@
-import React from 'react'
+import React,{useState,useEffect,useContext} from 'react'
 import "./Decoration.scoped.css"
 import Navbar from "../component/Nav";
 import {Col,Row,Container} from "reactstrap";
 import ContentSlide from '../component/ContentSlide';
+import { General } from '../App';
+import axios from 'axios';
 
 function Decoration() {
+  const { supabase_for_use: supabase, session, user } = useContext(General);
+  const [data, setData] = useState([]);
+  // const [title, setTitle] = useState("")
+  useEffect(() => {
+      axios.get("http://localhost:3300/posttoprofile?category=" + Decoration)
+      .then(res => {
+          setData(res.data);
+      })
+      .catch((err) => {
+          alert(err)
+      })
+  }, [])
   return (
     <div className="Decoration">
       <header>

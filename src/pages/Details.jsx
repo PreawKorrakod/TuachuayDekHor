@@ -1,15 +1,17 @@
-import React,{useState} from 'react';
-import "./StoryDetails.scoped.css"
-import Navbar from '../component/Nav';
-import { Card } from 'reactstrap';
+import React,{ useState } from 'react'
+import Navbar from '../component/Nav'
+import {Container,Input,Card} from 'reactstrap'
 import {RiFlag2Line,RiMessage2Line,RiSendPlaneFill} from "react-icons/ri";
 import {BsHeart,BsFillTrashFill,BsHeartFill} from "react-icons/bs";
 import {AiFillEdit} from "react-icons/ai";
-import Comments from '../component/Comments';
+import { Link } from 'react-router-dom';
 import Avatar from '../component/Avatar';
+import Comments from '../component/Comments';
+import "./Details.scoped.css"
 
+// title,username,content,like,comments
+const Details = () => {
 
-function CookingDetails() {
   const [like,setLike] = useState(0);
 
   console.log(like)
@@ -25,7 +27,7 @@ function CookingDetails() {
         <Card>
           <div className="head">
             <div className="title">
-              <h2>This is Title</h2>
+              <h2>Title</h2>
             </div>
             <div className="writer">
               <div className="user__photo">
@@ -60,13 +62,7 @@ function CookingDetails() {
             <img src="/pxfuel.jpg" alt="" />
           </div>
           <div className="content">
-            <p>"Study With Me" videos are more than just a trend; 
-              they're a valuable resource for anyone looking to 
-              boost productivity and make the most of their study sessions. 
-              Give them a try and see how they can transform 
-              your study habits and help you achieve your academic goals.
-              You can fill in this document at the frequency you want. 
-              I would advise doing that on a weekly basis. Tasks done during the week are still fresh on Friday, so you won’t struggle writing them down.</p>
+            content
           </div>
         </Card>
       </div>
@@ -74,4 +70,4 @@ function CookingDetails() {
   )
 }
 
-export default CookingDetails
+export default Details

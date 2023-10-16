@@ -59,14 +59,16 @@ function SlidePost() {
         {
           Data.map(({ imgSrc, writer,}) => {
             return (
-              <div className="box">
-                <div className="singleDest">
-                  <img src={imgSrc} alt=""/>
+              <Link to={"/profile"}>
+                <div className="box">
+                  <div className="singleDest">
+                    <img src={imgSrc} alt=""/>
+                  </div>
+                  <div className="userwrite">
+                      {writer}
+                  </div>
                 </div>
-                <div className="userwrite">
-                    {writer}
-                </div>
-              </div>
+              </Link>
             )
           })
         }
