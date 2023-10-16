@@ -40,9 +40,9 @@ const Login= () => {
                     <div className="input-box">
                         <input type="password" placeholder="Password" />
                     </div>
-                    <div className="remember-forget">
+                    {/* <div className="remember-forget">
                         <a href="#">Forget Password?</a>
-                    </div>
+                    </div> */}
                     <button type="submit" className="login-submit">Login</button>
                 </form>
             </div>

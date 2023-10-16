@@ -34,10 +34,10 @@ function DropdownProfile(){
            <img ref={imgRef} src={Profile_img} alt="" className="User__profile" onClick={()=>setOpen(!open)} />
            {open && 
            <div className="menus" ref={menuRef} onClick={()=>setOpen(!open)}>
-                <ul>
+                <ul className="menu_wrapper">
                     {/* <Link to={`/profile/${user.id}`}><li><BiUserCircle className="icon-profile" size={20}/>My profile</li></Link> */}
-                    <Link to={'/profile'}><li><BiUserCircle className="icon-profile" size={20}/>My profile</li></Link>
-                    <li><BiLogOut size={20} className="icon-logOut"/><a href="/home" id="logout" onClick={sign__out}>Log out</a></li>
+                    <Link to={'/profile'}><li><BiUserCircle className="icon-profile" size={25}/>My Profile</li></Link>
+                    <li><BiLogOut size={25} className="icon-logOut"/><a href="/home" id="logout" onClick={sign__out}>Log out</a></li>
                 </ul>
            </div>
            }

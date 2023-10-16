@@ -18,6 +18,7 @@ import Signup from './pages/Signup';
 import Reportfinish from './pages/Reportfinish';
 import Contactfinish from './pages/Contactfinish';
 import Blogger from './pages/Blogger';
+import Search from './pages/Search';
 import { createClient } from '@supabase/supabase-js';
 import guarderout from './component/guarderout';
 
@@ -116,6 +117,7 @@ function App() {
         <Route path="/reportfinish" element={<Reportfinish />}/>
         <Route path="/contactfinish" element={<Contactfinish />}/>
         <Route path="/blogger" element={<Blogger />}/>
+        <Route path="/search" element={<Search />}/>
         {/* <Route element = {<guarderout/>}>
           <Route path="/profile" element={<Profile />}/>
           <Route path="/writeblog" element={<WriteBlog />} />
