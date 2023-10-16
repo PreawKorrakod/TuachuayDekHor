@@ -44,8 +44,8 @@ app.post("/signup", async (req,res) => {
             }
         }
     });
-    await supabase.from("profile_user").insert({email:email ,username:username});
-    if (error ){
+    // await supabase.from("profile_user").insert({username:username});
+    if (error){
         res.status(500).json(error);
     }
     else{
@@ -53,6 +53,12 @@ app.post("/signup", async (req,res) => {
     }
 });
 
+//check_email_or_password
+// app.get("/check",async (req,res) =>{
+//     const {email} = req.body;
+//     const{data,error} = await supabase.from("profile_user").getUser({email:email});
+//     if data.map(data=>)
+// })
 //edit_profile
 app.post("/edit_profile",async (req,res) =>{
     const {username,email,id} = req.body;
@@ -74,8 +80,8 @@ app.post("/edit_profile",async (req,res) =>{
 
 //createpost
 app.post("/creatpost", async (req,res)=>{
-    const {title,content,category,email} = req.body;
-    const {data ,error} = await supabase.from("Create_Post").insert({title:title,content:content,category:category,email:email})
+    const {title,content,category,email,id} = req.body;
+    const {data ,error} = await supabase.from("Create_Post").insert({title:title,content:content,category:category,email:email,id:id})
     if (error){
         res.status(500).json(error);
     }
@@ -88,12 +94,66 @@ app.post("/creatpost", async (req,res)=>{
 //delete
 app.delete("/deletepost",async (req,res)=>{
     // const id_post = req.body;
+    const {id_post} = req.body;
     const {error} = await supabase
     .from("Create_Post")
     .delete()
-    .eq('id_post', 3)
+    .eq('id_post', id_post)
     if (error){
         res.status(500).json(error);
+    }
+})
+
+//show_who_like_title
+app.post("/showwholike",async (req,res)=>{
+    const {id_post} = req.body;
+    const {data,error} = await supabase
+    .from('Create_Post')
+    .select('title, likes:profiles(username)').eq("id_post", id_post)
+    if (error){
+        res.status(400).json(error);
+    }
+    else{
+        res.status(200).json(data);
+    }
+})
+
+//post_to_profile
+app.get("/posttoprofile",async (req,res)=> {
+    const {id} = req.query;
+    const {data,error} = await supabase.from("Create_Post").select('id_post,title,category,user:profiles!Create_Post_id_fkey(username)').eq("id",id)
+    if (error){
+        console.log(error)
+        res.status(400).json(error);
+    }
+    else{
+        res.status(200).json(data);
+    }
+})
+
+//post_to_decoration
+app.get("/posttoprofile",async (req,res)=> {
+    const {category} = req.body;
+    const {data,error} = await supabase.from("Create_Post").select('id_post,title,user:profiles!Create_Post_id_fkey(username)').eq("category",category)
+    if (error){
+        console.log(error)
+        res.status(400).json(error);
+    }
+    else{
+        res.status(200).json(data);
+    }
+})
+
+//detailpost
+app.get("/detailpost",async (req,res)=> {
+    const {id_post} = req.query;
+    const {data,error} = await supabase.from("Create_Post").select('id_post,title,user:profiles!Create_Post_id_fkey(username),like,comment,content').eq("id_post",id_post)
+    if (error){
+        console.log(error)
+        res.status(400).json(error);
+    }
+    else{
+        res.status(200).json(data);
     }
 })
 

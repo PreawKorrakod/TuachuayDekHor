@@ -80,7 +80,7 @@ function Navbar(){
                 </li>
                 <li>
                     <NavLink className="login_blog">
-                        {session ? <DropdownProfile/> : <Link to={"/login"}><button className='Loginbtn'>Log in</button></Link>}
+                        {session ? <DropdownProfile/> : <Link to={"/login"}><button className='Login_btn'>Log in</button></Link>}
                     </NavLink>
                 </li>
                 <div className="closeNavBar" onClick={removeNav} >

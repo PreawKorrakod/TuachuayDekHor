@@ -4,9 +4,11 @@ import "./AddPost.scoped.css"
 import JoditEditor from 'jodit-react';
 import { General } from '../App';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 function AddPost() {
     const { supabase_for_use: supabase, session, user } = useContext(General);
+    const navigate = useNavigate()
 
     const editor = useRef(null);
     // const [content, setContent] = useState('')
@@ -35,20 +37,32 @@ function AddPost() {
     // create post function
     const createPost = (event) => {
         // console.log(user?.email)
-        console.log(post)
+        // console.log(post)
         event.preventDefault();
 
         axios.post("http://localhost:3300/creatpost", {
             title: post.title,
             content: post.content,
             category: post.category,
+            id: user?.id,
         })
-            .then(data => {
-                alert("post created")
-            })
-            .catch((err) => {
-                alert(err)
-            })
+        .then(data => {
+            if(session){
+                if (post.title.trim() != ''){
+                    if (post.content.trim() != ''){
+                        if (post.category != ''){
+                            alert("post created")
+                        }
+                    }
+                }
+            navigate("/profile");
+            }else{
+                alert("Please Login")
+            }
+        })
+        .catch((err) => {
+            alert(err)
+        })
 
         // console.log(post)
         if (post.title.trim() == '') {

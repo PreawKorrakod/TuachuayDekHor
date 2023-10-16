@@ -146,7 +146,7 @@ input::placeholder{
     background: #332fab;
 }
 
-.Loginbtn{
+.Login_btn{
     width: 100%;
     margin: 1em;
     /* padding-left: 1em;
@@ -162,7 +162,7 @@ input::placeholder{
     border-radius: 10px;
 }
 
-.Loginbtn:hover{
+.Login_btn:hover{
     background-color: #cdaf07;
 }
 

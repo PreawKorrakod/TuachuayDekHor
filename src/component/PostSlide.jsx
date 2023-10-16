@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useContext, useEffect } from 'react'
 import './ContentSlide.scoped.css'
 import img1 from '../../src/Assets/slide1.png'
 import img2 from '../../src/Assets/slide2.png'
@@ -7,52 +7,82 @@ import { Link } from "react-router-dom";
 import { BiSolidPencil } from "react-icons/bi";
 import axios from 'axios';
 import CheckDelete from './CheckDelete'
+import { General } from '../App';
 
-const Data = [
-    {
-        id_post: 1,
-        imgSrc: img1,
-        destTitle: 'ห้องน่ารักๆ สำหรับเด็กหอ',
-        writer: 'Username',
-        category: 'story',
-    },
 
-    {
-        id_post: 2,
-        imgSrc: img2,
-        destTitle: "Let's study by DekHor",
-        writer: 'Username',
-        category: 'cooking',
-    },
-]
+
+// const Data1 = () => {
+
+//     const { supabase_for_use: supabase, session, user } = useContext(General);
+//     axios.get("http://localhost:3300/posttoprofile", {
+//         id: user?.id,
+//         title: title,
+//         category: category,
+//         username: user?.user_metadata.username,
+//     })
+
+// const post = [
+//     {
+//         id_post : {id},
+//         imgSrc : img1,
+//         destTitle : {title},
+//         writer : {username},
+//         category: {category},
+//     }
+// ]
+
+// }
+
+// const Data = [
+//     {
+//         id_post: { id },
+//         imgSrc: img1,
+//         destTitle: { title },
+//         writer: { username },
+//         category: { category },
+//     },
+// ]
+
+
 ////////////แก้///////////////////////////////////////////
 const PostSlide = () => {
+    const { supabase_for_use: supabase, session, user } = useContext(General);
+    const [data, setData] = useState([]);
+    // const [title, setTitle] = useState("")
+    console.log(user?.id)
+    useEffect(() => {
+        if (!user) return;
+        axios.get("http://localhost:3300/posttoprofile?id=" + user.id)
+        .then(res => {
+            setData(res.data);
+        })
+        .catch((err) => {
+            alert(err)
+        })
+    }, [user])
 
-    // const [click,setClick] = useState(0)
-
-    // console.log(click)
     return (
         <div className="content">
             <div className="main_content">
                 {
-                    Data.map(({ id_post, imgSrc, destTitle, writer, category }) => {
+                    data.map(({ id_post:id, title, category, user: { username } }, index) => {
                         return (
-                            <div className="singleDest">
+                            <div className="singleDest" key={index}>
                                 <div className="dastImage">
-                                    <img src={imgSrc} alt="" />
+                                    <img src={img1} alt="" />
                                 </div>
                                 <div className="destFooter">
                                     <div className="delete"  >
                                         {/* {CheckDelete && <BsFillTrashFill size={25} type='submit' className='icon-delete'onSubmit={data}  onClick={handledelete}/>} */}
-                                        <CheckDelete/>
+                                        <CheckDelete />
                                     </div>
                                     <div className="destText">
                                         <h4>
-                                            <Link to={`/${category}/${id_post}`}>{destTitle}</Link>
+                                            <Link to={`/${category}/${id}`}>{title}</Link>
                                         </h4>
                                         <span className="userwrite">
                                             <span className="name"><BiSolidPencil size={20} className="icon_pencil" />
-                                                {writer}
+                                                {username}
                                             </span>
                                         </span>
                                     </div>

@@ -4,6 +4,7 @@ import "./Signup.scoped.css"
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
+
 const Signup=()=> {
     const navigate = useNavigate();
     const recieve_data = (event) =>{
@@ -13,7 +14,7 @@ const Signup=()=> {
             axios.post("http://localhost:3300/signup",{
                 email: event.target[0].value,
                 username: event.target[1].value,
-                password: event.target[2].value
+                password: event.target[2].value,
             }).then(res => {
                 navigate("/login");
             })
