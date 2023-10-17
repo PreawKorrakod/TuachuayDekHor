@@ -94,7 +94,7 @@ img{
 
 .destText{
     color: black;
-    justify-content: space-between;
+    justify-content: space-between; 
     padding: 1rem; 
     display: flex;
     flex-direction: column;
