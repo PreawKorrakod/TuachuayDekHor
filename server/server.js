@@ -157,7 +157,9 @@ app.get("/detailpost",async (req,res)=> {
 //blogger
 app.post("/blogger",async (req,res)=> {
     // const {id} = req.query;
-    const {data,error} = await supabase.from("Create_Post").select('user:profiles!Create_Post_id_fkey(username)') 
+    const {data,error} = await supabase.from("Create_Post")
+    .select('user:profiles!Create_Post_id_fkey(username)')
+    .distinct('username')
     if (error){
         console.log(error)
         res.status(400).json(error);
@@ -166,7 +168,18 @@ app.post("/blogger",async (req,res)=> {
         res.status(200).json(data);
     }
 })
-
+//search
+app.post("/search",async (req,res)=> {
+    // const {id} = req.query;
+    const {data,error} = await supabase.from("Create_Post").select('title,user:profiles!Create_Post_id_fkey(username)') 
+    if (error){
+        console.log(error)
+        res.status(400).json(error);
+    }
+    else{
+        res.status(200).json(data);
+    }
+})
 //login
 // app.post("/login",async (req,res) => {
 //     const{email,password} = req.body;
