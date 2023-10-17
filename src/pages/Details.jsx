@@ -12,10 +12,14 @@ import "./Details.scoped.css"
 // title,username,content,like,comments
 const Details = () => {
 
-  const [like,setLike] = useState(0);
+  const [like, setLike] = useState(0);
+  
+  const handleLikeClick = () => {
+    // เรียกเมื่อคลิกที่ไลค์
+    setLike(like + 1); // เพิ่มจำนวนไลค์ขึ้น 1 ทุกครั้งที่คลิก
+  };
 
-  console.log(like)
-
+  
   const user = false;
 
   return (
@@ -41,7 +45,10 @@ const Details = () => {
               <div className="first">
                 <div className="like__box">
                   <div className="heart">
-                    <BsHeart size={25} className={like === 0 ? "nolike" : "like"} onClick={()=> setLike(like+1)}/>
+                    <BsHeart size={25} 
+                    className={like === 0 ? "nolike" : "like"}
+                    onClick={handleLikeClick}
+                    />
                     <p>{like}</p>
                   </div>
                 </div>
