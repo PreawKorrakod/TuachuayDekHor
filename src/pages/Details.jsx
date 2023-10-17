@@ -12,19 +12,22 @@ import axios from 'axios';
 // title,username,content,like,comments
 const Details = () => {
 
-  const [like,setLike] = useState(0);
+  const [like, setLike] = useState(0);
+
   useEffect(()=>{
     axios.post("http://localhost:3300/likepost", {
       like: setLike.length
     })
   },[])
   console.log(like)
+  
+  const handleLikeClick = () => {
+    // เรียกเมื่อคลิกที่ไลค์
+    setLike(like + 1); // เพิ่มจำนวนไลค์ขึ้น 1 ทุกครั้งที่คลิก
+  };
 
+  
   const user = false;
-
-  function handlelikes(e){
-    setLike = like + 1
-  }
 
   return (
     <div className="story">
@@ -49,7 +52,10 @@ const Details = () => {
               <div className="first">
                 <div className="like__box">
                   <div className="heart">
-                    <BsHeart size={25} className={like === 0 ? "nolike" : "like"} onClick={handlelikes}/>
+                    <BsHeart size={25} 
+                    className={like === 0 ? "nolike" : "like"}
+                    onClick={handleLikeClick}
+                    />
                     <p>{like}</p>
                   </div>
                 </div>
