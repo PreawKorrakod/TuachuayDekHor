@@ -101,6 +101,18 @@ app.delete("/deletepost",async (req,res)=>{
     }
 })
 
+//like_post
+app.post("/likepost",async (req,res) =>{
+    const {id_post} = req.query;
+    const {data,error} = await supabase.insert({like:like}).eq('id_post',id_post);
+    if (error ){
+        res.status(500).json(error);
+    }
+    else{
+        res.status(200).json(data);
+    }
+})
+
 //show_who_like_title
 // app.post("/showwholike",async (req,res)=>{
 //     const {id_post} = req.body;
@@ -159,7 +171,7 @@ app.post("/blogger",async (req,res)=> {
     // const {id} = req.query;
     const {data,error} = await supabase.from("Create_Post")
     .select('user:profiles!Create_Post_id_fkey(username)')
-    .distinct('username')
+    // .distinct('profile(username)')
     if (error){
         console.log(error)
         res.status(400).json(error);

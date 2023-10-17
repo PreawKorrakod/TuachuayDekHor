@@ -1,4 +1,4 @@
-import React,{ useState } from 'react'
+import React,{ useState,useEffect } from 'react'
 import Navbar from '../component/Nav'
 import {Container,Input,Card} from 'reactstrap'
 import {RiFlag2Line,RiMessage2Line,RiSendPlaneFill} from "react-icons/ri";
@@ -8,15 +8,23 @@ import { Link } from 'react-router-dom';
 import Avatar from '../component/Avatar';
 import Comments from '../component/Comments';
 import "./Details.scoped.css"
-
+import axios from 'axios';
 // title,username,content,like,comments
 const Details = () => {
 
   const [like,setLike] = useState(0);
-
+  useEffect(()=>{
+    axios.post("http://localhost:3300/likepost", {
+      like: setLike.length
+    })
+  },[])
   console.log(like)
 
   const user = false;
+
+  function handlelikes(e){
+    setLike = like + 1
+  }
 
   return (
     <div className="story">
@@ -41,7 +49,7 @@ const Details = () => {
               <div className="first">
                 <div className="like__box">
                   <div className="heart">
-                    <BsHeart size={25} className={like === 0 ? "nolike" : "like"} onClick={()=> setLike(like+1)}/>
+                    <BsHeart size={25} className={like === 0 ? "nolike" : "like"} onClick={handlelikes}/>
                     <p>{like}</p>
                   </div>
                 </div>
