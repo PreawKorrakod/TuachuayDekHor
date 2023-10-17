@@ -43,15 +43,24 @@ function Navbar(){
     }
 
     const [open, setOpen] = useState(false)
+    const [open2, setOpen2] = useState(false)
     // ให้คลิกข้างนอกแล้ว Dropdown ก็ถือว่าปิด
     const dropDownRef = useRef();
     const dropRef = useRef();
+    const dropDown2Ref = useRef();
+    const drop2Ref = useRef();
 
     window.addEventListener('click', (e) => {
         if (e.target !== dropDownRef.current && e.target !== dropRef.current) {
             setOpen(false);
         }
     })
+    
+    window.addEventListener('click', (e) => {
+        if (e.target !== dropDown2Ref.current && e.target !== drop2Ref.current) {
+            setOpen2(false);
+        }
+    }) 
 
     return (
         <header className="Navbar">
@@ -87,7 +96,13 @@ function Navbar(){
                     }
                 </li>
                 <li>
-                    <a className="navigation" href="/writeblog">Blog</a>
+                    <a className="drop" ref={drop2Ref} onClick={() => setOpen2 (!open2)} href="#">Blog<BsFillCaretDownFill size={10} className='icon' /></a>
+                    {open2 &&
+                        <div className="Dropdown" ref={dropDown2Ref}>
+                            <li><a className="navigation2" href="/writeblog">Blogging</a></li>
+                            <li><a className="navigation2" href="/blogger">Blogger</a></li>
+                        </div>
+                    }
                 </li>
                 <li>
                     <a className="navigation" href="/contact">Contact</a>

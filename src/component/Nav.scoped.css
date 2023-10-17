@@ -60,6 +60,7 @@ header{
 
 .navigation:hover{
     background-color: #332fab;
+    border-radius: 1rem;
 }
 
 .search-box{
@@ -137,7 +138,8 @@ input::placeholder{
 }
 
 .drop:hover{
-    background: #332fab
+    background: #332fab;
+    border-radius: 1rem;
 }
 
 .icon{
@@ -152,6 +154,7 @@ input::placeholder{
 
 .navigation2:hover{
     background: #332fab;
+    border-radius: 1rem;
 }
 
 .Login_btn{

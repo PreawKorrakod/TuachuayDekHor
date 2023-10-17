@@ -7,6 +7,11 @@ import { RiFlag2Line, RiMessage2Line, RiSendPlaneFill } from "react-icons/ri";
 import { CiChat1 } from "react-icons/ci";
 import { General } from '../App';
 
+
+const startComment = {
+  content:'', Username: 'Username'
+}
+
 function OffCanvasExample({ name, ...props }) {
   const [show, setShow] = useState(false);
 
@@ -25,9 +30,7 @@ function OffCanvasExample({ name, ...props }) {
 
   // โค้ดสำหรับเพิ่มคอมเมนต์อยู่ตรงนี้
   // แก้ Username ตรงนี้คับ
-  const [comment , setComment] = useState({
-    content:'', Username: 'Username'
-  })
+  const [comment , setComment] = useState(startComment)
 
   const [allcomment, setAllComment] = useState([]);
 
@@ -45,11 +48,13 @@ function OffCanvasExample({ name, ...props }) {
     event.preventDefault();
 
     setAllComment((prevAllComment)=>{
-      const NewComment = { ...note};
+      const NewComment = { ...comment};
       NewComment.id = Date.now().toString();
       return [comment, ...prevAllComment];
     });
-    // console.log(comment);
+
+    setComment(startComment);
+
   }
 
   // Elements
@@ -65,13 +70,14 @@ function OffCanvasExample({ name, ...props }) {
   return (
     <>
       <div className="btn" onClick={handleShow} >
-        <CiChat1 size={28} className='comment-icon' /><p>25</p>
+        <CiChat1 size={28} className='comment-icon' /><p>{commentElements.length}</p>
       </div>
       <Offcanvas show={show} onHide={handleClose} {...props}>
         <Offcanvas.Header closeButton>
           <Offcanvas.Title>
             <div className="title">
-              <h4>Comments</h4><p>(3)</p>
+              <h4>Comments</h4>
+              <p>({commentElements.length})</p>
             </div>
           </Offcanvas.Title>
         </Offcanvas.Header>
@@ -101,6 +107,7 @@ function OffCanvasExample({ name, ...props }) {
   );
 }
 
+// show frontend เฉยๆ 
 function Comments() {
   return (
     <>
