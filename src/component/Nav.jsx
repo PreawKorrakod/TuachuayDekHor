@@ -1,19 +1,28 @@
-import React, { useState, useRef,useEffect, useContext } from 'react';
+import React, { useState, useRef, useContext } from 'react';
 import "./Nav.scoped.css"
-import { Link } from "react-router-dom";
+import { Link,useNavigate } from "react-router-dom";
 import { NavLink } from 'react-router-dom';
-import { AiOutlineMenu, AiOutlineClose, AiOutlineSearch, AiOutlineUser, AiFillCloseSquare, FaSearch } from 'react-icons/ai'
+import { AiOutlineMenu, AiOutlineSearch, AiFillCloseSquare} from 'react-icons/ai'
 import DropdownProfile from './DropdownProfile';
-import e from 'cors';
 import { BsFillCaretDownFill } from "react-icons/bs";
-import { useNavigate } from 'react-router-dom';
 import { General } from '../App';
-
+import e from 'cors';
 
 
 // Responsive Navbar
 function Navbar(){
     const {session} = useContext(General);
+
+    // code สำหรับเสิร์ชข้ามหน้า
+    const [searchQuery, setSearchQuery] = useState('');
+    const navigate = useNavigate();
+
+    const handleSearch = (e) => {
+        e.preventDefault();
+        if (searchQuery.trim() !== '') {
+          navigate(`/search?query=${searchQuery}`);
+        }
+    };
     
     //  Code to toggle Navbar
     const [active, setActive] = useState('menu_content')
@@ -24,7 +33,7 @@ function Navbar(){
         setActive('menu_content')
     }
 
-    // Code to show search
+    // Code to show search ไม่เกี่ยวกับข้ามหน้า อันนี้ตอนทำ responsive 
     const [show, setShow] = useState('search_blog')
     const showSearch = () => {
         setShow('search_blog activeSearch')
@@ -49,12 +58,17 @@ function Navbar(){
             <div className="logo">
                 <img id="logo" src="/DekHor.png" alt="" />
             </div>
-            <AiOutlineSearch id="search_icon" size={25} onClick={showSearch} />
             <div className={show}>
-                <form action="#" className='search-box'>
-                    <AiOutlineSearch id="search-icon" size={25} />
-                    <input type="text" placeholder='Search...' />
-                    <AiOutlineClose id="close-icon" size={20} onClick={removeSearch} />
+                <form action="#" className='search-box' onSubmit={handleSearch}>
+                    <input 
+                        type="text"
+                        placeholder='Search...'
+                        value={searchQuery}
+                        onChange={(e) => setSearchQuery(e.target.value)} 
+                        />
+                    <button type='submit' className='btn_search'>
+                        <AiOutlineSearch className="search-icon" size={25} /> 
+                    </button>
                 </form>
             </div>
             <div className={active} >

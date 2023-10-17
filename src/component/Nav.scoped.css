@@ -72,15 +72,18 @@ header{
     border-radius: 50px;
 }
 
+
 input{
     position: relative;
     width: 100%;
     border: none;
     outline: none;
+    padding-left: 1rem ;
     font-size: 15px;
     color: #fff;
     background: #332fab;
 }
+
 
 .search_blog{
     outline: none;
@@ -94,17 +97,22 @@ input{
 
 input::placeholder{
     color: #f2f2f2ca;
-    font-size: 12px;
-    padding: 0.5rem;
+    font-size: 14px;
 }
 
 #closeicon{
     display: none;
 }
 
-#search_icon{
-    display: none;
+.search-icon{
+    cursor: pointer;
+    padding-left: 0.1rem;
 }
+
+/* .search-icon:hover{
+    background-color: #251f957c;
+    border-radius: 9px;
+} */
 
 /* Dropdown */
 
@@ -165,6 +173,25 @@ input::placeholder{
 .Login_btn:hover{
     background-color: #cdaf07;
 }
+
+.btn_search{
+    background-color: #332fab;
+    color: #f8f8f8;
+    border: none;
+    box-shadow: none;
+    border-left: #251f95 2px solid;
+    padding: 1.5px;
+}
+
+.btn_search:hover{
+    background-color: #1b18756d;
+    color: #f8f8f8;
+    border: none;
+    box-shadow: none;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(41, 40, 40, 0.21) ;
+}
+
 
 /* Responsive */
 @media screen and (max-width: 800px) {

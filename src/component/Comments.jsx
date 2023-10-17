@@ -15,13 +15,52 @@ function OffCanvasExample({ name, ...props }) {
 
   const {session} = useContext(General);
   
-  const Chackcomment=()=>{
-    if (session){
-      alert('Comment Success!')
-    }else{
-      alert('Please Login')
-    }
+  // const Chackcomment=()=>{
+  //   if (session){
+  //     alert('Comment Success!')
+  //   }else{
+  //     alert('Please Login')
+  //   }
+  // }
+
+  // โค้ดสำหรับเพิ่มคอมเมนต์อยู่ตรงนี้
+  // แก้ Username ตรงนี้คับ
+  const [comment , setComment] = useState({
+    content:'', Username: 'Username'
+  })
+
+  const [allcomment, setAllComment] = useState([]);
+
+  function onCommentValueChange(event){
+    const {name,value} = event.target;
+    setComment ((prevComment) =>{
+      return {
+        ...prevComment,
+        [name] : value
+      }
+    })
   }
+
+  function onCommentSubmit (event){
+    event.preventDefault();
+
+    setAllComment((prevAllComment)=>{
+      const NewComment = { ...note};
+      NewComment.id = Date.now().toString();
+      return [comment, ...prevAllComment];
+    });
+    // console.log(comment);
+  }
+
+  // Elements
+  const commentElements = allcomment.map((theComment) =>{
+    return (
+      <div key={theComment.id} className="comment_app">
+        <h5>{theComment.Username}</h5>
+        <p>{theComment.content}</p>
+      </div>
+    )
+  })
   
   return (
     <>
@@ -37,53 +76,24 @@ function OffCanvasExample({ name, ...props }) {
           </Offcanvas.Title>
         </Offcanvas.Header>
         <Offcanvas.Body>
+        <form action="#" onSubmit={onCommentSubmit}>
           <textarea
-            name="comments" id="comments"
+            name="content" id="comments"
             rows="5" className='comments__input'
             placeholder= 'Write a comment...'
+            value={comment.content}
+            onChange={onCommentValueChange}
           >
           </textarea>
           <div className="send_btn">
-            <button type='submit' className='send__btn' onClick={Chackcomment}>
+            <button type='submit' className='send__btn'>
               Submit
             </button>
           </div>
+        </form>
 
           <div className="comment_blog">
-
-          <div className="comments_wrap">
-            <div className="comment">
-              <div className="username">
-                <img src="/person-circle-outline.svg" alt="" className='imgUser'/>
-                <h5>Username</h5>
-              </div>
-              <p className='comment-text'>this is helpful.</p>
-            </div>
-          </div>
-          
-          <div className="comments_wrap">
-            <div className="comment">
-              <div className="username">
-                <img src="/person-circle-outline.svg" alt="" className='imgUser'/>
-                <h5>Username</h5>
-              </div>
-              <p className='comment-text'>this is helpful very much.</p>
-            </div>
-          </div>
-
-          <div className="comments_wrap">
-            <div className="comment">
-              <div className="username">
-                <img src="/person-circle-outline.svg" alt="" className='imgUser'/>
-                <h5>Username</h5>
-              </div>
-              <p className='comment-text'>wow this is helpful.</p>
-            </div>
-          </div>
-
-
-
-            
+            {commentElements}
           </div>
         </Offcanvas.Body>
       </Offcanvas>

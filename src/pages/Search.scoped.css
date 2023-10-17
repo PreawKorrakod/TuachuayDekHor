@@ -25,6 +25,14 @@
     padding-left: 1rem;
     padding-right: 1rem;
     font-weight: 800;
+    display: flex;
+    color: rgba(0, 0, 0, 0.621);
+}
+
+.headResult p{
+    margin-left: 1rem;
+    font-style: italic;
+    color: black;
 }
 
 .headResult {

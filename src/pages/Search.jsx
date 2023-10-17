@@ -5,9 +5,9 @@ import img3 from '../../src/Assets/slide3.png'
 import img4 from '../../src/Assets/slide4.png'
 import { BsHeartFill } from "react-icons/bs";
 import { BiSolidPencil } from "react-icons/bi";
-import { Link } from 'react-router-dom'
+import { useLocation, Link } from 'react-router-dom'
 
-
+// เพิ่มโพสต์เข้ามาหมดเลยในหน้านี้เพื่อเอาไว้ใช้ค้นหา
 const Data = [
     {
         id: 1,
@@ -15,7 +15,7 @@ const Data = [
         destTitle: '10 Awesome Books',
         writer: 'Narak',
         category: 'story',
-        likes : 89,
+        likes: 89,
     },
 
     {
@@ -24,11 +24,20 @@ const Data = [
         destTitle: 'Pasta by DekHor',
         writer: 'Sleep_more',
         category: 'cooking',
-        likes : 20,
+        likes: 20,
     },
 ]
 
+
+
 function Search() {
+    const location = useLocation();
+    const searchQuery = new URLSearchParams(location.search).get('query');
+
+    // ใช้ค่า searchQuery ที่ได้รับจาก URL query parameter เป็นเงื่อนไขในการกรองข้อมูล Data 
+    // กรองข้อมูลที่ตรงกับคำค้นหา
+    const filteredData = Data.filter((item) => item.destTitle.toLowerCase().includes(searchQuery.toLowerCase()));
+
     return (
         <div className="search">
             <header>
@@ -37,13 +46,14 @@ function Search() {
             <div className="search_wrapper">
                 <div className='headResult'>
                     <h2>
-                        Result for
+                        Search Results for : <p>{searchQuery}</p>
                     </h2>
                 </div>
                 <div className="showResult">
                     <div className="main_content">
-                        {
-                            Data.map(({ id, imgSrc, destTitle, writer, category,likes }) => {
+                        {filteredData.length > 0 ? (
+                            // แสดงข้อมูลของผลการค้นหาที่ตรงกับคำค้นหา
+                            filteredData.map(({ id, imgSrc, destTitle, writer, category, likes }) => {
                                 return (
                                     <div className="singleDest">
                                         <div className="dastImage">
@@ -66,9 +76,13 @@ function Search() {
                                         </div>
                                     </div>
                                 )
-                            }
-                            )
-                        }
+                            })
+                        ) : (
+                            // ถ้าไม่พบผลการค้นหา
+                            <div className="noResults">
+                                <p>Sorry, no information found, please try another search.</p>
+                            </div>
+                        )}
                     </div>
                 </div>
             </div>
