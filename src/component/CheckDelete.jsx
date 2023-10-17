@@ -33,8 +33,10 @@ function CheckDelete(props){
     <>
       <BsFillTrashFill size={25} onClick={handleShow}/>
       <Modal show={show} onHide={handleClose}>
-        <Modal.Header className='modal-header'closeButton>
+        {/* <Modal.Header className='modal-header'closeButton> */}
+        <Modal.Header className='modal-header'>
             <h1 className='text-wraning'>Warning!</h1>
+            <img id="icon-close" src="close-outline.svg" alt="" onClick={handleClose} />
         </Modal.Header>
         <Modal.Body>
           <p className='text-delete'>Confirm Delete?</p>

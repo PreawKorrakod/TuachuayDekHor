@@ -64,9 +64,11 @@ function Navbar(){
 
     return (
         <header className="Navbar">
-            <div className="logo">
-                <img id="logo" src="/DekHor.png" alt="" />
-            </div>
+            <Link to={"/home"}>
+                <div className="logo">
+                    <img id="logo" src="/DekHor.png" alt="" />
+                </div> 
+            </Link>
             <div className={show}>
                 <form action="#" className='search-box' onSubmit={handleSearch}>
                     <input 

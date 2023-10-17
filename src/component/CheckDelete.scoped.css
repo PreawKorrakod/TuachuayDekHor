@@ -46,6 +46,7 @@
     text-align: center;
     justify-content: center;
     align-items: center;
+    margin-top: 10px;
     /* background-color: #3D39BD; */
 }
 /* 
@@ -54,6 +55,11 @@
     justify-content: center;
     align-items: center;
 }*/
+
+.button.btn-close{
+    margin: 0;
+    padding: 0;
+}
 
 .btn_blog{
     padding: 0;
@@ -64,7 +70,21 @@
 
 } 
 
-.modal-header{
-    background-color: #3D39BD;
+
+#icon-close{
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    top: 0;
+    right: 0;
+    color: #f8f8f8;
+    /* background-color: rgb(130, 127, 127); */
+    display: flex;
+    justify-content:center;
     align-items: center;
+    border-bottom-left-radius: 10px;
+    cursor: pointer;
+    border-top-right-radius: 7px;
+    /* z-index: 1; */
 }
+
