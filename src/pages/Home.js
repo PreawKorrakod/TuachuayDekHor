@@ -8,6 +8,7 @@ import SlidePost from "../component/SlidePost";
 import {BsArrowRight} from "react-icons/bs";
 
 const Home = () => {
+  
   return (
     <div className="home">
       <header>

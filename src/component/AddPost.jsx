@@ -132,16 +132,16 @@ function AddPost() {
                                 >
                                     <option disabled value={0}>--Select category--</option>
                                     <option>
-                                        Decoration
+                                        decoration
                                     </option>
                                     <option>
-                                        Cooking
+                                        cooking
                                     </option>
                                     <option>
-                                        Cleaning
+                                        cleaning
                                     </option>
                                     <option>
-                                        Story's DekHor
+                                        story
                                     </option>
                                 </Input>
                             </div>

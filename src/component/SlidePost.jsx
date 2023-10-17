@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component,useEffect,useState } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -8,47 +8,61 @@ import {BiSolidPencil} from "react-icons/bi";
 // import image
 import img1 from '../../src/Assets/person-circle-outline.svg'
 import "./SlidePost.scoped.css"
+import axios from "axios";
 
-const Data = [
-  {
-    imgSrc: img1,
-    writer: 'Pikachu',
-  },
+// const Data = [
+//   {
+//     imgSrc: img1,
+//     writer: 'Pikachu',
+//   },
 
-  {
-    imgSrc: img1,
-    writer: 'PumZaZa',
-  },
+//   {
+//     imgSrc: img1,
+//     writer: 'PumZaZa',
+//   },
 
-  {
-    imgSrc: img1,
-    writer: 'Narak',
-  },
+//   {
+//     imgSrc: img1,
+//     writer: 'Narak',
+//   },
 
-  {
-    imgSrc: img1,
-    writer: 'WinterThePooh',
-  },
+//   {
+//     imgSrc: img1,
+//     writer: 'WinterThePooh',
+//   },
 
-  {
-    imgSrc: img1,
-    writer: 'AllinOne',
-  },
+//   {
+//     imgSrc: img1,
+//     writer: 'AllinOne',
+//   },
 
-  {
-    imgSrc: img1,
-    writer: 'Nov20',
-  },
+//   {
+//     imgSrc: img1,
+//     writer: 'Nov20',
+//   },
 
-]
+// ]
 
 
 function SlidePost() {
+  const [data, setData] = useState([]);
+  useEffect(() => {
+    axios.post("http://localhost:3300/blogger",{
+       
+    })
+    .then(res => {
+      console.log(res.data)
+      setData(res.data);
+    })
+    .catch((err) => {
+        alert(err)
+    })
+}, [])
 
   const settings = {
     focusOnSelect: true,
     infinite: true,
-    slidesToShow: 4,
+    slidesToShow: 2,
     slidesToScroll: 1,
     speed: 600
   };
@@ -57,15 +71,15 @@ function SlidePost() {
     <div>
       <Slider {...settings}>
         {
-          Data.map(({ imgSrc, writer,}) => {
+          data.map(({ user: { username } },index) => {
             return (
-              <Link to={"/profile"}>
-                <div className="box">
-                  <div className="singleDest">
-                    <img src={imgSrc} alt=""/>
+              <Link to={"/profile"} >
+                <div className="box" >
+                  <div className="singleDest" key = {index}>
+                    <img src={img1} alt=""/>
                   </div>
                   <div className="userwrite">
-                      {writer}
+                      {username}
                   </div>
                 </div>
               </Link>

@@ -1,32 +1,30 @@
-import React,{useState,useContext} from 'react'
+import React,{useState,useContext,useEffect} from 'react'
 import './CheckDelete.scoped.css'
+import { useParams,useNavigate } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import {BsFillTrashFill} from "react-icons/bs";
 import axios from 'axios';
 import { General } from '../App';
 
-function CheckDelete(props){
+function CheckDelete(){
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  const del_id = props.del
-
+  const {id} = useParams();
+  const navigate = useNavigate();
+  const { supabase_for_use: supabase, session, user } = useContext(General);
   const handledelete = () => {
-        // event.preventDefault();
-        const { supabase_for_use: supabase, session, user } = useContext(General);
-        const [data,setData] = useState([]);
-        useEffect(() => {
-          axios.delete("http://localhost:3300/deletepost?id=" + del_id )
-          .then(res => {
-            setData(res.data);
-          })
-          .catch((err) => {
-              alert(err)
-          })
-        }, [])
+  // const [data,setData] = useState([]);
+    axios.delete("http://localhost:3300/deletepost?id_post=" + id )
+    .then(res => {
+      navigate("/profile")
+    })
+    .catch((err) => {
+        alert(err)
+    })
   }
 
   return (
