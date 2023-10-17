@@ -1,24 +1,32 @@
-import React,{useState} from 'react'
+import React,{useState,useContext} from 'react'
 import './CheckDelete.scoped.css'
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import {BsFillTrashFill} from "react-icons/bs";
 import axios from 'axios';
+import { General } from '../App';
 
-const CheckDelete = () => {
+function CheckDelete(props){
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
+  const del_id = props.del
+
   const handledelete = () => {
         // event.preventDefault();
-        axios.delete("http://localhost:3300/deletepost", {
-        //     // id_post: 2,
-        })
-        .catch((err) => {
-            alert(err)
-        })
+        const { supabase_for_use: supabase, session, user } = useContext(General);
+        const [data,setData] = useState([]);
+        useEffect(() => {
+          axios.delete("http://localhost:3300/deletepost?id=" + del_id )
+          .then(res => {
+            setData(res.data);
+          })
+          .catch((err) => {
+              alert(err)
+          })
+        }, [])
   }
 
   return (
