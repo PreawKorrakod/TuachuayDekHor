@@ -1,6 +1,7 @@
 .Decoration{
     width: 100vw;
     height: 100vh;
+    background-color: #f8f8f8;
 }
 
 *{
@@ -72,5 +73,6 @@ main{
     padding-left: 10rem;
     padding-right: 10rem;
     justify-content: center;
+    background-color: #f8f8f8;
 }
 

@@ -31,7 +31,7 @@ function Cleaning() {
             <div className="rec__title">
               <h2 className="title_sub">Cleaning Ideas By DekHor</h2>
             </div>
-          <ContentSlide/>
+          <ContentSlide name ={"Cleaning"}/>
         </div>
       </div>
     </div>   

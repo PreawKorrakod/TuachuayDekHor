@@ -74,7 +74,7 @@ const PostSlide = () => {
                                 <div className="destFooter">
                                     <div className="delete"  >
                                         {/* {CheckDelete && <BsFillTrashFill size={25} type='submit' className='icon-delete'onSubmit={data}  onClick={handledelete}/>} */}
-                                        <CheckDelete />
+                                        <CheckDelete/>
                                     </div>
                                     <div className="destText">
                                         <h4>

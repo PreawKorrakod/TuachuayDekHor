@@ -1,43 +1,59 @@
-import React from 'react'
+import React,{useEffect,useState,useContext} from 'react'
 import "./Blogger.scoped.css"
 import Navbar from '../component/Nav'
 import img1 from '../../src/Assets/person-circle-outline.svg'
 import { Link } from 'react-router-dom'
+import axios from 'axios';
+import { General } from '../App';
 
-const Data = [
-  {
-    imgSrc: img1,
-    writer: 'Pikachu',
-  },
+// const Data = [
+//   {
+//     imgSrc: img1,
+//     writer: 'Pikachu',
+//   },
 
-  {
-    imgSrc: img1,
-    writer: 'PumZaZa',
-  },
+//   {
+//     imgSrc: img1,
+//     writer: 'PumZaZa',
+//   },
 
-  {
-    imgSrc: img1,
-    writer: 'Narak',
-  },
+//   {
+//     imgSrc: img1,
+//     writer: 'Narak',
+//   },
 
-  {
-    imgSrc: img1,
-    writer: 'WinterThePooh',
-  },
+//   {
+//     imgSrc: img1,
+//     writer: 'WinterThePooh',
+//   },
 
-  {
-    imgSrc: img1,
-    writer: 'AllinOne',
-  },
+//   {
+//     imgSrc: img1,
+//     writer: 'AllinOne',
+//   },
 
-  {
-    imgSrc: img1,
-    writer: 'Nov20',
-  },
+//   {
+//     imgSrc: img1,
+//     writer: 'Nov20',
+//   },
 
-]
+// ]
 
 function Blogger() {
+  const [data, setData] = useState([]);
+  const { supabase_for_use: supabase, session, user } = useContext(General);
+  useEffect(() => {
+      axios.post("http://localhost:3300/blogger",{
+         
+      })
+      .then(res => {
+        console.log(res.data)
+        setData(res.data);
+      })
+      .catch((err) => {
+          alert(err)
+      })
+  }, [])
   return (
     <div className="Blogger">
       <header>
@@ -50,15 +66,15 @@ function Blogger() {
         {/* <p>Something</p> */}
         <div className="blogger_wrapper">
         {
-            Data.map(({ imgSrc, writer,}) => {
+            data.map(({user: { username }},index) => {
               return (
                 <div className="box">
                   <Link to={"/profile"}>
-                    <div className="singleDest">
-                      <img src={imgSrc} alt=""/>
+                    <div className="singleDest" key={index}>
+                      <img src={img1} alt=""/>
                     </div>
                     <div className="userwrite">
-                        {writer}
+                        {username}
                     </div>
                   </Link>
                 </div>

@@ -94,29 +94,26 @@ app.post("/creatpost", async (req,res)=>{
 //delete
 app.delete("/deletepost",async (req,res)=>{
     // const id_post = req.body;
-    const {id_post} = req.body;
-    const {error} = await supabase
-    .from("Create_Post")
-    .delete()
-    .eq('id_post', id_post)
+    const {id_post} = req.query;
+    const {error} = await supabase.from("Create_Post").delete().eq('id_post', id_post)
     if (error){
         res.status(500).json(error);
     }
 })
 
 //show_who_like_title
-app.post("/showwholike",async (req,res)=>{
-    const {id_post} = req.body;
-    const {data,error} = await supabase
-    .from('Create_Post')
-    .select('title, likes:profiles(username)').eq("id_post", id_post)
-    if (error){
-        res.status(400).json(error);
-    }
-    else{
-        res.status(200).json(data);
-    }
-})
+// app.post("/showwholike",async (req,res)=>{
+//     const {id_post} = req.body;
+//     const {data,error} = await supabase
+//     .from('Create_Post')
+//     .select('title, likes:profiles(username)').eq("id_post", id_post)
+//     if (error){
+//         res.status(400).json(error);
+//     }
+//     else{
+//         res.status(200).json(data);
+//     }
+// })
 
 //post_to_profile
 app.get("/posttoprofile",async (req,res)=> {
@@ -131,9 +128,9 @@ app.get("/posttoprofile",async (req,res)=> {
     }
 })
 
-//post_to_decoration
-app.get("/posttoprofile",async (req,res)=> {
-    const {category} = req.body;
+//post_to_category
+app.get("/posttocategory",async (req,res)=> {
+    const {category} = req.query;
     const {data,error} = await supabase.from("Create_Post").select('id_post,title,user:profiles!Create_Post_id_fkey(username)').eq("category",category)
     if (error){
         console.log(error)
@@ -147,7 +144,20 @@ app.get("/posttoprofile",async (req,res)=> {
 //detailpost
 app.get("/detailpost",async (req,res)=> {
     const {id_post} = req.query;
-    const {data,error} = await supabase.from("Create_Post").select('id_post,title,user:profiles!Create_Post_id_fkey(username),like,comment,content').eq("id_post",id_post)
+    const {data,error} = await supabase.from("Create_Post").select('id_post,title,user:profiles!Create_Post_id_fkey(username),like,content').eq("id_post",id_post)
+    if (error){
+        console.log(error)
+        res.status(400).json(error);
+    }
+    else{
+        res.status(200).json(data);
+    }
+})
+
+//blogger
+app.post("/blogger",async (req,res)=> {
+    // const {id} = req.query;
+    const {data,error} = await supabase.from("Create_Post").select('user:profiles!Create_Post_id_fkey(username)') 
     if (error){
         console.log(error)
         res.status(400).json(error);
