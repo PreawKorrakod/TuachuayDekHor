@@ -66,7 +66,7 @@ const Profile = () => {
         <div className="profile__head"></div>
         <div className="head__box">
           <div className="profile__img">
-            <Avatar />
+            <Avatar src={user?.user_metadata.avatar_url} />
           </div>
           <div className="profile_title">
             <div className="User_name">

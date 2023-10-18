@@ -52,7 +52,7 @@ function Search() {
 
     // ใช้ค่า searchQuery ที่ได้รับจาก URL query parameter เป็นเงื่อนไขในการกรองข้อมูล Data 
     // กรองข้อมูลที่ตรงกับคำค้นหา
-    const filteredData = data.filter((item) => item.title.toLowerCase().includes(searchQuery.toLowerCase()));
+    const filteredData = data.filter((item) => item.title.toLowerCase().includes(searchQuery?.toLowerCase()));
 
     return (
         <div className="search">

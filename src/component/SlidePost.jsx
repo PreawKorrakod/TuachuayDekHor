@@ -62,7 +62,7 @@ function SlidePost() {
   const settings = {
     focusOnSelect: true,
     infinite: true,
-    slidesToShow: 2,
+    slidesToShow: 4,
     slidesToScroll: 1,
     speed: 600
   };

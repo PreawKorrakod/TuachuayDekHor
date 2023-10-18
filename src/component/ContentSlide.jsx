@@ -78,29 +78,37 @@ import axios from 'axios';
 
 
 function ContentSlide(props) {
+    // const [data, setData] = useState([]);
+    // console.log(props.name);
     const [data, setData] = useState([]);
-    console.log(props.name);
+
+    useEffect(() => {
+        axios.get("http://localhost:3300/posttocategory?category=" + props.name)
+        .then(res => {
+            setData(res.data);
+            console.log(data)
+        })
+        .catch((err) => {
+            alert(err);
+        });
+    }, [props.name]);
+    const category = props.name
 
     // const { name } = useParams();
     //   const { supabase_for_use: supabase, session, user } = useContext(General);
     // const [title, setTitle] = useState("")
-    useEffect(() => {
-        if (props.name){
-            axios.get("http://localhost:3300/posttocategory?category=" + props.name)
-            .then(res => {
-                console.log(props.name);
-                console.log(res.data)
-                setData(res.data);
-            })
-            .catch((err) => {
-                alert(err)
-            })
-        } else {
-            // ในกรณีที่ props.id เป็นค่าว่างหรือไม่ถูกต้อง
-            console.log("props.id is empty or invalid");
-            // สามารถดำเนินการอื่น ๆ ที่ต้องการในกรณีนี้
-        }
-    },[])
+    // useEffect(() => {
+    //     axios.get("http://localhost:3300/posttocategory?category=" + props.name)
+    //     .then(res => {
+    //         console.log(props.name);
+    //         console.log(res.data)
+    //         setData(res.data);
+    //     })
+    //     .catch((err) => {
+    //         alert(err)
+    //     })
+
+    // },[])
 
 
 
@@ -108,11 +116,11 @@ function ContentSlide(props) {
         <div className="content">
             <div className="main_content">
                 {
-                    data.map(({ id_post:id, title, category, like, user: { username } }, index) => {
+                    data.map(({ id_post:id, title, user: { username },image_link }, index) => {
                         return (
                             <div className="singleDest" key={index}>
                                 <div className="dastImage">
-                                    <img src={img1} alt="" />
+                                    <img src={image_link??img1} alt="" />
                                 </div>
                                 <div className="destFooter">
                                     <div className="heart">

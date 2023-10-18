@@ -1,6 +1,11 @@
 import React from 'react'
 
-function Avatar() {
+function Avatar(props) {
+  if (props.src) {
+    return (<div className='w-full'>
+      <img class="h-12 w-12 text-gray-300" src={props.src}/>
+    </div>)
+  }
   return (
     <div className='w-full'>
       <svg class="h-12 w-12 text-gray-300" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
