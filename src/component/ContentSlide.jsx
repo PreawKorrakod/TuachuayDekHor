@@ -79,27 +79,36 @@ import axios from 'axios';
 
 function ContentSlide(props) {
     const [data, setData] = useState([]);
+    console.log(props.name);
+
+    // const { name } = useParams();
     //   const { supabase_for_use: supabase, session, user } = useContext(General);
     // const [title, setTitle] = useState("")
     useEffect(() => {
-        axios.get("http://localhost:3300/posttocategory?category=" + props.name)
+        if (props.name){
+            axios.get("http://localhost:3300/posttocategory?category=" + props.name)
             .then(res => {
-                console.log(category);
+                console.log(props.name);
                 console.log(res.data)
                 setData(res.data);
             })
             .catch((err) => {
                 alert(err)
             })
-    }, [])
-    const {category} = useParams();
+        } else {
+            // ในกรณีที่ props.id เป็นค่าว่างหรือไม่ถูกต้อง
+            console.log("props.id is empty or invalid");
+            // สามารถดำเนินการอื่น ๆ ที่ต้องการในกรณีนี้
+        }
+    },[])
+
 
 
     return (
         <div className="content">
             <div className="main_content">
                 {
-                    data.map(({ id_post: id, title, category, like, user: { username } }, index) => {
+                    data.map(({ id_post:id, title, category, like, user: { username } }, index) => {
                         return (
                             <div className="singleDest" key={index}>
                                 <div className="dastImage">

@@ -29,19 +29,28 @@ import axios from 'axios';
 //         },
 //     ]
 
-const LikeSlide = () => {
+function LikeSlide (props){
     const { supabase_for_use: supabase, session, user } = useContext(General);
     const [data, setData] = useState([]);
-    console.log(user?.id)
+    console.log(props.id)
     useEffect(() => {
-        axios.get("http://localhost:3300/showlike?id=" + user?.id)
-        .then(res => {
-            setData(res.data);
-        })
-        .catch((err) => {
-            alert(err)
-        })
-    }, [user])
+        if (props.id) {
+            axios.get("http://localhost:3300/showlike?id=" + props.id)
+            .then(res => {
+                setData(res.data);
+                console.log(data)
+            })
+            .catch((err) => {
+                console.log(err)
+                alert(err)
+            })
+        } else {
+            // ในกรณีที่ props.id เป็นค่าว่างหรือไม่ถูกต้อง
+            console.log("props.id is empty or invalid");
+            // สามารถดำเนินการอื่น ๆ ที่ต้องการในกรณีนี้
+        }
+    }, [props.id])
+
 
     // const [like,setLike] = useState(0);
 

@@ -110,23 +110,60 @@ app.post("/likepost",async (req,res) =>{
     }
 })
 
-//count_like
-app.post("/countlike",async (req,res) =>{
-    const {id_post} = req.query
-    const {like:count} = req.body
-    const { data, error } = await supabase
-    .from("likes")
-    .select('id_post(count)')
-    .eq("id_post",id_post)
-    await supabase.from("Create_Post").insert({like:count});
-    
-    if (error){
+//comment
+app.post("/commentpost",async (req,res) =>{
+    const {id,id_post,comment} = req.body;
+    const {data,error} = await supabase.from("comments").insert({id:id,id_post:id_post,comment:comment})
+    if (error ){
         res.status(500).json(error);
     }
     else{
         res.status(200).json(data);
     }
 })
+
+//count_like
+// app.post("/countlike", async (req, res) => {
+//     const { id_post } = req.query;
+//     // นับจำนวน id_post ที่ซ้ำกันในตาราง likes
+//     const { data: likesData, error: likesError } = await supabase
+//         .from("likes")
+//         .select("id_post, count(*)")
+//         .eq("id_post", id_post)
+//         .group("id_post");
+
+//     if (likesError) {
+//         res.status(500).json(likesError);
+//         return;
+//     }
+//     if (likesData.length === 0) {
+//         // ไม่มีรายการที่ถูกนับ ให้เป็น 0 ถ้าไม่มีไลค์
+//         await supabase.from("Create_Post").upsert([{ id_post, like: 0 }], { onConflict: ["id_post"] });
+//         res.status(200).json({ count: 0 });
+//     } else {
+//         // มีรายการที่ถูกนับ ให้ใช้ค่าจากการนับล่าสุด
+//         const { count } = likesData[0];
+//         await supabase.from("Create_Post").upsert([{ id_post, like: count }], { onConflict: ["id_post"] });
+//         res.status(200).json({ count });
+//     }
+// });
+
+// app.post("/countlike",async (req,res) =>{
+//     const {id_post} = req.query
+//     const {count} = req.body
+//     const { data, error } = await supabase
+//     .from("likes")
+//     .select('id_post(count)')
+//     .eq("id_post",id_post)
+//     await supabase.from("Create_Post").insert({like:count});
+    
+//     if (error){
+//         res.status(500).json(error);
+//     }
+//     else{
+//         res.status(200).json(data);
+//     }
+// })
 
 
 //show_like
@@ -136,7 +173,7 @@ app.get("/showlike",async (req,res)=>{
     .from('likes')
     .select('id_post,title:Create_Post(title),user:profiles!likes_id_fkey(username),category:Create_Post(category)').eq("id", id)
     if (error){
-        // console.log(data)
+        console.log(data)
         res.status(400).json(error);
     }
     else{
@@ -174,6 +211,30 @@ app.get("/posttocategory",async (req,res)=> {
 app.get("/detailpost",async (req,res)=> {
     const {id_post} = req.query;
     const {data,error} = await supabase.from("Create_Post").select('title,name:profiles!Create_Post_id_fkey(username),like,content').eq("id_post",id_post)
+    if (error){
+        console.log(data)
+        res.status(400).json(error);
+    }
+    else{
+        res.status(200).json(data);
+    }
+})
+//name_profile
+app.get("/nameprofile", async (req, res) => {
+    const {id} = req.query;
+    const { data, error } = await supabase.from("Create_Post").select('id,user:profiles!Create_Post_id_fkey(username)').eq("id",id);
+    if (error){
+        console.log(data)
+        res.status(400).json(error);
+    }
+    else{
+        res.status(200).json(data);
+    }
+})
+//username_to_id
+app.get("/usernametoid", async (req, res) => {
+    const {username} = req.query;
+    const { data, error } = await supabase.from("profiles").select('id').eq("username",username);
     if (error){
         console.log(data)
         res.status(400).json(error);

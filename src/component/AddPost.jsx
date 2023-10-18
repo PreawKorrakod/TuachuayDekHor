@@ -55,7 +55,9 @@ function AddPost() {
                         }
                     }
                 }
-            navigate("/profile");
+            navigate(`/profile/${user?.user_metadata.username}`);
+            // `/profile/${username}`
+            // user?.user_metadata_username
             }else{
                 alert("Please Login")
             }

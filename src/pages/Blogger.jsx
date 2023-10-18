@@ -44,7 +44,7 @@ function Blogger() {
   const { supabase_for_use: supabase, session, user } = useContext(General);
   useEffect(() => {
       axios.post("http://localhost:3300/blogger",{
-         
+
       })
       .then(res => {
         console.log(res.data)
@@ -69,12 +69,12 @@ function Blogger() {
             data.map(({user: { username }},index) => {
               return (
                 <div className="box">
-                  <Link to={"/profile"}>
+                  <Link to={`/profile/${username}`}>
                     <div className="singleDest" key={index}>
                       <img src={img1} alt=""/>
                     </div>
                     <div className="userwrite">
-                        {username}
+                      <Link to={`/profile/${username}`}>{username}</Link>
                     </div>
                   </Link>
                 </div>

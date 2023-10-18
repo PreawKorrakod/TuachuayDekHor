@@ -45,21 +45,29 @@ import { General } from '../App';
 
 
 ////////////แก้///////////////////////////////////////////
-const PostSlide = () => {
+function PostSlide(props){
     const { supabase_for_use: supabase, session, user } = useContext(General);
     const [data, setData] = useState([]);
+    console.log(props.id)
     // const [title, setTitle] = useState("")
-    console.log(user?.id)
+    // console.log(user?.id)
     useEffect(() => {
-        if (!user) return;
-        axios.get("http://localhost:3300/posttoprofile?id=" + user.id)
-        .then(res => {
-            setData(res.data);
-        })
-        .catch((err) => {
-            alert(err)
-        })
-    }, [user])
+        if (props.id) {
+            axios.get("http://localhost:3300/posttoprofile?id=" + props.id)
+            .then(res => {
+                setData(res.data);
+                console.log(data)
+            })
+            .catch((err) => {
+                console.log(err)
+                alert(err)
+            })
+        } else {
+            // ในกรณีที่ props.id เป็นค่าว่างหรือไม่ถูกต้อง
+            console.log("props.id is empty or invalid");
+            // สามารถดำเนินการอื่น ๆ ที่ต้องการในกรณีนี้
+        }
+    }, [props.id])
 
     return (
         <div className="content">
@@ -89,8 +97,7 @@ const PostSlide = () => {
                                 </div>
                             </div>
                         )
-                    }
-                    )
+                    })
                 }
 
             </div>

@@ -42,7 +42,7 @@ import axios from "axios";
 //   },
 
 // ]
-
+/////////////////////////////////////blogger/////////////////////////////////////
 
 function SlidePost() {
   const [data, setData] = useState([]);
@@ -73,13 +73,13 @@ function SlidePost() {
         {
           data.map(({ user: { username } },index) => {
             return (
-              <Link to={"/profile"} >
+              <Link to={`/profile/${username}`} >
                 <div className="box" >
                   <div className="singleDest" key = {index}>
                     <img src={img1} alt=""/>
                   </div>
                   <div className="userwrite">
-                      {username}
+                    <Link to={`/profile/${username}`}>{username}</Link>
                   </div>
                 </div>
               </Link>

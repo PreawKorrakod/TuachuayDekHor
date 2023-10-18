@@ -18,7 +18,7 @@ function CheckDelete(){
   const { supabase_for_use: supabase, session, user } = useContext(General);
   const handledelete = () => {
   // const [data,setData] = useState([]);
-    axios.delete("http://localhost:3300/deletepost?id_post=" + id )
+    axios.delete("http://localhost:3300/deletepost?id_post=" + id)
     .then(res => {
       navigate("/profile")
     })

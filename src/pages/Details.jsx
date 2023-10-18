@@ -16,7 +16,6 @@ import CheckDelete from '../component/CheckDelete';
 const Details = () => {
   const {id} = useParams();
   const [data,setData] = useState([]);
-
   useEffect(() => {
     axios.get("http://localhost:3300/detailpost?id_post=" + id)
     .then(res =>{
@@ -35,24 +34,23 @@ const Details = () => {
   
   const [like, setLike] = useState(0);
   const handleLikeClick = async () => {
-      await axios.post("http://localhost:3300/likepost", {
-        id_post: id,
-        id: user?.id,
-      }); 
-      // setLike(like + 1); // เพิ่มจำนวนไลค์ขึ้น 1 ทุกครั้งที่คลิก
-      await axios.post("http://localhost:3300/countlike?id_post=" + id,{
-        like: data[0].id_post?.count ,
-      })
-      .then(res=>{
-        console.log(res.data)
-        if (res.data && res.data[0] && res.data[0].like) {
-          setLike(res.data[0].like); 
-        }
-      })
-      .catch((err) => {
-        alert(err)
-      })
-  };
+    try {
+        await axios.post("http://localhost:3300/likepost", {
+            id_post: id,
+            id: user?.id,
+        });
+
+        // const response = await axios.post("http://localhost:3300/countlike", { id_post: id });
+        // console.log(response)
+        // if (response.data && response.data.count !== undefined) {
+        //     setLike(response.data.count);
+        // }
+        // console.log(response)
+    } catch (error) {
+        alert(error);
+    }
+};
+
 
   return (
     <div className="story">
@@ -81,7 +79,7 @@ const Details = () => {
                     className={like === 0 ? "nolike" : "like"}
                     onClick={handleLikeClick}
                     />
-                    <p>{data.id_post?.like}</p>
+                    <p>{like}</p>
                   </div>
                 </div>
                 <div className="comment__icon">
