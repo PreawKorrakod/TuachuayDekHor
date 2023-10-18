@@ -1,11 +1,11 @@
-import React,{useState, useContext, useEffect} from "react";
+import React, { useState, useContext, useEffect } from "react";
 import "./ContentSlide.scoped.css";
 import { TiArrowRight } from "react-icons/ti";
-import { BsFillArrowRightCircleFill,BsFillArrowLeftCircleFill } from "react-icons/bs";
-import {BsHeartFill} from "react-icons/bs";
-import {Col} from 'reactstrap'
-import { Link } from "react-router-dom";
-import {BiSolidPencil} from "react-icons/bi"; 
+import { BsFillArrowRightCircleFill, BsFillArrowLeftCircleFill } from "react-icons/bs";
+import { BsHeartFill } from "react-icons/bs";
+import { Col } from 'reactstrap'
+import { Link, useParams } from "react-router-dom";
+import { BiSolidPencil } from "react-icons/bi";
 // import image
 import img1 from '../../src/Assets/slide1.png'
 import img2 from '../../src/Assets/slide2.png'
@@ -28,7 +28,7 @@ import axios from 'axios';
 //             heart : 123,
 //             category:'decoration',
 //         },
-    
+
 //         {
 //             id:2,
 //             imgSrc: img2,
@@ -37,7 +37,7 @@ import axios from 'axios';
 //             heart : 143,
 //             category:'story',
 //         },
-    
+
 //         {
 //             id:3,
 //             imgSrc: img3,
@@ -73,38 +73,50 @@ import axios from 'axios';
 //             heart : 123,
 //             category:'cooking',
 //         },
-    
+
 //     ]
 
 
-function ContentSlide(props){
-  const [data, setData] = useState([]);
-//   const { supabase_for_use: supabase, session, user } = useContext(General);
-  // const [title, setTitle] = useState("")
-  useEffect(() => {
-      axios.get("http://localhost:3300/posttocategory?category=" + props.name)
-      .then(res => {
-        console.log(res.data)
-        setData(res.data);
-      })
-      .catch((err) => {
-          alert(err)
-      })
-  }, [])
+function ContentSlide(props) {
+    const [data, setData] = useState([]);
+    console.log(props.name);
+
+    // const { name } = useParams();
+    //   const { supabase_for_use: supabase, session, user } = useContext(General);
+    // const [title, setTitle] = useState("")
+    useEffect(() => {
+        if (props.name){
+            axios.get("http://localhost:3300/posttocategory?category=" + props.name)
+            .then(res => {
+                console.log(props.name);
+                console.log(res.data)
+                setData(res.data);
+            })
+            .catch((err) => {
+                alert(err)
+            })
+        } else {
+            // ในกรณีที่ props.id เป็นค่าว่างหรือไม่ถูกต้อง
+            console.log("props.id is empty or invalid");
+            // สามารถดำเนินการอื่น ๆ ที่ต้องการในกรณีนี้
+        }
+    },[])
+
+
 
     return (
         <div className="content">
             <div className="main_content">
                 {
-                    data.map(({id_post:id,title,like,category,user: { username }},index)=>{
-                        return(
+                    data.map(({ id_post:id, title, category, like, user: { username } }, index) => {
+                        return (
                             <div className="singleDest" key={index}>
                                 <div className="dastImage">
-                                    <img src= {img1} alt="" />
+                                    <img src={img1} alt="" />
                                 </div>
                                 <div className="destFooter">
                                     <div className="heart">
-                                        <BsHeartFill size={25}/><p>{like}</p>
+                                        <BsHeartFill size={25} /><p>{like}</p>
                                     </div>
                                     <div className="destText">
                                         <h4>
@@ -113,16 +125,15 @@ function ContentSlide(props){
                                     </div>
                                 </div>
                                 <div className="userwrite">
-                                    <div className="name"><BiSolidPencil size={20} className="icon_pencil"/>
+                                    <div className="name"><BiSolidPencil size={20} className="icon_pencil" />
                                         {username}
                                     </div>
                                 </div>
                             </div>
                         )
-                    }
-                    )
+                    })
                 }
-                
+
             </div>
         </div>
     )

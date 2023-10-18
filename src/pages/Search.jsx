@@ -69,7 +69,7 @@ function Search() {
                     <div className="main_content">
                         {filteredData.length > 0 ? (
                             // แสดงข้อมูลของผลการค้นหาที่ตรงกับคำค้นหา
-                            filteredData.map(({ id_post:id, title, username, category}) => {
+                            filteredData.map(({ id_post:id, title, user:{username}, category}) => {
                                 return (
                                     <div className="singleDest">
                                         <div className="dastImage">

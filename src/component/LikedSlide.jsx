@@ -7,57 +7,80 @@ import {BsHeartFill} from "react-icons/bs";
 import { Link } from "react-router-dom";
 import {BiSolidPencil} from "react-icons/bi";
 import './LikeSlide.scoped.css'
+import { General } from '../App';
+import axios from 'axios';
 // import "./ContentSlide.scoped.css"
 
-const Data =[
-        {
-            id:1,
-            imgSrc: img3,
-            destTitle: '10 Awesome Books',
-            writer: 'Narak',
-            category:'story',
-        },
+// const Data =[
+//         {
+//             id:1,
+//             imgSrc: img3,
+//             destTitle: '10 Awesome Books',
+//             writer: 'Narak',
+//             category:'story',
+//         },
     
-        {
-            id:2,
-            imgSrc: img4,
-            destTitle: 'Pasta by DekHor',
-            writer: 'Sleep_more',
-            category:'cooking',
-        },
-    ]
+//         {
+//             id:2,
+//             imgSrc: img4,
+//             destTitle: 'Pasta by DekHor',
+//             writer: 'Sleep_more',
+//             category:'cooking',
+//         },
+//     ]
 
-const LikeSlide = () => {
+function LikeSlide (props){
+    const { supabase_for_use: supabase, session, user } = useContext(General);
+    const [data, setData] = useState([]);
+    console.log(props.id)
+    useEffect(() => {
+        if (props.id) {
+            axios.get("http://localhost:3300/showlike?id=" + props.id)
+            .then(res => {
+                setData(res.data);
+                console.log(data)
+            })
+            .catch((err) => {
+                console.log(err)
+                alert(err)
+            })
+        } else {
+            // ในกรณีที่ props.id เป็นค่าว่างหรือไม่ถูกต้อง
+            console.log("props.id is empty or invalid");
+            // สามารถดำเนินการอื่น ๆ ที่ต้องการในกรณีนี้
+        }
+    }, [props.id])
 
-    const [like,setLike] = useState(0);
 
-    console.log(like)
+    // const [like,setLike] = useState(0);
 
-    const addlike = () =>{
-        
-    }
+    // console.log(like)
+
+    // const addlike = () =>{
+    
+    // }
 
   return (
     <div className="content">
             <div className="main_content">
                 {
-                    Data.map(({id,imgSrc,destTitle,writer,category})=>{
+                    data.map(({id_post:id,title:{title},user:{username},category:{category}}, index)=>{
                         return(
-                            <div className="singleDest">
+                            <div className="singleDest" key = {index}>
                                 <div className="dastImage">
-                                    <img src= {imgSrc} alt="" />
+                                    <img src= {img1} alt="" />
                                 </div>
                                 <div className="destFooter">
                                     <div className="heart">
-                                        <BsHeartFill size={25} className='like-icon' onClick={()=>setLike(like+1) ? "like":"nolike"} onSubmit={addlike}/>
+                                        <BsHeartFill size={25} className='like-icon'/>
                                     </div>
                                     <div className="destText">
                                         <h4>
-                                            <Link to={`/${category}/${id}`}>{destTitle}</Link>
+                                            <Link to={`/${category}/${id}`}>{title}</Link>
                                         </h4>
                                         <span className="userwrite">
                                             <span className="name"><BiSolidPencil size={20} className="icon_pencil"/>
-                                                {writer}
+                                                {username}
                                             </span>
                                         </span>
                                     </div>

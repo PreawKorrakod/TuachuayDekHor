@@ -9,6 +9,7 @@ import {BsArrowRight} from "react-icons/bs";
 import Footer from "../component/footer";
 
 const Home = () => {
+  
   return (
     <div className="home">
       <header>

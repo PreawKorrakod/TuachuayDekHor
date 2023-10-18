@@ -19,7 +19,7 @@ function Story() {
             <div className="rec__title">
               <h2 className="title_sub">Story By DekHor</h2>
             </div>
-          <ContentSlide name = {"Story's DekHor"}/>
+          <ContentSlide name = {"story"}/>
         </div>
       </div>
     </div>   

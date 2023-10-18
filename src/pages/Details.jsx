@@ -1,26 +1,56 @@
-import React,{ useState } from 'react'
+import React,{ useState,useEffect,useContext } from 'react'
 import Navbar from '../component/Nav'
 import {Container,Input,Card} from 'reactstrap'
 import {RiFlag2Line,RiMessage2Line,RiSendPlaneFill} from "react-icons/ri";
 import {BsHeart,BsFillTrashFill,BsHeartFill} from "react-icons/bs";
 import {AiFillEdit} from "react-icons/ai";
-import { Link } from 'react-router-dom';
+import { Link,useParams } from 'react-router-dom';
 import Avatar from '../component/Avatar';
 import Comments from '../component/Comments';
 import "./Details.scoped.css"
-
+import axios from 'axios';
+import { General } from '../App';
+import CheckDelete from '../component/CheckDelete';
 // title,username,content,like,comments
+
 const Details = () => {
+  const {id} = useParams();
+  const [data,setData] = useState([]);
+  useEffect(() => {
+    axios.get("http://localhost:3300/detailpost?id_post=" + id)
+    .then(res =>{
+      // console.log(res.data)
+      setData(res.data[0]);
+    })   
+    .catch((err) => {
+      alert(err)
+    })
+  },[id])
+  
 
+  // const [like, setLike] = useState(0);
+  // console.log(like)
+  const { user } = useContext(General);
+  
   const [like, setLike] = useState(0);
-  
-  const handleLikeClick = () => {
-    // เรียกเมื่อคลิกที่ไลค์
-    setLike(like + 1); // เพิ่มจำนวนไลค์ขึ้น 1 ทุกครั้งที่คลิก
-  };
+  const handleLikeClick = async () => {
+    try {
+        await axios.post("http://localhost:3300/likepost", {
+            id_post: id,
+            id: user?.id,
+        });
 
-  
-  const user = false;
+        // const response = await axios.post("http://localhost:3300/countlike", { id_post: id });
+        // console.log(response)
+        // if (response.data && response.data.count !== undefined) {
+        //     setLike(response.data.count);
+        // }
+        // console.log(response)
+    } catch (error) {
+        alert(error);
+    }
+};
+
 
   return (
     <div className="story">
@@ -31,14 +61,14 @@ const Details = () => {
         <Card>
           <div className="head">
             <div className="title">
-              <h2>Title</h2>
+              <h2>{data.title}</h2>
             </div>
             <div className="writer">
               <div className="user__photo">
                 <Avatar></Avatar>
               </div>
               <div className="name">
-                <h6>Username</h6>
+                <h6>{data.name?.username}</h6>
               </div>
             </div> 
             <div className="menu__icon">
@@ -57,10 +87,13 @@ const Details = () => {
                 </div>
               </div>
               <div className="last">
-                {user ? <Link to={'/report'}><RiFlag2Line size={25} className='icon-report'/></Link> :
+                {!user ? <Link to={'/report'}><RiFlag2Line size={25} className='icon-report'/></Link> :
                 <div className="icon_edit">
                   <AiFillEdit size={25} className='icon-Edit'/>
-                  <BsFillTrashFill size={25} className='icon-delete'/>
+                  {/* <button >
+                    <BsFillTrashFill size={25} className='icon-delete'/>
+                  </button> */}
+                  <CheckDelete></CheckDelete>
                 </div>}
               </div>
             </div>
@@ -68,9 +101,7 @@ const Details = () => {
           <div className="img__box">
             <img src="/pxfuel.jpg" alt="" />
           </div>
-          <div className="content">
-            content
-          </div>
+          <div className="content" dangerouslySetInnerHTML={{ __html: data.content }} />
         </Card>
       </div>
     </div>
@@ -78,3 +109,7 @@ const Details = () => {
 }
 
 export default Details
+
+
+
+

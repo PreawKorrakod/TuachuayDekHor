@@ -1,4 +1,4 @@
-import React, { useState,useContext } from "react";
+import React, { useState,useContext, useEffect } from "react";
 import "./Profile.scoped.css";
 import PostSlide from "../component/PostSlide";
 import LikeSlide from "../component/LikedSlide";
@@ -10,10 +10,38 @@ import Editprofile from "../component/EditProfile";
 import ContactModal from "../component/ContactModel";
 import { General } from '../App';
 import axios from 'axios';
+import { useParams } from "react-router-dom";
 
 const Profile = () => {
+  const {username} = useParams();
   const {supabase_for_use : supabase,session,user} = useContext(General);
-  const name = user?.user_metadata.username;
+  const name = username;
+  const [id, setId] = useState("");
+  useEffect(() => {
+    axios.get("http://localhost:3300/usernametoid?username="+ username)
+      .then(res => {
+        setId(res.data[0]?.id || '');
+        console.log(id); // ตรวจสอบค่า id ที่ถูกต้อง
+      })
+      .catch((err) => {
+        alert(err);
+      });
+  }, [username]);
+
+  // axios.get("http://localhost:3300/usernametoid?username="+ username)
+  // .then(res => {
+  //   const id = res.data[0].id;
+  //   console.log(id);
+  //   setId(id);
+  // })
+  // .catch((err) => {
+  //   alert(err)
+  // })
+  // if (id == user?.id) {
+  //   name = name;
+  // }else{
+  //   name = 
+  // }
   // supabase.auth.refreshSession()
   // console.log(user?.user_metadata.username)
 
@@ -50,7 +78,7 @@ const Profile = () => {
           </div>
           <div className="edit">
             {/* ---Button triger modal--- */}
-            {session? <button className="edit__profile">
+            {user?.user_metadata.username == username? <button className="edit__profile">
               <Editprofile
                 name={name}
                 // describe={describe}
@@ -86,13 +114,14 @@ const Profile = () => {
             <TabContent activeTab={activeTab}>
               <TabPane tabId="1">
                 <div className="post__zone">
-                  <PostSlide></PostSlide>
+                  <PostSlide id={id} />
                 </div>
               </TabPane>
 
               <TabPane tabId="2">
                 <div className="liked__zone">
-                  <LikeSlide></LikeSlide>
+                  <LikeSlide id={id} />
+                  {/* { id !== null && <LikeSlide id={id} /> } */}
                 </div>
               </TabPane>
             </TabContent>
