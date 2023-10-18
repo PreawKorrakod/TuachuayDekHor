@@ -6,9 +6,22 @@ import { General } from '../App';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
+function makeid(length) {
+    let result = '';
+    const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    const charactersLength = characters.length;
+    let counter = 0;
+    while (counter < length) {
+      result += characters.charAt(Math.floor(Math.random() * charactersLength));
+      counter += 1;
+    }
+    return result;
+}
 function AddPost() {
     const { supabase_for_use: supabase, session, user } = useContext(General);
     const navigate = useNavigate()
+
+    const [loading,setLoading] = useState(false);
 
     const editor = useRef(null);
     // const [content, setContent] = useState('')
@@ -35,22 +48,45 @@ function AddPost() {
     }
 
     // create post function
-    const createPost = (event) => {
+    const createPost = async(event) => {
         // console.log(user?.email)
         // console.log(post)
         event.preventDefault();
+        setLoading(true);
+        const file = event.target[0].files[0]
+        const image_title =`${makeid(10)}.${file.type.replace(/(.*)\//g, '')}`
+        const { error } = await supabase
+        .storage
+        .from('postthumnail')
+        .upload(image_title, file, {
+            cacheControl: '3600',
+            upsert: false
+        })
+        if (error){
+            setLoading(false)
+            return alert(error)
+        }
+        
+        const { data:{publicUrl:image_link} } = supabase
+        .storage
+        .from('postthumnail')
+        .getPublicUrl(image_title)
+
 
         axios.post("http://localhost:3300/creatpost", {
             title: post.title,
             content: post.content,
             category: post.category,
             id: user?.id,
+            image_title: image_title,
+            image_link : image_link,
         })
         .then(data => {
             if(session){
                 if (post.title.trim() != ''){
                     if (post.content.trim() != ''){
                         if (post.category != ''){
+                            setLoading(false)
                             alert("post created")
                         }
                     }
@@ -59,23 +95,28 @@ function AddPost() {
             // `/profile/${username}`
             // user?.user_metadata_username
             }else{
+                setLoading(false)
                 alert("Please Login")
             }
         })
         .catch((err) => {
+            setLoading(false)
             alert(err)
         })
 
         // console.log(post)
         if (post.title.trim() == '') {
+            setLoading(false)
             alert('post is required!!')
             return;
         }
         if (post.content.trim() == '') {
+            setLoading(false)
             alert('post content is required !!')
             return;
         }
         if (post.category == '') {
+            setLoading(false)
             alert('select some category !!')
             return;
         }
@@ -180,8 +221,8 @@ function AddPost() {
                             </div>
 
                             <Container className='button__Blog'>
-                                <Button type='submit' className='Post-btn'>Post</Button>
-                                <Button className='Cancel'>Cancel</Button>
+                            <Button type='submit' className='Post-btn' disabled={loading} >Post</Button>
+                                <Button className='Cancel' disabled={loading}>Cancel</Button>
                             </Container>
 
                         </Form>

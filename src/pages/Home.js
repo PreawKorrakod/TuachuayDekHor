@@ -3,6 +3,7 @@ import React from "react";
 import Navbar from "../component/Nav";
 import { Container } from "reactstrap";
 import ContentSlide from "../component/ContentSlide";
+import Reccommend from "../component/Reccommend";
 import { Link } from "react-router-dom";
 import SlidePost from "../component/SlidePost";
 import {BsArrowRight} from "react-icons/bs";
@@ -34,7 +35,7 @@ const Home = () => {
           <div className="rec__title">
             <h2 className="title_sub">DekHor Recommended</h2>
           </div>
-          <ContentSlide></ContentSlide>
+          <Reccommend/>
         </div>
         <div className="category">
           <div className="category__title">
@@ -49,7 +50,7 @@ const Home = () => {
                       <Link to={"/Decoration"}>
                         <button className="seeall_btn" >See All<BsArrowRight size={25}/></button>
                       </Link>
-                        
+        
                     </div>
                 </div>
             </div>

@@ -15,39 +15,38 @@ import CheckDelete from '../component/CheckDelete';
 
 const Details = () => {
   const {id} = useParams();
+  const {username} = useParams();
+  const { user } = useContext(General);
+  const [like, setLike] = useState(0);
   const [data,setData] = useState([]);
   useEffect(() => {
     axios.get("http://localhost:3300/detailpost?id_post=" + id)
-    .then(res =>{
-      // console.log(res.data)
-      setData(res.data[0]);
-    })   
-    .catch((err) => {
-      alert(err)
+    .then((res) => {
+        setData(res.data[0]);
     })
-  },[id])
-  
+    .catch((error) => {
+        console.error(error);
+    })
+  }, [id]);
 
-  // const [like, setLike] = useState(0);
-  // console.log(like)
-  const { user } = useContext(General);
-  
-  const [like, setLike] = useState(0);
+  if (!data) {
+    return <div>Loading...</div>;
+  }  
+
   const handleLikeClick = async () => {
     try {
-        await axios.post("http://localhost:3300/likepost", {
-            id_post: id,
-            id: user?.id,
-        });
-
-        // const response = await axios.post("http://localhost:3300/countlike", { id_post: id });
-        // console.log(response)
-        // if (response.data && response.data.count !== undefined) {
-        //     setLike(response.data.count);
-        // }
-        // console.log(response)
+      // ทำการเพิ่มการ "ถูกใจ" ลงฐานข้อมูล
+      await axios.post("http://localhost:3300/likepost", {
+        id_post: id,
+        id: user?.id,
+      })
+      .then(res =>{
+        console.log(res.data)
+      })
+        // อัพเดตค่า like ในส่วนของสถานะ (state) ของ React
+        // setLike(like + 1);
     } catch (error) {
-        alert(error);
+      alert(error);
     }
 };
 
@@ -87,7 +86,7 @@ const Details = () => {
                 </div>
               </div>
               <div className="last">
-                {!user ? <Link to={'/report'}><RiFlag2Line size={25} className='icon-report'/></Link> :
+                {!(user?.user_metadata.username == username)? <Link to={'/report'}><RiFlag2Line size={25} className='icon-report'/></Link> :
                 <div className="icon_edit">
                   <AiFillEdit size={25} className='icon-Edit'/>
                   {/* <button >

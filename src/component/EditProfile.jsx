@@ -12,24 +12,42 @@ function Editprofile(props) {
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
     
-    function handleUpdate(event) {
+    async function handleUpdate(event) {
         event.preventDefault();
         const newName = event.target[0].value;
         // const newDescribe = event.target[1].value;
-        if (newName !== props.name) {
-            axios.post("http://localhost:3300/edit_profile",{
-                id: user.id,
-                username: newName,
-                email: user.email,
-            }).then(res=>{
-                supabase.auth.refreshSession();
-                // props.setName(newName);
-            })
-            .catch((err) => {
-                alert(err)
-            })
-
+        console.log(event)
+        const file = event.target[1].files[0]
+        const image_title =`${user?.id}.${file.type.replace(/(.*)\//g, '')}`
+        const { error } = await supabase
+        .storage
+        .from('avatars')
+        .upload(image_title, file, {
+            cacheControl: '3600',
+            upsert: true
+        })
+        if (error){
+            return alert(error)
         }
+        const { data:{publicUrl:image_link} } = supabase
+        .storage
+        .from('avatars')
+        .getPublicUrl(image_title)
+
+        axios.post("http://localhost:3300/edit_profile",{
+            id: user.id,
+            username: newName,
+            email: user.email,
+            avatar_url: image_link,
+        }).then(res=>{
+            supabase.auth.refreshSession();
+            // props.setName(newName);
+        })
+        .catch((err) => {
+            alert(err)
+        })
+
+        
         // if (newDescribe !== props.describe) {
         //     props.setDescribe(newDescribe);
         // }
@@ -82,15 +100,15 @@ function Editprofile(props) {
                                         </div> */}
                                     </div>
                                 </div>
-                                {/* <div class="input__Image">
+                                <div class="input__Image">
                                     <label for="photo" class="Photo__head">Photo</label>
                                     <div class="photo__body">
-                                        <svg class="h-12 w-12 text-gray-300" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                                            <path fill-rule="evenodd" d="M18.685 19.097A9.723 9.723 0 0021.75 12c0-5.385-4.365-9.75-9.75-9.75S2.25 6.615 2.25 12a9.723 9.723 0 003.065 7.097A9.716 9.716 0 0012 21.75a9.716 9.716 0 006.685-2.653zm-12.54-1.285A7.486 7.486 0 0112 15a7.486 7.486 0 015.855 2.812A8.224 8.224 0 0112 20.25a8.224 8.224 0 01-5.855-2.438zM15.75 9a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z" clip-rule="evenodd" />
-                                        </svg>
-                                        <button type="button" class="rounded-md bg-white px-2.5 py-1.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50">Change</button>
+                                        <input 
+                                            type="file"
+                                            id='Photo' 
+                                        />
                                     </div>
-                                </div> */}
+                                </div>
                             </div>
                         </div>
                     </form>
