@@ -6,6 +6,7 @@ import ContentSlide from "../component/ContentSlide";
 import { Link } from "react-router-dom";
 import SlidePost from "../component/SlidePost";
 import {BsArrowRight} from "react-icons/bs";
+import Footer from "../component/footer";
 
 const Home = () => {
   return (
@@ -77,7 +78,7 @@ const Home = () => {
             </div>
             <div className="story_wrapper">
                 <div className="box">
-                    <h3 className="title_category">Story'DekHor</h3>
+                    <h3 className="title_category">Story's DekHor</h3>
                     <p className="details">Share fun stories</p>
                     <div className="seeall">
                       <Link to={"/Story"}>
@@ -90,6 +91,7 @@ const Home = () => {
         </div>
       </div>
       </body>
+      <Footer></Footer>
     </div>
   );
 };

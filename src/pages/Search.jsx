@@ -7,6 +7,7 @@ import { BsHeartFill } from "react-icons/bs";
 import { BiSolidPencil } from "react-icons/bi";
 import { useLocation, Link } from 'react-router-dom'
 import axios from 'axios';
+import Footer from "../component/footer";
 
 // เพิ่มโพสต์เข้ามาหมดเลยในหน้านี้เพื่อเอาไว้ใช้ค้นหา
 // const Data = [
@@ -102,6 +103,7 @@ function Search() {
                     </div>
                 </div>
             </div>
+            <Footer></Footer>
         </div>
     )
 }

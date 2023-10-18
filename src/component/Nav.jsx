@@ -106,9 +106,9 @@ function Navbar(){
                         </div>
                     }
                 </li>
-                <li>
+                {/* <li>
                     <a className="navigation" href="/contact">Contact</a>
-                </li>
+                </li> */}
                 <li>
                     <NavLink className="login_blog">
                         {session ? <DropdownProfile/> : <Link to={"/login"}><button className='Login_btn'>Log in</button></Link>}

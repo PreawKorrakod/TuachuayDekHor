@@ -1,0 +1,125 @@
+.footer {
+    background-color: #3D39BD;
+    color: #f8f8f8;
+    padding: 10px 0;
+    font-family: 'Poppins',sans-serif;
+  }
+  
+  .footer-content {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .footer-section {
+    width: 30%;
+    padding-top: 1rem;
+    flex: 1;
+    text-align: center;
+  }
+  
+  .footer-section1 {
+    padding: 0.5rem;
+    width: 70%;
+    flex: 1;
+    text-align: start;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    border-right: 3px solid #332fab; 
+    padding-right: 5rem;   
+  }
+
+  .footer-section h3 {
+    font-size: 1.5rem;
+    margin-bottom: 5px;
+  }
+
+  .footer-section1 h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
+  
+  .footer-section p {
+    font-size: 1rem;
+  }
+
+  .footer-section1 p {
+    font-size: 1rem;
+  }
+  
+  .footer-bottom {
+    background-color: #332fab;
+    text-align: center;
+    padding: 10px 0;
+    margin-top: 1rem;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  #icon{
+    color: black;
+    width: 35px;
+    height: 35px;
+    background-color: #D9C029;
+    padding: 0.2rem;
+    margin: 1rem;
+    border-radius: 10px;
+    transition: ease-in;
+  }
+
+
+  #icon:hover{
+    scale: 37px;
+    box-shadow: 0 2px 4px rgba(41, 40, 40, 0.21) ;
+    background-color: #cdaf07;
+  }
+
+
+  #icon1{
+    color: black;
+    width: 35px;
+    height: 35px;
+    background-color: #D9C029;
+    padding: 0.2rem;
+    margin-right: 0.5rem;
+    margin-top: 0.2rem;
+    border-radius: 10px;
+  }
+
+  .title_footer{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  .title_footer1{
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: start;
+  }
+
+  .title{
+    width: 50%;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    font-weight: 500;
+  }
+
+  .title1{
+    width: 25%;
+    padding-bottom: 0.5rem;
+    border-bottom: 3px solid #332fab;
+    font-weight: 500;
+  }
+
+  #logo{
+    width: 100px;
+    height: 90px;
+}
