@@ -80,10 +80,10 @@ function PostSlide(props){
                                     <img src={img1} alt="" />
                                 </div>
                                 <div className="destFooter">
-                                    <div className="delete"  >
+                                    {/* <div className="delete"  >
                                         {/* {CheckDelete && <BsFillTrashFill size={25} type='submit' className='icon-delete'onSubmit={data}  onClick={handledelete}/>} */}
-                                        <CheckDelete/>
-                                    </div>
+                                        {/* <CheckDelete/>
+                                    </div> */} 
                                     <div className="destText">
                                         <h4>
                                             <Link to={`/${category}/${id}`}>{title}</Link>

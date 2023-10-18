@@ -1,35 +1,51 @@
 .footer {
     background-color: #3D39BD;
     color: #f8f8f8;
-    padding: 10px 0;
+    /* padding: 5px 0; */
     font-family: 'Poppins',sans-serif;
+    align-items: center;
+    justify-content: center;
+
   }
   
   .footer-content {
     display: flex;
-    justify-content: space-around;
+    justify-content:space-around;
     flex-wrap: wrap;
-    max-width: 1200px;
-    margin: 0 auto;
+    max-width: max-content;
+    margin: auto;
+    display: flex;
+
   }
   
   .footer-section {
-    width: 30%;
-    padding-top: 1rem;
+    width: 100%;
     flex: 1;
     text-align: center;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
   }
+
+  .footer-section2 {
+    width: 100%;
+    flex: 1;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    padding-top: 5rem;
+  }
+  
   
   .footer-section1 {
     padding: 0.5rem;
-    width: 70%;
+    width: 100%;
     flex: 1;
     text-align: start;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    border-right: 3px solid #332fab; 
-    padding-right: 5rem;   
+    /* border-right: 3px solid #332fab;    */
   }
 
   .footer-section h3 {
@@ -40,10 +56,21 @@
   .footer-section1 h3 {
     font-size: 1.5rem;
     margin-bottom: 10px;
+    padding-top: 0.5rem ;
+  }
+
+  .footer-section2 h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    padding-top: 0.5rem ;
   }
   
   .footer-section p {
-    font-size: 1rem;
+    font-size: 0.5rem;
+  }
+  
+  .footer-section2 p {
+    font-size: 0.5rem;
   }
 
   .footer-section1 p {
@@ -53,8 +80,7 @@
   .footer-bottom {
     background-color: #332fab;
     text-align: center;
-    padding: 10px 0;
-    margin-top: 1rem;
+    /* padding: 10px 0; */
     justify-content: center;
     align-items: center;
   }
@@ -65,7 +91,7 @@
     height: 35px;
     background-color: #D9C029;
     padding: 0.2rem;
-    margin: 1rem;
+    margin: 0.5rem;
     border-radius: 10px;
     transition: ease-in;
   }
@@ -113,13 +139,17 @@
   }
 
   .title1{
-    width: 25%;
+    width: 50%;
     padding-bottom: 0.5rem;
     border-bottom: 3px solid #332fab;
     font-weight: 500;
   }
 
   #logo{
-    width: 100px;
-    height: 90px;
+    width: 60%;
+    height: 60%;
+}
+
+.last_footer{
+  font-size: smaller;
 }

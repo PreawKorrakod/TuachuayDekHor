@@ -15,15 +15,17 @@ const Footer = () => {
           <div className='title_footer1'>
             <h3 className= 'title1'>Contact Us</h3>
           </div>
-          <p><BiSolidEnvelope id='icon1'/>example@email.com</p>
-          <p><BiSolidPhone id='icon1'/>xxx-xxx-xxxx</p>
-          <p><BiSolidMap id='icon1'/>King Mongkut's University of Technology North Bangkok</p>
+          <p className='text_footer'><BiSolidEnvelope id='icon1'/>example@email.com</p>
+          <p className='text_footer'><BiSolidPhone id='icon1'/>xxx-xxx-xxxx</p>
+          <p className='text_footer'><BiSolidMap id='icon1'/>King Mongkut's University of Technology North Bangkok</p>
         </div>
         <div className="footer-section">
           <div className="logo">
-              <img id="logo" src="/DekHor.png" alt="" />
+            <img id="logo" src="/DekHor.png" alt="" />
           </div> 
-          <div className='title_footer' >
+        </div>
+        <div className="footer-section2">
+          <div className='title_footer'>
             <h3 className= 'title'>Follow Us</h3>
           </div>
           <Link to={"/home"}><BiLogoFacebookCircle id='icon'/></Link>
@@ -32,7 +34,7 @@ const Footer = () => {
         </div>
       </div>
       <div className="footer-bottom">
-        <p>&copy; {new Date().getFullYear()} TuaychuyDekHor Company. All rights reserved.</p>
+        <p className='last_footer'>&copy; {new Date().getFullYear()} TuaychuyDekHor Company. All rights reserved.</p>
       </div>
     </footer>
   );
