@@ -66,12 +66,12 @@ function Blogger() {
         {/* <p>Something</p> */}
         <div className="blogger_wrapper">
         {
-            data.map(({user: { username }},index) => {
+            data.map(({user: { username }, image: {avatar_url}},index) => {
               return (
                 <div className="box">
                   <Link to={`/profile/${username}`}>
                     <div className="singleDest" key={index}>
-                      <img src={img1} alt=""/>
+                      <img src={avatar_url??img1} alt=""/>
                     </div>
                     <div className="userwrite">
                       <Link to={`/profile/${username}`}>{username}</Link>

@@ -71,12 +71,12 @@ function SlidePost() {
     <div>
       <Slider {...settings}>
         {
-          data.map(({ user: { username } },index) => {
+          data.map(({ user: { username }, image: { avatar_url } },index) => {
             return (
               <Link to={`/profile/${username}`} >
                 <div className="box" >
                   <div className="singleDest" key = {index}>
-                    <img src={img1} alt=""/>
+                    <img src={avatar_url??img1} alt=""/>
                   </div>
                   <div className="userwrite">
                     <Link to={`/profile/${username}`}>{username}</Link>
