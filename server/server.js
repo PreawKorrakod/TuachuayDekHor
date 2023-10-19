@@ -237,7 +237,7 @@ app.get("/usernametoid", async (req, res) => {
 
 //blogger
 app.post("/blogger", async (req, res) => {
-    const { data, error } = await supabase.from('distinct_id').select('user:profiles!Create_Post_id_fkey(username)');
+    const { data, error } = await supabase.from('distinct_id').select('user:profiles!Create_Post_id_fkey(username),image: profiles(avatar_url)');
     if (error) {
         console.error(error);
         res.status(400).json(error);

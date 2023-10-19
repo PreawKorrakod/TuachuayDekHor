@@ -2,8 +2,7 @@ import React,{ useState,useEffect,useContext } from 'react'
 import Navbar from '../component/Nav'
 import {Container,Input,Card} from 'reactstrap'
 import {RiFlag2Line,RiMessage2Line,RiSendPlaneFill} from "react-icons/ri";
-import {BsHeart,BsFillTrashFill,BsHeartFill} from "react-icons/bs";
-import {AiFillEdit} from "react-icons/ai";
+import {BsHeart,BsFillTrashFill,BsHeartFill,BsBookmark} from "react-icons/bs";
 import { Link,useParams } from 'react-router-dom';
 import Avatar from '../component/Avatar';
 import Comments from '../component/Comments';
@@ -75,7 +74,7 @@ const Details = () => {
               <div className="first">
                 <div className="like__box">
                   <div className="heart">
-                    <BsHeart size={25} 
+                    <BsBookmark size={25} 
                     className={like === 0 ? "nolike" : "like"}
                     onClick={handleLikeClick}
                     />
@@ -89,7 +88,6 @@ const Details = () => {
               <div className="last">
                 {!(user?.user_metadata.username == username)? <Link to={'/report'}><RiFlag2Line size={25} className='icon-report'/></Link> :
                 <div className="icon_edit">
-                  <AiFillEdit size={25} className='icon-Edit'/>
                   {/* <button >
                     <BsFillTrashFill size={25} className='icon-delete'/>
                   </button> */}

@@ -42,13 +42,17 @@ img{
     background-color: #3D39BD;
     height: 30px;
     width: 60%;
-    color: aliceblue;
+    /* color: aliceblue; */
     font-size: 18px;
     width: 100%;
     text-align: center;
     justify-content: center;
     align-items: center;
     border-radius: 50px;
+}
+
+.userwrite a{
+    color: rgb(255, 255, 255);
 }
 
 

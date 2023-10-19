@@ -51,6 +51,7 @@ header{
     top: 15rem;
     margin-left: 0.5rem;
     align-items: center;
+    text-align: center;
     overflow: hidden;
     width: 200px;
     height: 200px;
@@ -182,3 +183,4 @@ p.post_id{
     background-color: #f8f8f8;
     /* box-shadow: 0 0 30px rgba(194, 193, 193, 0.646); */
 }
+

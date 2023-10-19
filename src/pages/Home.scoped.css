@@ -84,6 +84,7 @@ main{
     position: relative;
     padding-top: 1rem;
     font-size:30px;
+    padding-left: 1rem;
 }
 
 .Container{
@@ -233,7 +234,7 @@ main{
 
 .title__blogger{
     padding-top: 3rem;
-    padding-left: 2rem;
+    padding-left: 3rem;
 }
 
 .titleblog{

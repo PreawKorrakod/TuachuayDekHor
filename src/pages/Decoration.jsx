@@ -1,7 +1,7 @@
-import React,{useState,useEffect,useContext} from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import "./Decoration.scoped.css"
 import Navbar from "../component/Nav";
-import {Col,Row,Container} from "reactstrap";
+import { Col, Row, Container } from "reactstrap";
 import ContentSlide from '../component/ContentSlide';
 import { General } from '../App';
 import axios from 'axios';
@@ -23,23 +23,42 @@ function Decoration() {
   return (
     <div className="Decoration">
       <header>
-        <Navbar/>
+        <Navbar />
       </header>
       <main>
         <h1 className="title">
-            DECORATION
+          DECORATION
         </h1>
       </main>
       <div className="Container">
         <div className="rec">
-            <div className="rec__title">
-              <h2 className="title_sub">Idea for Your Room By DekHor</h2>
-            </div>
+          <div className="Content"></div>
+          <div className="rec__title">
+            <h2 className="title_sub">Ideas for Your Room By DekHor</h2>
+          </div>
           <ContentSlide name={'decoration'} />
         </div>
       </div>
-    </div>   
-    )
+    </div>
+    // <div className="Decoration">
+    //   <header>
+    //     <Navbar/>
+    //   </header>
+    //   <main>
+    //     <h1 className="title">
+    //         DECORATION
+    //     </h1>
+    //   </main>
+    //   <div className="Container">
+    //     <div className="rec">
+    //         <div className="rec__title">
+    //           <h2 className="title_sub">Idea for Your Room By DekHor</h2>
+    //         </div>
+    //       <ContentSlide name={'decoration'} />
+    //     </div>
+    //   </div>
+    // </div>   
+  )
 }
 
 

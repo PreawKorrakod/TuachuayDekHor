@@ -3,8 +3,8 @@ import "./Avatar.scoped.css"
 
 function Avatar(props) {
   if (props.src) {
-    return (<div className='w-full'>
-      <img class="h-12 w-12 text-gray-300" src={props.src}/>
+    return (<div className='avatar-wrap'>
+      <img class="img_User" src={props.src} />
     </div>)
   }
   return (
