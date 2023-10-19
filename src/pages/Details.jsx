@@ -2,7 +2,7 @@ import React,{ useState,useEffect,useContext } from 'react'
 import Navbar from '../component/Nav'
 import {Container,Input,Card} from 'reactstrap'
 import {RiFlag2Line,RiMessage2Line,RiSendPlaneFill} from "react-icons/ri";
-import {BsHeart,BsFillTrashFill,BsHeartFill,BsBookmark} from "react-icons/bs";
+import {BsHeart,BsFillTrashFill,BsHeartFill,BsBookmark,BsBookmarkFill} from "react-icons/bs";
 import { Link,useParams } from 'react-router-dom';
 import Avatar from '../component/Avatar';
 import Comments from '../component/Comments';
@@ -62,7 +62,7 @@ const Details = () => {
         console.log(res.data)
       })
         // อัพเดตค่า like ในส่วนของสถานะ (state) ของ React
-        // setLike(like + 1);
+        setLike(like + 1);
     } catch (error) {
       alert(error);
     }
@@ -89,10 +89,10 @@ const Details = () => {
                 <div className="box">
                   <div className="last">
                   {(user?.user_metadata.username !== data.name?.username)? <div className="heart">
+                  { like === 0? 
                     <BsBookmark size={25} 
-                    className={like === 0 ? "nolike" : "like"}
                     onClick={handleLikeClick}
-                    />
+                    />:<BsBookmarkFill size={25}/>}
                   </div> :
                   <div className="icon_edit">
                     {/* <button >

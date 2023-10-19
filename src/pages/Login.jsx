@@ -61,7 +61,7 @@ const Login= () => {
                     {/* <div className="remember-forget">
                         <a href="#">Forget Password?</a>
                     </div> */}
-                    <button type="submit" className="login-submit">Login</button>
+                    <button type="submit" className="login-submit">Log in</button>
                 </form>
             </div>
         </div>
