@@ -36,7 +36,7 @@ function CheckDelete(){
         {/* <Modal.Header className='modal-header'closeButton> */}
         <Modal.Header className='modal-header'>
             <h1 className='text-wraning'>Warning!</h1>
-            <BsXLg size={25} id="icon-close" nClick={handleClose} />
+            <BsXLg size={25} id="icon-close" onClick={handleClose} />
         </Modal.Header>
         <Modal.Body>
           <p className='text-delete'>Confirm Delete?</p>

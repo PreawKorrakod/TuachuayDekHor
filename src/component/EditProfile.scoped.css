@@ -56,13 +56,13 @@
     cursor: pointer;
     border-radius: 10px;
     border: none;
-    background-color: #D9C029;
+    background-color: rgb(130, 127, 127);
     font-family: 'Poppins';
-    color: black;
+    color: #f8f8f8;
 }
 
 .close-btn:hover{
-    background-color: #cdaf07;
+    background-color: rgb(113, 111, 111);
 }
 
 .input_user{

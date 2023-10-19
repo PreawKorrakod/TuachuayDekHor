@@ -59,11 +59,12 @@ const Details = () => {
         id: user?.id,
       })
       .then(res =>{
+        setLike(like + 1);
+        console.log(like)
         alert("Save Success")
         console.log(res.data)
       })
         // อัพเดตค่า like ในส่วนของสถานะ (state) ของ React
-        setLike(like + 1);
     } catch (error) {
       alert("You have already saved this post");
     }
@@ -93,7 +94,8 @@ const Details = () => {
                   { like === 0? 
                     <BsBookmark size={25} 
                     onClick={handleLikeClick}
-                    />:<BsBookmarkFill size={25}/>}
+                    className='noBookmark'
+                    />:<BsBookmarkFill size={25} className='Bookmark' onClick={handleLikeClick}/>}
                   </div> :
                   <div className="icon_edit">
                     {/* <button >
