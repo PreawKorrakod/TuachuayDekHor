@@ -19,7 +19,7 @@ function Cooking() {
       <div className="Container">
         <div className="rec">
             <div className="rec__title">
-              <h2 className="title_sub">Let's make easy food with DekHor krub</h2>
+              <h2 className="title_sub">Let's make easy food with DekHor</h2>
             </div>
           <ContentSlide name={"cooking"}/>
         </div>
