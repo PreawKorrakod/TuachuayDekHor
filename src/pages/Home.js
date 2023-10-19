@@ -18,10 +18,10 @@ const Home = () => {
       </header>
       <main>
         {/* เป็นไปได้อยากกลับมาแก้ */}
-        <h1 className="title">Let's know how to be a professional DekHor.</h1>
-        <Link to={"/signup"}>
+        <h1 className="title">Let's know how to be a professional DekHor</h1>
+        {/* <Link to={"/signup"}>
           <button className="start-btn">Get Started</button>
-        </Link>
+        </Link> */}
       </main>
       <body>
         <div className="Container">
