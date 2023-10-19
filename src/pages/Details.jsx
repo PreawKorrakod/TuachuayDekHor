@@ -36,7 +36,7 @@ const Details = () => {
   useEffect(() => {
     axios.get("http://localhost:3300/idtopic?id=" + id_user)
     .then((res) => {
-        setPic(res.data);
+        setPic(res.data[0]);
         console.log(pic);
     })
     .catch((error) => {
@@ -48,7 +48,7 @@ const Details = () => {
     return <div>Loading...</div>;
   }  
 
-  console.log(data)
+  // console.log(data)
   
 
   const handleLikeClick = async () => {
@@ -82,7 +82,7 @@ const Details = () => {
             </div>
             <div className="writer">
               <div className="user__photo">
-                <Avatar src={pic[0].avatar_url}/>
+                <Avatar src={pic.avatar_url}/>
               </div>
               <div className="name">
                 <h6>{data.name?.username}</h6>
