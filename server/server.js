@@ -53,6 +53,20 @@ app.post("/signup", async (req,res) => {
     }
 });
 
+app.get("/getprofile/:id",async (req,res) =>{
+    const {id} = req.params
+    const { data: {user}, error } = await supabase.auth.admin.getUserById(id)
+    if (error){
+        res.status(500).json(error);
+    }
+    else{
+        res.status(200).json({
+            email: user.email,
+            user_metadata: user.user_metadata
+        });
+    }
+})
+
 
 //edit_profile
 app.post("/edit_profile",async (req,res) =>{
@@ -247,22 +261,10 @@ app.get("/idtopic", async (req, res) => {
         res.status(200).json(data);
     }
 })
-//username_to_id
-app.get("/usernametoid", async (req, res) => {
-    const {username} = req.query;
-    const { data, error } = await supabase.from("profiles").select('id,email:email,avatar_url').eq("username",username);
-    if (error){
-        console.log(data)
-        res.status(400).json(error);
-    }
-    else{
-        res.status(200).json(data);
-    }
-})
 
 //blogger
 app.post("/blogger", async (req, res) => {
-    const { data, error } = await supabase.from('distinct_id').select('user:profiles(username),image: profiles(avatar_url)');
+    const { data, error } = await supabase.from('distinct_id').select('user:profiles(id, username),image: profiles(avatar_url)');
     if (error) {
         console.error(error);
         res.status(400).json(error);

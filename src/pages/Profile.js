@@ -13,55 +13,31 @@ import axios from 'axios';
 import { useParams } from "react-router-dom";
 
 const Profile = () => {
-  const {username} = useParams();
+  const {userId} = useParams();
   const {supabase_for_use : supabase,session,user} = useContext(General);
-  const name = username;
-  const [data, setData] = useState("");
-  console.log(user)
+  const [data, setData] = useState({});
   useEffect(() => {
-    axios.get("http://localhost:3300/usernametoid?username="+ username)
+    if (userId) {
+      axios.get(`http://localhost:3300/getprofile/${userId}`)
       .then(res => {
-        setData(res.data || '');
-        console.log(data); // ตรวจสอบค่า id ที่ถูกต้อง
+        setData(res.data);
       })
-      .catch((err) => {
+      .catch(err => {
         alert(err);
-      });
-  }, [username]);
-  // console.log(data)
-
-  // axios.get("http://localhost:3300/idtopic?id="+ id)
-  // .then(res => {
-  //   setData(res.data[0]);
-  //   console.log(data); // ตรวจสอบค่า id ที่ถูกต้อง
-  // })
-  // .catch((err) => {
-  //   alert(err);
-  // });
-
-  // axios.get("http://localhost:3300/usernametoid?username="+ username)
-  // .then(res => {
-  //   const id = res.data[0].id;
-  //   console.log(id);
-  //   setId(id);
-  // })
-  // .catch((err) => {
-  //   alert(err)
-  // })
-  // if (id == user?.id) {
-  //   name = name;
-  // }else{
-  //   name = 
-  // }
-  // supabase.auth.refreshSession()
-  // console.log(user?.user_metadata.username)
-  // hello
+      })
+    }
+    else {
+      setData({
+        email: user?.email,
+        user_metadata: {
+          username: user?.user_metadata.username,
+          avatar_url: user?.user_metadata.avatar_url
+        }
+      })
+    }
+  }, [userId]);
 
   const [activeTab, setactiveTab] = useState("1");
-  // ko
-
-  // const [name, setName] = useState(user?.user_metadata.username);
-  // const [describe, setDescribe] = useState("Describe");
 
   function toggle(tab) {
     if (activeTab !== tab) {
@@ -79,28 +55,22 @@ const Profile = () => {
         <div className="profile__head"></div>
         <div className="head__box">
           <div className="profile__img">
-            <Avatar src={data[0]?.avatar_url} />
+            <Avatar src={data.user_metadata?.avatar_url} />
           </div>
           <div className="profile_title">
             <div className="User_name">
-              <h2>{name}</h2>
-              {/* <h2>Username</h2> */}
-              {/* <div className="contact">
-                <img src="/mail-outline.svg" alt="" className='mail_edit' />
-                <p>:email</p>
-              </div> */}
-              {/* <p>describe..</p> */}
+              <h2>{data.user_metadata?.username}</h2>
             </div>
             <div className="contact">
               <img src="/mail-outline.svg" alt="" className='mail_edit' />
-              <p className="email_User">nichareepum2547@gmail.com</p>
+              <p className="email_User">{data.email}</p>
             </div>
           </div>
           <div className="edit">
             {/* ---Button triger modal--- */}
-            {user?.user_metadata.username == username? <button className="edit__profile">
+            {user?.user_metadata.username == data.user_metadata?.username ? <button className="edit__profile">
               <Editprofile
-                name={name}
+                name={data.user_metadata?.username}
                 // describe={describe}
                 // setDescribe={setDescribe}
               />
@@ -134,13 +104,13 @@ const Profile = () => {
             <TabContent activeTab={activeTab}>
               <TabPane tabId="1">
                 <div className="post__zone">
-                  <PostSlide id={data[0]?.id} />
+                  <PostSlide id={userId} />
                 </div>
               </TabPane>
 
               <TabPane tabId="2">
                 <div className="liked__zone">
-                  <LikeSlide id={data[0]?.id} />
+                  <LikeSlide id={userId} />
                   {/* { id !== null && <LikeSlide id={id} /> } */}
                 </div>
               </TabPane>
