@@ -83,8 +83,15 @@ const Profile = () => {
             <div className="User_name">
               <h2>{name}</h2>
               {/* <h2>Username</h2> */}
-              <p>email</p>
+              {/* <div className="contact">
+                <img src="/mail-outline.svg" alt="" className='mail_edit' />
+                <p>:email</p>
+              </div> */}
               {/* <p>describe..</p> */}
+            </div>
+            <div className="contact">
+              <img src="/mail-outline.svg" alt="" className='mail_edit' />
+              <p className="email_User">atnight9397@gmail.com</p>
             </div>
           </div>
           <div className="edit">

@@ -1,5 +1,6 @@
 import React from 'react'
 import "./Avatar.scoped.css"
+import Profile_img from '../../src/Assets/person-circle-outline.svg'
 
 function Avatar(props) {
   if (props.src) {
@@ -9,7 +10,7 @@ function Avatar(props) {
   }
   return (
     <div className='avatar-wrap'>
-      <img src="dekHor_Avatar.png" alt="" />
+      <img src={Profile_img} alt="" />
     </div>
   )
 }

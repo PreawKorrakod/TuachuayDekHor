@@ -108,7 +108,9 @@ const Details = () => {
                   {/* <button >
                     <BsFillTrashFill size={25} className='icon-delete'/>
                   </button> */}
-                  <CheckDelete></CheckDelete>
+                  <button className='icon-delete'>
+                    <CheckDelete></CheckDelete>
+                  </button>
                 </div>}
               </div>
             </div>

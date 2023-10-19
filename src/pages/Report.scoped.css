@@ -92,8 +92,16 @@ header{
 #btn-cancel{
     width: 100px;
     margin-left: 20px;
+    background: #848481c7;
+}
+
+
+#btn-cancel:hover{
+    width: 100px;
+    margin-left: 20px;
+    background: #5b5b59c7;
 }
 
 #btn-cancel a:hover{
-    color: red;
+    color: #f8f8f8;
 }

@@ -124,10 +124,10 @@ img{
 .last{
     display: flex;
 }
-
+/* 
 .icon_edit{
     display: flex;
-}
+} */
 
 .content{
     padding-top: 2rem;
@@ -160,16 +160,18 @@ img{
 
 .icon-delete:hover{
     scale: 1.2;
+    background-color: rgb(176, 74, 74);
 }
 
 .icon-delete{
     background-color: rgb(209, 89, 89);
     color: #f8f8f8;
-    width: 30px;
-    height: 30px;
+    width: 40px;
+    height: 35px;
     padding: 0.2rem;
     border-radius: 5px;
     cursor: pointer;
+    border: none;
 }
 
 .nolike{
