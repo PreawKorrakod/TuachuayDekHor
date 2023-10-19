@@ -115,6 +115,7 @@ img{
 
 .box{
     margin-right: 1rem;
+    display: flex;
 }
 
 .heart{

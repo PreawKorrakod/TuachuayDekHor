@@ -87,12 +87,28 @@ const Details = () => {
               <div className="name">
                 <h6>{data.name?.username}</h6>
                 <div className="box">
-                  <div className="heart">
+                  <div className="last">
+                  {(user?.user_metadata.username !== data.name?.username)? <div className="heart">
                     <BsBookmark size={25} 
                     className={like === 0 ? "nolike" : "like"}
                     onClick={handleLikeClick}
                     />
-                  </div>
+                  </div> :
+                  <div className="icon_edit">
+                    {/* <button >
+                      <BsFillTrashFill size={25} className='icon-delete'/>
+                    </button> */}
+                    <button className='icon-delete'>
+                      <CheckDelete></CheckDelete>
+                    </button>
+                  </div>}
+                </div>
+                  {/* <div className="heart">
+                    <BsBookmark size={25} 
+                    className={like === 0 ? "nolike" : "like"}
+                    onClick={handleLikeClick}
+                    />
+                  </div> */}
                 </div>
               </div>
             </div> 
@@ -110,17 +126,17 @@ const Details = () => {
                   {/* <Comments/> */}
                 </div>
               </div>
-              <div className="last">
+              {/* <div className="last">
                 {(user?.user_metadata.username !== data.name?.username)? '' :
                 <div className="icon_edit">
-                  {/* <button >
+                  <button >
                     <BsFillTrashFill size={25} className='icon-delete'/>
-                  </button> */}
+                  </button>
                   <button className='icon-delete'>
                     <CheckDelete></CheckDelete>
                   </button>
                 </div>}
-              </div>
+              </div> */}
             </div>
           </div>
           <div className="img__box">
