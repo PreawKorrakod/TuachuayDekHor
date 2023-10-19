@@ -86,11 +86,7 @@ const Details = () => {
               </div>
               <div className="name">
                 <h6>{data.name?.username}</h6>
-              </div>
-            </div> 
-            <div className="menu__icon">
-              <div className="first">
-                <div className="like__box">
+                <div className="box">
                   <div className="heart">
                     <BsBookmark size={25} 
                     className={like === 0 ? "nolike" : "like"}
@@ -98,12 +94,24 @@ const Details = () => {
                     />
                   </div>
                 </div>
+              </div>
+            </div> 
+            <div className="menu__icon">
+              <div className="first">
+                <div className="like__box">
+                  {/* <div className="heart">
+                    <BsBookmark size={25} 
+                    className={like === 0 ? "nolike" : "like"}
+                    onClick={handleLikeClick}
+                    />
+                  </div> */}
+                </div>
                 <div className="comment__icon">
-                  <Comments/>
+                  {/* <Comments/> */}
                 </div>
               </div>
               <div className="last">
-                {(user?.user_metadata.username !== data.name?.username)? <Link to={'/report'}><RiFlag2Line size={25} className='icon-report'/></Link> :
+                {(user?.user_metadata.username !== data.name?.username)? '' :
                 <div className="icon_edit">
                   {/* <button >
                     <BsFillTrashFill size={25} className='icon-delete'/>
