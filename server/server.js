@@ -213,7 +213,7 @@ app.get("/posttocategory",async (req,res)=> {
 //detailpost
 app.get("/detailpost",async (req,res)=> {
     const {id_post} = req.query;
-    const {data,error} = await supabase.from("Create_Post").select('title,name:profiles!Create_Post_id_fkey(username),content,image_link').eq("id_post",id_post)
+    const {data,error} = await supabase.from("Create_Post").select('id,title,name:profiles!Create_Post_id_fkey(username),content,image_link').eq("id_post",id_post)
     if (error){
         console.log(data)
         res.status(400).json(error);
@@ -234,10 +234,23 @@ app.get("/nameprofile", async (req, res) => {
         res.status(200).json(data);
     }
 })
+
+//id_to_pic
+app.get("/idtopic", async (req, res) => {
+    const {id} = req.query;
+    const { data, error } = await supabase.from("profiles").select('avatar_url').eq("id",id);
+    if (error){
+        console.log(data)
+        res.status(400).json(error);
+    }
+    else{
+        res.status(200).json(data);
+    }
+})
 //username_to_id
 app.get("/usernametoid", async (req, res) => {
     const {username} = req.query;
-    const { data, error } = await supabase.from("profiles").select('id,email:email').eq("username",username);
+    const { data, error } = await supabase.from("profiles").select('id,email:email,avatar_url').eq("username",username);
     if (error){
         console.log(data)
         res.status(400).json(error);

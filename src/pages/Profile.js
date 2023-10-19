@@ -16,18 +16,28 @@ const Profile = () => {
   const {username} = useParams();
   const {supabase_for_use : supabase,session,user} = useContext(General);
   const name = username;
-  const [id, setId] = useState("");
+  const [data, setData] = useState("");
   console.log(user)
   useEffect(() => {
     axios.get("http://localhost:3300/usernametoid?username="+ username)
       .then(res => {
-        setId(res.data[0]?.id || '');
-        console.log(id); // ตรวจสอบค่า id ที่ถูกต้อง
+        setData(res.data || '');
+        console.log(data); // ตรวจสอบค่า id ที่ถูกต้อง
       })
       .catch((err) => {
         alert(err);
       });
   }, [username]);
+  // console.log(data)
+
+  // axios.get("http://localhost:3300/idtopic?id="+ id)
+  // .then(res => {
+  //   setData(res.data[0]);
+  //   console.log(data); // ตรวจสอบค่า id ที่ถูกต้อง
+  // })
+  // .catch((err) => {
+  //   alert(err);
+  // });
 
   // axios.get("http://localhost:3300/usernametoid?username="+ username)
   // .then(res => {
@@ -67,7 +77,7 @@ const Profile = () => {
         <div className="profile__head"></div>
         <div className="head__box">
           <div className="profile__img">
-            <Avatar src={user?.user_metadata.avatar_url} />
+            <Avatar src={data[0]?.avatar_url} />
           </div>
           <div className="profile_title">
             <div className="User_name">
@@ -108,20 +118,20 @@ const Profile = () => {
                     toggle("2");
                   }}
                 >
-                  <p className="post_id">Like</p>
+                  <p className="post_id">Saved</p>
                 </NavLink>
               </NavItem>
             </Nav>
             <TabContent activeTab={activeTab}>
               <TabPane tabId="1">
                 <div className="post__zone">
-                  <PostSlide id={id} />
+                  <PostSlide id={data[0]?.id} />
                 </div>
               </TabPane>
 
               <TabPane tabId="2">
                 <div className="liked__zone">
-                  <LikeSlide id={id} />
+                  <LikeSlide id={data[0]?.id} />
                   {/* { id !== null && <LikeSlide id={id} /> } */}
                 </div>
               </TabPane>

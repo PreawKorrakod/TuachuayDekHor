@@ -15,7 +15,7 @@ import img1 from '../../src/Assets/slide1.png'
 // kkk
 const Details = () => {
   const {id} = useParams();
-  const {username} = useParams();
+  // const {username} = useParams();
   const { user } = useContext(General);
   const [like, setLike] = useState(0);
   const [data,setData] = useState([]);
@@ -29,9 +29,27 @@ const Details = () => {
     })
   }, [id]);
 
+  console.log(data.id)
+
+  const id_user = data.id
+  const [pic,setPic] = useState([]);
+  useEffect(() => {
+    axios.get("http://localhost:3300/idtopic?id=" + id_user)
+    .then((res) => {
+        setPic(res.data);
+        console.log(pic);
+    })
+    .catch((error) => {
+        console.error(error);
+    })
+  }, [id_user]);
+
   if (!data) {
     return <div>Loading...</div>;
   }  
+
+  console.log(data)
+  
 
   const handleLikeClick = async () => {
     try {
@@ -64,7 +82,7 @@ const Details = () => {
             </div>
             <div className="writer">
               <div className="user__photo">
-                <Avatar src={user?.user_metadata.avatar_url}/>
+                <Avatar src={pic[0].avatar_url}/>
               </div>
               <div className="name">
                 <h6>{data.name?.username}</h6>
@@ -85,7 +103,7 @@ const Details = () => {
                 </div>
               </div>
               <div className="last">
-                {!(user?.user_metadata.username == username)? <Link to={'/report'}><RiFlag2Line size={25} className='icon-report'/></Link> :
+                {(user?.user_metadata.username !== data.name?.username)? <Link to={'/report'}><RiFlag2Line size={25} className='icon-report'/></Link> :
                 <div className="icon_edit">
                   {/* <button >
                     <BsFillTrashFill size={25} className='icon-delete'/>
