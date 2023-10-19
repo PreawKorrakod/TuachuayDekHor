@@ -3,7 +3,7 @@ import './CheckDelete.scoped.css'
 import { useParams,useNavigate } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
-import {BsFillTrashFill} from "react-icons/bs";
+import {BsFillTrashFill,BsXLg} from "react-icons/bs";
 import axios from 'axios';
 import { General } from '../App';
 
@@ -27,6 +27,8 @@ function CheckDelete(){
     })
   }
 
+  
+
   return (
     <>
       <BsFillTrashFill size={25} onClick={handleShow}/>
@@ -34,7 +36,7 @@ function CheckDelete(){
         {/* <Modal.Header className='modal-header'closeButton> */}
         <Modal.Header className='modal-header'>
             <h1 className='text-wraning'>Warning!</h1>
-            <img id="icon-close" src="close-outline.svg" alt="" onClick={handleClose} />
+            <BsXLg size={25} id="icon-close" nClick={handleClose} />
         </Modal.Header>
         <Modal.Body>
           <p className='text-delete'>Confirm Delete?</p>
