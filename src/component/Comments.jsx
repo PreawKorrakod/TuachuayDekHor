@@ -1,4 +1,4 @@
-import React, { useState,useContext } from 'react'
+import React, { useState,useContext,useEffect } from 'react'
 import { Input } from 'reactstrap'
 import Offcanvas from 'react-bootstrap/Offcanvas';
 import { FaRegComment } from "react-icons/fa";
@@ -9,9 +9,9 @@ import { General } from '../App';
 import { Link,useParams } from 'react-router-dom';
 import axios from 'axios';
 
-const startComment = {
-  content:'', Username: 'Username'
-}
+// const startComment = {
+//   content:'', Username: 'Username'
+// }
 
 function OffCanvasExample({ name, ...props }) {
   const [show, setShow] = useState(false);
@@ -21,65 +21,53 @@ function OffCanvasExample({ name, ...props }) {
 
   const {session,user} = useContext(General);
   const {id} = useParams();
-  
-  // const Chackcomment=()=>{
-  //   if (session){
-  //     alert('Comment Success!')
-  //   }else{
-  //     alert('Please Login')
-  //   }
-  // }
 
-  // โค้ดสำหรับเพิ่มคอมเมนต์อยู่ตรงนี้
-  // แก้ Username ตรงนี้คับ
-  const [comment , setComment] = useState(startComment)
-
+  const [comment, setComment] = useState('');
   const [allcomment, setAllComment] = useState([]);
 
-  function onCommentValueChange(event){
-    const {name,value} = event.target;
-    setComment ((prevComment) =>{
-      return {
-        ...prevComment,
-        [name] : value
+  const fetchComments = () => {
+    axios.get('http://localhost:3300/showcomment', {
+      params: {
+        id_post: id,
       }
     })
+    .then((response) => {
+      setAllComment(response.data);
+    })
+    .catch((error) => {
+      console.error(error);
+    });
   }
 
-  function onCommentSubmit (event){
+  useEffect(() => {
+    fetchComments(); // เรียกใช้เมื่อคอมโพเนนต์ถูกโหลด
+  }, [id]); // เมื่อ 'id' หรือรหัสโพสที่คุณอ้างถึงเปลี่ยนแปลง
+
+  const onCommentSubmit = (event) => {
     event.preventDefault();
-    console.log(event)
-    console.log(comment.content)
-    if (comment.content){
-      axios.post("http://localhost:3300/commentpost",{
+    if (comment) {
+      axios.post("http://localhost:3300/commentpost", {
         id: user?.id,
         id_post: id,
-        comment: comment.content,
+        comment: comment,
       })
-      .then(res => {
-        console.log(res.data)
+      .then(() => {
+        fetchComments(); // ดึงความคิดเห็นใหม่หลังจากบันทึกเสร็จ
       })
       .catch((err) => {
-          alert(err)
+        alert(err);
       })
     }
 
-    setAllComment((prevAllComment)=>{
-      const NewComment = { ...comment};
-      NewComment.id = Date.now().toString();
-      return [comment, ...prevAllComment];
-    });
-
-    setComment(startComment);
-
+    setComment('');
   }
 
   // Elements
-  const commentElements = allcomment.map((theComment) =>{
+  const commentElements = allcomment.map(({user: { username },comment},index) =>{
     return (
-      <div key={theComment.id} className="comment_app">
-        <h5>{theComment.Username}</h5>
-        <p>{theComment.content}</p>
+      <div className="comment_app" key={index}>
+        <h5>{username}</h5>
+        <p>{comment}</p>
       </div>
     )
   })
@@ -104,8 +92,8 @@ function OffCanvasExample({ name, ...props }) {
             name="content" id="comments"
             rows="5" className='comments__input'
             placeholder= 'Write a comment...'
-            value={comment.content}
-            onChange={onCommentValueChange}
+            value={comment}
+            onChange={(e) => setComment(e.target.value)}
           >
           </textarea>
           <div className="send_btn">
@@ -124,7 +112,7 @@ function OffCanvasExample({ name, ...props }) {
   );
 }
 
-// show frontend เฉยๆ 
+//show frontend เฉยๆ 
 function Comments() {
   return (
     <>

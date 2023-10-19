@@ -122,6 +122,18 @@ app.post("/commentpost",async (req,res) =>{
     }
 })
 
+//show_comment
+app.get("/showcomment",async (req,res) =>{
+    const {id_post} = req.query
+    const {data,error} = await supabase.from("comments").select('user: profiles(username),comment').eq("id_post",id_post)
+    if (error ){
+        res.status(500).json(error);
+    }
+    else{
+        res.status(200).json(data);
+    }
+})
+
 //count_like
 // app.post("/countlike", async (req, res) => {
 //     const { id_post } = req.query;
@@ -225,7 +237,7 @@ app.get("/nameprofile", async (req, res) => {
 //username_to_id
 app.get("/usernametoid", async (req, res) => {
     const {username} = req.query;
-    const { data, error } = await supabase.from("profiles").select('id').eq("username",username);
+    const { data, error } = await supabase.from("profiles").select('id,email:email').eq("username",username);
     if (error){
         console.log(data)
         res.status(400).json(error);
@@ -237,7 +249,7 @@ app.get("/usernametoid", async (req, res) => {
 
 //blogger
 app.post("/blogger", async (req, res) => {
-    const { data, error } = await supabase.from('distinct_id').select('user:profiles!Create_Post_id_fkey(username),image: profiles(avatar_url)');
+    const { data, error } = await supabase.from('distinct_id').select('user:profiles(username),image: profiles(avatar_url)');
     if (error) {
         console.error(error);
         res.status(400).json(error);
@@ -249,7 +261,7 @@ app.post("/blogger", async (req, res) => {
 //search
 app.post("/search",async (req,res)=> {
     // const {id} = req.query;
-    const {data,error} = await supabase.from("Create_Post").select('title,user:profiles!Create_Post_id_fkey(username)') 
+    const {data,error} = await supabase.from("Create_Post").select('title,user:profiles!Create_Post_id_fkey(username),category,id_post') 
     if (error){
         console.log(error)
         res.status(400).json(error);

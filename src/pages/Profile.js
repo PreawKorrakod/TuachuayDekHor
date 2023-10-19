@@ -17,6 +17,7 @@ const Profile = () => {
   const {supabase_for_use : supabase,session,user} = useContext(General);
   const name = username;
   const [id, setId] = useState("");
+  console.log(user)
   useEffect(() => {
     axios.get("http://localhost:3300/usernametoid?username="+ username)
       .then(res => {
@@ -72,7 +73,7 @@ const Profile = () => {
             <div className="User_name">
               <h2>{name}</h2>
               {/* <h2>Username</h2> */}
-              {/* <p>{describe}</p> */}
+              <p>email</p>
               {/* <p>describe..</p> */}
             </div>
           </div>
@@ -84,7 +85,7 @@ const Profile = () => {
                 // describe={describe}
                 // setDescribe={setDescribe}
               />
-            </button> : <ContactModal/>}
+            </button> : ''}
           </div>
         </div>
         <div className="contents__box">
