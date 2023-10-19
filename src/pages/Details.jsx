@@ -12,7 +12,7 @@ import { General } from '../App';
 import CheckDelete from '../component/CheckDelete';
 import img1 from '../../src/Assets/slide1.png'
 // title,username,content,like,comments
-
+// kkk
 const Details = () => {
   const {id} = useParams();
   const {username} = useParams();
