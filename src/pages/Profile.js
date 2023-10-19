@@ -55,6 +55,7 @@ const Profile = () => {
   // }
   // supabase.auth.refreshSession()
   // console.log(user?.user_metadata.username)
+  // hello
 
   const [activeTab, setactiveTab] = useState("1");
   // ko
