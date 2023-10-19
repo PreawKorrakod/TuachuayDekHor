@@ -33,20 +33,21 @@ function Editprofile(props) {
         .storage
         .from('avatars')
         .getPublicUrl(image_title)
-        useEffect (()=>{
-            axios.post("http://localhost:3300/edit_profile",{
+
+        axios.post("http://localhost:3300/edit_profile",{
             id: user.id,
             username: newName,
             email: user.email,
             avatar_url: image_link,
-        }).then(res=>{
+        })
+        .then(res=>{
             supabase.auth.refreshSession();
             // props.setName(newName);
         })
         .catch((err) => {
             alert(err)
         })
-        },[user.id])
+
 
         
         // if (newDescribe !== props.describe) {
