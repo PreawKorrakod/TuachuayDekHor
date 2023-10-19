@@ -11,6 +11,7 @@ import "./Details.scoped.css"
 import axios from 'axios';
 import { General } from '../App';
 import CheckDelete from '../component/CheckDelete';
+import img1 from '../../src/Assets/slide1.png'
 // title,username,content,like,comments
 
 const Details = () => {
@@ -64,7 +65,7 @@ const Details = () => {
             </div>
             <div className="writer">
               <div className="user__photo">
-                <Avatar></Avatar>
+                <Avatar src={user?.user_metadata.avatar_url}/>
               </div>
               <div className="name">
                 <h6>{data.name?.username}</h6>
@@ -98,7 +99,7 @@ const Details = () => {
             </div>
           </div>
           <div className="img__box">
-            <img src="/pxfuel.jpg" alt="" />
+            <img src={data.image_link??img1} alt="" />
           </div>
           <div className="content" dangerouslySetInnerHTML={{ __html: data.content }} />
         </Card>

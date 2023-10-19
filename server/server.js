@@ -143,8 +143,8 @@ app.post("/commentpost",async (req,res) =>{
 //randompost
 app.post("/randompost",async (req,res) => {
     const { data, error } = await supabase
-    .from('random') // Replace with your table name
-    .select('id_post,title,category,user:profiles!Create_Post_id_fkey(username)')
+    .from('updaterandom') // Replace with your table name
+    .select('id_post,title,category,user:profiles!Create_Post_id_fkey(username),image_link')
     // .order('random()') // This orders the rows randomly
     .limit(6); // Adjust the limit as needed
     if (error) {
@@ -175,7 +175,7 @@ app.get("/showlike",async (req,res)=>{
 //post_to_profile
 app.get("/posttoprofile",async (req,res)=> {
     const {id} = req.query;
-    const {data,error} = await supabase.from("Create_Post").select('id_post,title,category,user:profiles!Create_Post_id_fkey(username)').eq("id",id)
+    const {data,error} = await supabase.from("Create_Post").select('id_post,title,category,user:profiles!Create_Post_id_fkey(username),image_link').eq("id",id)
     if (error){
         console.log(error)
         res.status(400).json(error);
@@ -201,7 +201,7 @@ app.get("/posttocategory",async (req,res)=> {
 //detailpost
 app.get("/detailpost",async (req,res)=> {
     const {id_post} = req.query;
-    const {data,error} = await supabase.from("Create_Post").select('title,name:profiles!Create_Post_id_fkey(username),like,content').eq("id_post",id_post)
+    const {data,error} = await supabase.from("Create_Post").select('title,name:profiles!Create_Post_id_fkey(username),content,image_link').eq("id_post",id_post)
     if (error){
         console.log(data)
         res.status(400).json(error);
