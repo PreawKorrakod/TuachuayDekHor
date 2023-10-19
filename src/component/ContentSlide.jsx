@@ -123,9 +123,9 @@ function ContentSlide(props) {
                                     <img src={image_link??img1} alt="" />
                                 </div>
                                 <div className="destFooter">
-                                    <div className="heart">
+                                    {/* <div className="heart">
                                         <BsHeartFill size={25} /><p>{like}</p>
-                                    </div>
+                                    </div> */}
                                     <div className="destText">
                                         <h4>
                                             <Link to={`/${category}/${id}`}>{title}</Link>
