@@ -93,7 +93,7 @@ const Profile = () => {
             </div>
             <div className="contact">
               <img src="/mail-outline.svg" alt="" className='mail_edit' />
-              <p className="email_User">atnight9397@gmail.com</p>
+              <p className="email_User">nichareepum2547@gmail.com</p>
             </div>
           </div>
           <div className="edit">

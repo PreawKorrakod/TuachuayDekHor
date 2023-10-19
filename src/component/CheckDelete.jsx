@@ -20,7 +20,7 @@ function CheckDelete(){
   // const [data,setData] = useState([]);
     axios.delete("http://localhost:3300/deletepost?id_post=" + id)
     .then(res => {
-      navigate("/profile")
+      navigate(`/profile/${user?.user_metadata.username}`)
     })
     .catch((err) => {
         alert(err)

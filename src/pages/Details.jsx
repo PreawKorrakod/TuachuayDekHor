@@ -59,12 +59,13 @@ const Details = () => {
         id: user?.id,
       })
       .then(res =>{
+        alert("Save Success")
         console.log(res.data)
       })
         // อัพเดตค่า like ในส่วนของสถานะ (state) ของ React
         setLike(like + 1);
     } catch (error) {
-      alert(error);
+      alert("You have already saved this post");
     }
 };
 

@@ -1,4 +1,4 @@
-import React, { useState,useContext  } from 'react';
+import React, { useState,useContext, useEffect  } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import "./EditProfile.scoped.css";
@@ -39,13 +39,15 @@ function Editprofile(props) {
             username: newName,
             email: user.email,
             avatar_url: image_link,
-        }).then(res=>{
+        })
+        .then(res=>{
             supabase.auth.refreshSession();
             // props.setName(newName);
         })
         .catch((err) => {
             alert(err)
         })
+
 
         
         // if (newDescribe !== props.describe) {
