@@ -32,7 +32,7 @@ function DropdownProfile(){
     })
     return(
         <div className="profile">
-           <img ref={imgRef} src={Profile_img} alt="" className="User__profile" onClick={()=>setOpen(!open)} />
+           <img ref={imgRef} src={user?.user_metadata.avatar_url??Profile_img} alt="" className="User__profile" onClick={()=>setOpen(!open)} />
            {open && 
            <div className="menus" ref={menuRef} onClick={()=>setOpen(!open)}>
                 <ul className="menu_wrapper">

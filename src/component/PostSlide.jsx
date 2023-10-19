@@ -73,11 +73,11 @@ function PostSlide(props){
         <div className="content">
             <div className="main_content">
                 {
-                    data.map(({ id_post:id, title, category, user: { username } }, index) => {
+                    data.map(({ id_post:id, title, category, user: { username }, image_link }, index) => {
                         return (
                             <div className="singleDest" key={index}>
                                 <div className="dastImage">
-                                    <img src={img1} alt="" />
+                                    <img src={image_link??img1} alt="" />
                                 </div>
                                 <div className="destFooter">
                                     {/* <div className="delete"  >
