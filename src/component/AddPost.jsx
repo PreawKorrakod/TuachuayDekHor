@@ -4,7 +4,7 @@ import "./AddPost.scoped.css"
 import JoditEditor from 'jodit-react';
 import { General } from '../App';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 function makeid(length) {
     let result = '';
@@ -91,7 +91,7 @@ function AddPost() {
                         }
                     }
                 }
-            navigate(`/profile/${user?.user_metadata.username}`);
+            navigate(`/profile/${user?.id}`);
             // `/profile/${username}`
             // user?.user_metadata_username
             }else{
@@ -221,8 +221,8 @@ function AddPost() {
                             </div>
 
                             <Container className='button__Blog'>
-                            <Button type='submit' className='Post-btn' disabled={loading} >Post</Button>
-                                <Button className='Cancel' disabled={loading}>Cancel</Button>
+                                <Button type='submit' className='Post-btn' disabled={loading} >Post</Button>
+                                <Link to={"/home"}><Button type='button' className='Cancel' disabled={loading}>Cancel</Button></Link>
                             </Container>
 
                         </Form>

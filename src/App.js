@@ -102,7 +102,7 @@ function App() {
         <Route path="/report" element={<Report />} />
         <Route path="/writeblog" element={<WriteBlog />} />
         <Route path="/contact" element={<Contact />}/>
-        <Route path="/profile/:username" element={<Profile />}/>
+        <Route path="/profile/:userId" element={<Profile />}/>
         <Route path="/cleaning" element={<Cleaning />}/>
         <Route path="/cleaning/:id" element={<Details />}/>
         <Route path="/cooking" element={<Cooking />}/>
