@@ -261,7 +261,7 @@ app.post("/blogger", async (req, res) => {
 //search
 app.post("/search",async (req,res)=> {
     // const {id} = req.query;
-    const {data,error} = await supabase.from("Create_Post").select('title,user:profiles!Create_Post_id_fkey(username),category,id_post') 
+    const {data,error} = await supabase.from("Create_Post").select('title,user:profiles!Create_Post_id_fkey(username),category,id_post,image_link') 
     if (error){
         console.log(error)
         res.status(400).json(error);

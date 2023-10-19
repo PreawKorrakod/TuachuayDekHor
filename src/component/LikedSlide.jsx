@@ -3,7 +3,7 @@ import img1 from '../../src/Assets/slide1.png'
 import img2 from '../../src/Assets/slide2.png'
 import img3 from '../../src/Assets/slide3.png'
 import img4 from '../../src/Assets/slide4.png'
-import {BsHeartFill} from "react-icons/bs";
+import {BsHeartFill,BsBookmarkFill} from "react-icons/bs";
 import { Link } from "react-router-dom";
 import {BiSolidPencil} from "react-icons/bi";
 import './LikeSlide.scoped.css'
@@ -72,7 +72,7 @@ function LikeSlide (props){
                                 </div>
                                 <div className="destFooter">
                                     <div className="heart">
-                                        <BsHeartFill size={25} className='like-icon'/>
+                                        <BsBookmarkFill size={25} className='like-icon'/>
                                     </div>
                                     <div className="destText">
                                         <h4>

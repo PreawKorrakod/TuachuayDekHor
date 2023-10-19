@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import "./Search.scoped.css"
 import Navbar from '../component/Nav'
+import img1 from '../../src/Assets/slide1.png'
 import img3 from '../../src/Assets/slide3.png'
 import img4 from '../../src/Assets/slide4.png'
 import { BsHeartFill } from "react-icons/bs";
@@ -71,17 +72,17 @@ function Search() {
                         <div className="main_content">
                             {filteredData.length > 0 ? (
                                 // แสดงข้อมูลของผลการค้นหาที่ตรงกับคำค้นหา
-                                filteredData.map(({ id_post: id, title, user: { username }, category }) => {
+                                filteredData.map(({ id_post: id, title, user: { username }, category ,image_link }, index) => {
                                     return (
-                                        <div className="singleDest">
+                                        <div className="singleDest" key={index}>
                                             <div className="dastImage">
-                                                <img src={img3} alt="" />
+                                                <img src={image_link??img1} alt="" />
                                             </div>
                                             <div className="destFooter">
-                                                <div className="heart">
+                                                {/* <div className="heart">
                                                     <BsHeartFill size={25} className='like-icon' />
-                                                    {/* <p>{likes}</p> */}
-                                                </div>
+                                                    <p>{likes}</p>
+                                                </div> */}
                                                 <div className="destText">
                                                     <h4>
                                                         <Link to={`/${category}/${id}`}>{title}</Link>

@@ -1,5 +1,5 @@
 import React, { useState, useContext, useEffect } from 'react'
-import './ContentSlide.scoped.css'
+import './LikeSlide.scoped.css'
 import img1 from '../../src/Assets/slide1.png'
 import img2 from '../../src/Assets/slide2.png'
 import { BsHeartFill, BsFillTrashFill } from "react-icons/bs";

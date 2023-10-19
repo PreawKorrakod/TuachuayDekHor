@@ -78,7 +78,6 @@ const Details = () => {
                     className={like === 0 ? "nolike" : "like"}
                     onClick={handleLikeClick}
                     />
-                    <p>{like}</p>
                   </div>
                 </div>
                 <div className="comment__icon">
