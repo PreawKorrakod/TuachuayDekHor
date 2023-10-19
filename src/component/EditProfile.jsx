@@ -1,4 +1,4 @@
-import React, { useState,useContext  } from 'react';
+import React, { useState,useContext, useEffect  } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import "./EditProfile.scoped.css";
@@ -33,8 +33,8 @@ function Editprofile(props) {
         .storage
         .from('avatars')
         .getPublicUrl(image_title)
-
-        axios.post("http://localhost:3300/edit_profile",{
+        useEffect (()=>{
+            axios.post("http://localhost:3300/edit_profile",{
             id: user.id,
             username: newName,
             email: user.email,
@@ -46,6 +46,7 @@ function Editprofile(props) {
         .catch((err) => {
             alert(err)
         })
+        },[user.id])
 
         
         // if (newDescribe !== props.describe) {
