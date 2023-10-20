@@ -2,7 +2,7 @@ import React, { useRef, useState,useContext } from "react";
 import "./DropdownProfile.scoped.css";
 import {BiLogOut,BiUserCircle} from "react-icons/bi";
 import Avatar from "./Avatar";
-import { Link } from "react-router-dom";
+import { Link,useNavigate } from "react-router-dom";
 import { General } from '../App';
 import Profile_img from '../../src/Assets/person-circle-outline.svg'
 
@@ -14,6 +14,7 @@ import Profile_img from '../../src/Assets/person-circle-outline.svg'
 
 function DropdownProfile(){
     const {supabase_for_use : supabase,session,user} = useContext(General);
+    const navigate = useNavigate();
 
     const sign__out = () =>{
         supabase.auth.signOut();
@@ -37,7 +38,8 @@ function DropdownProfile(){
                 <ul className="menu_wrapper">
                     {/* <Link to={`/profile/${user.id}`}><li><BiUserCircle className="icon-profile" size={20}/>My profile</li></Link> */}
                     <Link to={`/profile/${user?.id}`}><li><BiUserCircle className="icon-profile" size={25}/>My Profile</li></Link>
-                    <li><BiLogOut size={25} className="icon-logOut"/><a href="/home" id="logout" onClick={sign__out}>Log out</a></li>
+                    <Link to={'/home'}><li><BiLogOut size={25} className="icon-logOut"/><a href="/home" id="logout" onClick={sign__out}>Log out</a></li></Link>
+                    {/* <li><BiLogOut size={25} className="icon-logOut"/><a href="/home" id="logout" onClick={sign__out}>Log out</a></li> */}
                 </ul>
            </div>
            }
