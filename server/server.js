@@ -148,23 +148,7 @@ app.get("/showcomment",async (req,res) =>{
     }
 })
 
-//count_like
-// app.post("/countlike", async (req, res) => {
-//     const { id_post } = req.query;
-//     const { data, error } = await supabase.from("likes").select("id_post, count(*)").eq("id_post", id_post).group("id_post");
-//     if (error) {
-//         res.status(500).json(error);
-//     } else {
-//         if (data.length === 0) {
-//             // ไม่มีรายการที่ถูกนับ ให้เป็น 0 ถ้าไม่มีการ Like
-//             res.status(200).json({ count: 0 });
-//         } else {
-//             // มีรายการที่ถูกนับ ให้ใช้ค่าจากการนับล่าสุด
-//             const { count } = data[0];
-//             res.status(200).json({ count });
-//         }
-//     }
-// });
+
 
 //randompost
 app.post("/randompost",async (req,res) => {
