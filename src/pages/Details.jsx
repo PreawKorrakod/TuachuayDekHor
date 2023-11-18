@@ -12,7 +12,7 @@ import { General } from '../App';
 import CheckDelete from '../component/CheckDelete';
 import img1 from '../../src/Assets/slide1.png'
 // title,username,content,like,comments
-// kkk
+
 const Details = () => {
   const { id } = useParams();
   // const {username} = useParams();
@@ -51,24 +51,29 @@ const Details = () => {
   // console.log(data)
 
 
+  // const handleLikeClick = async () => {
+  //   try {
+  //     // ทำการเพิ่มการ "ถูกใจ" ลงฐานข้อมูล
+  //     await axios.post("http://localhost:3300/likepost", {
+  //       id_post: id,
+  //       id: user?.id,
+  //     })
+  //       .then(res => {
+  //         setLike(like + 1);
+  //         console.log(like)
+  //         alert("Save Success")
+  //         console.log(res.data)
+  //       })
+  //     // อัพเดตค่า like ในส่วนของสถานะ (state) ของ React
+  //   } catch (error) {
+  //     alert("You have already saved this post");
+  //   }
+  // };
+
   const handleLikeClick = async () => {
-    try {
-      // ทำการเพิ่มการ "ถูกใจ" ลงฐานข้อมูล
-      await axios.post("http://localhost:3300/likepost", {
-        id_post: id,
-        id: user?.id,
-      })
-        .then(res => {
-          setLike(like + 1);
-          console.log(like)
-          alert("Save Success")
-          console.log(res.data)
-        })
-      // อัพเดตค่า like ในส่วนของสถานะ (state) ของ React
-    } catch (error) {
-      alert("You have already saved this post");
-    }
-  };
+    setLike(like+1);
+    console.log(like);
+  }
 
 
   return (
@@ -104,11 +109,14 @@ const Details = () => {
               <div className="like__box">
                 {/* saved อยู่ตรงนี้คับ */}
                 <div className="heart">
+                  {/* เงื่อนไขการเปลี่ยน like อยู่ตรงนี้ */}
                 { like === 0? 
                     <BsBookmark size={25} 
                     onClick={handleLikeClick}
                     className='noBookmark'
                     />:<BsBookmarkFill size={25} className='Bookmark' onClick={handleLikeClick}/>}
+                    {/*จำนวน like  */}
+                    <p>{like}</p>
                 </div>
               </div>
               {/* comment อยู่ตรงนี้นะ */}
