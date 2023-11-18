@@ -6,38 +6,6 @@ import { Link } from 'react-router-dom'
 import axios from 'axios';
 import { General } from '../App';
 
-// const Data = [
-//   {
-//     imgSrc: img1,
-//     writer: 'Pikachu',
-//   },
-
-//   {
-//     imgSrc: img1,
-//     writer: 'PumZaZa',
-//   },
-
-//   {
-//     imgSrc: img1,
-//     writer: 'Narak',
-//   },
-
-//   {
-//     imgSrc: img1,
-//     writer: 'WinterThePooh',
-//   },
-
-//   {
-//     imgSrc: img1,
-//     writer: 'AllinOne',
-//   },
-
-//   {
-//     imgSrc: img1,
-//     writer: 'Nov20',
-//   },
-
-// ]
 
 function Blogger() {
   const [data, setData] = useState([]);

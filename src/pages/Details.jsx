@@ -143,19 +143,19 @@ export default Details
 
 
 
-{/* <div className="box">
-                  <div className="last">
-                  {(user?.user_metadata.username !== data.name?.username)? <div className="heart">
-                  { like === 0? 
-                    <BsBookmark size={25} 
-                    onClick={handleLikeClick}
-                    className='noBookmark'
-                    />:<BsBookmarkFill size={25} className='Bookmark' onClick={handleLikeClick}/>}
-                  </div> :
-                  <div className="icon_edit">
-                    {/* <button >
-                      <BsFillTrashFill size={25} className='icon-delete'/>
-                    </button> */}
+// {/* <div className="box">
+//                   <div className="last">
+//                   {(user?.user_metadata.username !== data.name?.username)? <div className="heart">
+//                   { like === 0? 
+//                     <BsBookmark size={25} 
+//                     onClick={handleLikeClick}
+//                     className='noBookmark'
+//                     />:<BsBookmarkFill size={25} className='Bookmark' onClick={handleLikeClick}/>}
+//                   </div> :
+//                   <div className="icon_edit">
+//                     {/* <button >
+//                       <BsFillTrashFill size={25} className='icon-delete'/>
+//                     </button> */}
 //     <button className='icon-delete'>
 //       <CheckDelete></CheckDelete>
 //     </button>

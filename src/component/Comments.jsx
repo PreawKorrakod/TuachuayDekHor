@@ -21,16 +21,13 @@ function OffCanvasExample({ name, ...props }) {
 
   const {session,user} = useContext(General);
   const {id} = useParams();
+  console.log(id);
 
   const [comment, setComment] = useState('');
   const [allcomment, setAllComment] = useState([]);
 
   const fetchComments = () => {
-    axios.get('http://localhost:3300/showcomment', {
-      params: {
-        id_post: id,
-      }
-    })
+    axios.get("http://localhost:3300/showcomment?id_post=" + id)
     .then((response) => {
       setAllComment(response.data);
     })

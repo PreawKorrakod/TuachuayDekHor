@@ -10,40 +10,6 @@ import CheckDelete from './CheckDelete'
 import { General } from '../App';
 
 
-
-// const Data1 = () => {
-
-//     const { supabase_for_use: supabase, session, user } = useContext(General);
-//     axios.get("http://localhost:3300/posttoprofile", {
-//         id: user?.id,
-//         title: title,
-//         category: category,
-//         username: user?.user_metadata.username,
-//     })
-
-// const post = [
-//     {
-//         id_post : {id},
-//         imgSrc : img1,
-//         destTitle : {title},
-//         writer : {username},
-//         category: {category},
-//     }
-// ]
-
-// }
-
-// const Data = [
-//     {
-//         id_post: { id },
-//         imgSrc: img1,
-//         destTitle: { title },
-//         writer: { username },
-//         category: { category },
-//     },
-// ]
-
-
 ////////////แก้///////////////////////////////////////////
 function PostSlide(props){
     const { supabase_for_use: supabase, session, user } = useContext(General);
