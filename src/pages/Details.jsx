@@ -75,8 +75,8 @@ const Details = () => {
       .then(res => {
         console.log(res.data); 
       })
-    } catch (error) {
-      alert("You have already saved this post");
+    } catch (err) {
+      await axios.delete(`http://localhost:3300/unlike?id=${user?.id}&id_post=${id}`);
     }
     axios.get("http://localhost:3300/countlike?id_post=" + id)
       .then((res) => {
@@ -86,7 +86,7 @@ const Details = () => {
         console.error(error);
       })
   }
-
+  const isLikedByUser = like.some(({ id }) => id === user?.id);
   
   return (
     <div className="story">
@@ -120,19 +120,16 @@ const Details = () => {
             <div className="first">
               <div className="like__box">
                 {/* saved อยู่ตรงนี้คับ */}
-                {like.map(({id:id_user}, index) => (
-                  <div key={index}>
-                    <div className="heart">
-                      {/* เงื่อนไขการเปลี่ยน like อยู่ตรงนี้ */}
-                      { !(id_user === user?.id)? (
-                        <BsBookmark size={25} onClick={handleLikeClick}className='noBookmark'/>
-                      ) : (
-                          <BsBookmarkFill size={25} className='Bookmark' onClick={handleLikeClick}/>
-                      )}
-                      <p>{like.length}</p>
-                    </div>
-                  </div>
-                ))}
+                <div className="heart">
+                  {/* เงื่อนไขการเปลี่ยน like อยู่ตรงนี้ */}
+                  { isLikedByUser? (
+                    <BsBookmarkFill size={25} className='Bookmark' onClick={handleLikeClick}/>
+                  ) : (
+                    <BsBookmark size={25} onClick={handleLikeClick}className='noBookmark'/>
+                  )}
+                  <p>{like.length}</p>
+                </div>
+                
               </div>
               {/* comment อยู่ตรงนี้นะ */}
               <div className="comment__icon">
