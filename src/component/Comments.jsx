@@ -21,7 +21,7 @@ function OffCanvasExample({ name, ...props }) {
 
   const {session,user} = useContext(General);
   const {id} = useParams();
-  console.log(id);
+
 
   const [comment, setComment] = useState('');
   const [allcomment, setAllComment] = useState([]);

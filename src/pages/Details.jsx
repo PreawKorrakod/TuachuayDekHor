@@ -17,8 +17,9 @@ const Details = () => {
   const { id } = useParams();
   // const {username} = useParams();
   const { user } = useContext(General);
-  const [like, setLike] = useState(0);
+  const [like, setLike] = useState();
   const [data, setData] = useState([]);
+  const [wholike,setWholike] = useState([]);
   useEffect(() => {
     axios.get("http://localhost:3300/detailpost?id_post=" + id)
       .then((res) => {
@@ -70,9 +71,34 @@ const Details = () => {
   //   }
   // };
 
+
   const handleLikeClick = async () => {
-    setLike(like+1);
-    console.log(like);
+    // setLike(like+1);
+  // console.log(like);
+    try {
+    // ทำการเพิ่มการ "ถูกใจ" ลงฐานข้อมูล
+      await axios.post("http://localhost:3300/likepost", {
+        id_post: id,
+        id: user?.id,
+      })
+      .then(res => {
+        setWholike(res.data);
+        console.log(res.data); 
+        // setLike(like + res.data.lenght);
+        // console.log(like)
+        // alert("Save Success")
+      })
+      // อัพเดตค่า like ในส่วนของสถานะ (state) ของ React
+    } catch (error) {
+      alert("You have already saved this post");
+    }
+    axios.get("http://localhost:3300/countlike?id_post=" + id)
+      .then((res) => {
+        setLike(like + res.data.length);
+      })
+      .catch((error) => {
+        console.error(error);
+      })
   }
 
 

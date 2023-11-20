@@ -120,6 +120,23 @@ app.post("/likepost",async (req,res) =>{
         res.status(500).json(error);
     }
     else{
+        console.log(data);
+        res.status(200).json(data);
+    }
+})
+
+//count_like
+app.get("/countlike",async (req,res) =>{
+    const {id_post} = req.query;
+    const {data,error} = await supabase
+    .from("likes")
+    .select('*', { count: 'exact' })
+    .eq("id_post",id_post)
+    if (error ){
+        res.status(500).json(error);
+    }
+    else{
+        console.log(data.length);
         res.status(200).json(data);
     }
 })
