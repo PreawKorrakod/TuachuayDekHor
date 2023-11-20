@@ -19,7 +19,7 @@ const Details = () => {
   const { user } = useContext(General);
   const [like, setLike] = useState([]);
   const [data, setData] = useState([]);
-  const [wholike,setWholike] = useState([]);
+  const [likeyet,setLikeyet] = useState([]);
   useEffect(() => {
     axios.get("http://localhost:3300/detailpost?id_post=" + id)
       .then((res) => {
@@ -49,6 +49,11 @@ const Details = () => {
     return <div>Loading...</div>;
   }
 
+ 
+
+
+
+
   useEffect(() => {
     axios.get("http://localhost:3300/countlike?id_post=" + id)
     .then((res) => {
@@ -68,7 +73,6 @@ const Details = () => {
         id: user?.id,
       })
       .then(res => {
-        setWholike(res.data);
         console.log(res.data); 
       })
     } catch (error) {
@@ -83,7 +87,7 @@ const Details = () => {
       })
   }
 
-
+  
   return (
     <div className="story">
       <header>
@@ -116,16 +120,19 @@ const Details = () => {
             <div className="first">
               <div className="like__box">
                 {/* saved อยู่ตรงนี้คับ */}
-                <div className="heart">
-                  {/* เงื่อนไขการเปลี่ยน like อยู่ตรงนี้ */}
-                { like === 0? 
-                    <BsBookmark size={25} 
-                    onClick={handleLikeClick}
-                    className='noBookmark'
-                    />:<BsBookmarkFill size={25} className='Bookmark' onClick={handleLikeClick}/>}
-                    {/*จำนวน like  */}
-                    <p>{like.length}</p>
-                </div>
+                {like.map(({id:id_user}, index) => (
+                  <div key={index}>
+                    <div className="heart">
+                      {/* เงื่อนไขการเปลี่ยน like อยู่ตรงนี้ */}
+                      { !(id_user === user?.id)? (
+                        <BsBookmark size={25} onClick={handleLikeClick}className='noBookmark'/>
+                      ) : (
+                          <BsBookmarkFill size={25} className='Bookmark' onClick={handleLikeClick}/>
+                      )}
+                      <p>{like.length}</p>
+                    </div>
+                  </div>
+                ))}
               </div>
               {/* comment อยู่ตรงนี้นะ */}
               <div className="comment__icon">

@@ -141,7 +141,21 @@ app.get("/countlike",async (req,res) =>{
     }
 })
 
-
+//check_like
+app.get("/checklike",async (req,res) =>{
+    const {id_post,id} = req.query;
+    const {data,error} = await supabase
+    .from("likes")
+    .select(id)
+    .eq("id_post",id_post)
+    if (error ){
+        res.status(500).json(error);
+    }
+    else{
+        console.log(data);
+        res.status(200).json(data);
+    }
+})
 
 //comment
 app.post("/commentpost",async (req,res) =>{
