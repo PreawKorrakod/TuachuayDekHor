@@ -68,6 +68,8 @@ function OffCanvasExample({ name, ...props }) {
       </div>
     )
   })
+  console.log(allcomment);
+  console.log(commentElements);
   
   return (
     <>

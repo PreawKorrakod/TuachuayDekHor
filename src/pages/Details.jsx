@@ -17,7 +17,7 @@ const Details = () => {
   const { id } = useParams();
   // const {username} = useParams();
   const { user } = useContext(General);
-  const [like, setLike] = useState();
+  const [like, setLike] = useState([]);
   const [data, setData] = useState([]);
   const [wholike,setWholike] = useState([]);
   useEffect(() => {
@@ -49,32 +49,18 @@ const Details = () => {
     return <div>Loading...</div>;
   }
 
-  // console.log(data)
+  useEffect(() => {
+    axios.get("http://localhost:3300/countlike?id_post=" + id)
+    .then((res) => {
+      setLike(res.data);
+    })
+    .catch((error) => {
+      console.error(error);
+    })
 
-
-  // const handleLikeClick = async () => {
-  //   try {
-  //     // ทำการเพิ่มการ "ถูกใจ" ลงฐานข้อมูล
-  //     await axios.post("http://localhost:3300/likepost", {
-  //       id_post: id,
-  //       id: user?.id,
-  //     })
-  //       .then(res => {
-  //         setLike(like + 1);
-  //         console.log(like)
-  //         alert("Save Success")
-  //         console.log(res.data)
-  //       })
-  //     // อัพเดตค่า like ในส่วนของสถานะ (state) ของ React
-  //   } catch (error) {
-  //     alert("You have already saved this post");
-  //   }
-  // };
-
+  }, [id]);
 
   const handleLikeClick = async () => {
-    // setLike(like+1);
-  // console.log(like);
     try {
     // ทำการเพิ่มการ "ถูกใจ" ลงฐานข้อมูล
       await axios.post("http://localhost:3300/likepost", {
@@ -84,17 +70,13 @@ const Details = () => {
       .then(res => {
         setWholike(res.data);
         console.log(res.data); 
-        // setLike(like + res.data.lenght);
-        // console.log(like)
-        // alert("Save Success")
       })
-      // อัพเดตค่า like ในส่วนของสถานะ (state) ของ React
     } catch (error) {
       alert("You have already saved this post");
     }
     axios.get("http://localhost:3300/countlike?id_post=" + id)
       .then((res) => {
-        setLike(like + res.data.length);
+        setLike(res.data);
       })
       .catch((error) => {
         console.error(error);
@@ -142,7 +124,7 @@ const Details = () => {
                     className='noBookmark'
                     />:<BsBookmarkFill size={25} className='Bookmark' onClick={handleLikeClick}/>}
                     {/*จำนวน like  */}
-                    <p>{like}</p>
+                    <p>{like.length}</p>
                 </div>
               </div>
               {/* comment อยู่ตรงนี้นะ */}

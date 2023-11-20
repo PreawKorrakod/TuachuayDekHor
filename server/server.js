@@ -136,10 +136,12 @@ app.get("/countlike",async (req,res) =>{
         res.status(500).json(error);
     }
     else{
-        console.log(data.length);
+        // console.log(data.length);
         res.status(200).json(data);
     }
 })
+
+
 
 //comment
 app.post("/commentpost",async (req,res) =>{
