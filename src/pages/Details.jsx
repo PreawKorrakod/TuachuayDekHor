@@ -11,6 +11,8 @@ import axios from 'axios';
 import { General } from '../App';
 import CheckDelete from '../component/CheckDelete';
 import img1 from '../../src/Assets/slide1.png'
+import { FaRegEdit } from "react-icons/fa";
+import Footer from "../component/footer";
 // title,username,content,like,comments
 
 const Details = () => {
@@ -19,7 +21,7 @@ const Details = () => {
   const { user } = useContext(General);
   const [like, setLike] = useState([]);
   const [data, setData] = useState([]);
-  const [likeyet,setLikeyet] = useState([]);
+  const [likeyet, setLikeyet] = useState([]);
   useEffect(() => {
     axios.get("http://localhost:3300/detailpost?id_post=" + id)
       .then((res) => {
@@ -49,32 +51,32 @@ const Details = () => {
     return <div>Loading...</div>;
   }
 
- 
+
 
 
 
 
   useEffect(() => {
     axios.get("http://localhost:3300/countlike?id_post=" + id)
-    .then((res) => {
-      setLike(res.data);
-    })
-    .catch((error) => {
-      console.error(error);
-    })
+      .then((res) => {
+        setLike(res.data);
+      })
+      .catch((error) => {
+        console.error(error);
+      })
 
   }, [id]);
 
   const handleLikeClick = async () => {
     try {
-    // ทำการเพิ่มการ "ถูกใจ" ลงฐานข้อมูล
+      // ทำการเพิ่มการ "ถูกใจ" ลงฐานข้อมูล
       await axios.post("http://localhost:3300/likepost", {
         id_post: id,
         id: user?.id,
       })
-      .then(res => {
-        console.log(res.data); 
-      })
+        .then(res => {
+          console.log(res.data);
+        })
     } catch (err) {
       await axios.delete(`http://localhost:3300/unlike?id=${user?.id}&id_post=${id}`);
     }
@@ -87,7 +89,7 @@ const Details = () => {
       })
   }
   const isLikedByUser = like.some(({ id }) => id === user?.id);
-  
+
   return (
     <div className="story">
       <header>
@@ -105,7 +107,7 @@ const Details = () => {
               </div>
               <div className="name">
                 <h6>{data.name?.username}</h6>
-              <div />
+                <div />
 
                 {/* <div className="heart">
                     <BsBookmark size={25} 
@@ -113,48 +115,51 @@ const Details = () => {
                     onClick={handleLikeClick}
                     />
                   </div> */}
-              
+
+              </div>
             </div>
-          </div>
-          <div className="menu__icon">
-            <div className="first">
-              <div className="like__box">
-                {/* saved อยู่ตรงนี้คับ */}
-                <div className="heart">
-                  {/* เงื่อนไขการเปลี่ยน like อยู่ตรงนี้ */}
-                  { isLikedByUser? (
-                    <BsBookmarkFill size={25} className='Bookmark' onClick={handleLikeClick}/>
-                  ) : (
-                    <BsBookmark size={25} onClick={handleLikeClick}className='noBookmark'/>
-                  )}
-                  <p>{like.length}</p>
+            <div className="menu__icon">
+              <div className="first">
+                <div className="like__box">
+                  {/* saved อยู่ตรงนี้คับ */}
+                  <div className="heart">
+                    {/* เงื่อนไขการเปลี่ยน like อยู่ตรงนี้ */}
+                    {isLikedByUser ? (
+                      <BsBookmarkFill size={25} className='Bookmark' onClick={handleLikeClick} />
+                    ) : (
+                      <BsBookmark size={25} onClick={handleLikeClick} className='noBookmark' />
+                    )}
+                    <p>{like.length}</p>
+                  </div>
+
                 </div>
-                
+                {/* comment อยู่ตรงนี้นะ */}
+                <div className="comment__icon">
+                  <Comments />
+                </div>
               </div>
-              {/* comment อยู่ตรงนี้นะ */}
-              <div className="comment__icon">
-                <Comments />
+              <div className="last">
+                {(user?.user_metadata.username !== data.name?.username) ?
+                  <RiFlag2Line size={25} className='icon-report'></RiFlag2Line> :
+                  <div className="edit">
+                    {/* edit อยู่ตรงนี้คับ */}
+                    <Link to={'/writeblog'}><button className='icon-Edit'>
+                      <FaRegEdit size={25} />
+                    </button></Link>
+                    <button className='icon-delete'>
+                      <CheckDelete></CheckDelete>
+                    </button>
+                  </div>}
               </div>
-            </div>
-            <div className="last">
-              {(user?.user_metadata.username !== data.name?.username) ? '' :
-                <div className="icon_edit">
-                  {/* <button >
-                    <BsFillTrashFill size={25} className='icon-delete' />
-                  </button> */}
-                  <button className='icon-delete'>
-                    <CheckDelete></CheckDelete>
-                  </button>
-                </div>}
             </div>
           </div>
-      </div>
-      <div className="img__box">
-        <img src={data.image_link ?? img1} alt="" />
-      </div>
-      <div className="content" dangerouslySetInnerHTML={{ __html: data.content }} />
-    </Card>
+          <div className="img__box">
+            <img src={data.image_link ?? img1} alt="" />
+          </div>
+          <div className="content" dangerouslySetInnerHTML={{ __html: data.content }} />
+        </Card>
       </div >
+      <Footer></Footer>
     </div>
   )
 }
@@ -166,8 +171,8 @@ export default Details
 // {/* <div className="box">
 //                   <div className="last">
 //                   {(user?.user_metadata.username !== data.name?.username)? <div className="heart">
-//                   { like === 0? 
-//                     <BsBookmark size={25} 
+//                   { like === 0?
+//                     <BsBookmark size={25}
 //                     onClick={handleLikeClick}
 //                     className='noBookmark'
 //                     />:<BsBookmarkFill size={25} className='Bookmark' onClick={handleLikeClick}/>}

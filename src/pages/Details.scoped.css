@@ -25,10 +25,11 @@ header{
 
 .story__content{
     padding-top: 1rem;
-    width: 100%;
-    height: 100%;
+    /* width: 100%;
+    height: 100%; */
     padding-right: 200px;
     padding-left: 200px;
+    padding-bottom: 100px;
 }
 
 .header{
@@ -105,6 +106,7 @@ img{
 
 .first{
     width: 100%;
+    display: flex;
 }
 /* okay */
 
@@ -131,7 +133,9 @@ img{
 }
 
 .last{
+    width: 100%;
     display: flex;
+    justify-content: flex-end;
 }
 /* 
 .icon_edit{
@@ -146,20 +150,22 @@ img{
 
 .icon-report{
     color: rgba(128, 128, 128, 0.543);
+    cursor: pointer;
 }
 
 .icon-report:hover{
-    color: black;
+    color: rgba(0, 0, 0, 0.598);
+    scale: 1.2;
 }
 
 .icon-Edit{
     background-color: #D9C029;
-    color: black;
-    width: 30px;
-    height: 30px;
-    padding: 0.2rem;
-    margin-right: 1rem;
+    border: none;
     border-radius: 5px;
+    width: 40px;
+    height: 35px;
+    margin-right: 0.7rem;
+    padding: 0.2rem;
     cursor: pointer;
 }
 
@@ -195,8 +201,8 @@ img{
 }
 
 .noBookmark:hover{
-    color: rgba(0, 0, 0, 0.566);
-    scale: 1.5rem;
+    color: rgba(0, 0, 0, 0.598);
+    scale: 1.2;
     cursor: pointer;
 }
 
