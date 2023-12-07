@@ -1,3 +1,4 @@
+// สวัสดีคับผมบักเค๊มเบ๊ะ
 import React, { useRef, useState, useContext } from 'react'
 import { Card, CardBody, Form, Input, Label, Button, Container, FormGroup } from 'reactstrap'
 import "./AddPost.scoped.css"
