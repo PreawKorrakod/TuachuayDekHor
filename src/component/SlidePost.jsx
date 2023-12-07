@@ -9,41 +9,6 @@ import {BiSolidPencil} from "react-icons/bi";
 import img1 from '../../src/Assets/person-circle-outline.svg'
 import "./SlidePost.scoped.css"
 import axios from "axios";
-
-// const Data = [
-//   {
-//     imgSrc: img1,
-//     writer: 'Pikachu',
-//   },
-
-//   {
-//     imgSrc: img1,
-//     writer: 'PumZaZa',
-//   },
-
-//   {
-//     imgSrc: img1,
-//     writer: 'Narak',
-//   },
-
-//   {
-//     imgSrc: img1,
-//     writer: 'WinterThePooh',
-//   },
-
-//   {
-//     imgSrc: img1,
-//     writer: 'AllinOne',
-//   },
-
-//   {
-//     imgSrc: img1,
-//     writer: 'Nov20',
-//   },
-
-// ]
-/////////////////////////////////////blogger/////////////////////////////////////
-
 function SlidePost() {
   const [data, setData] = useState([]);
   useEffect(() => {

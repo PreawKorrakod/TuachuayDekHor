@@ -11,27 +11,6 @@ import axios from 'axios';
 import Footer from "../component/footer";
 import { Container } from 'reactstrap';
 
-// เพิ่มโพสต์เข้ามาหมดเลยในหน้านี้เพื่อเอาไว้ใช้ค้นหา
-// const Data = [
-//     {
-//         id: 1,
-//         imgSrc: img3,
-//         destTitle: '10 Awesome Books',
-//         writer: 'Narak',
-//         category: 'story',
-//         likes: 89,
-//     },
-
-//     {
-//         id: 2,
-//         imgSrc: img4,
-//         destTitle: 'Pasta by DekHor',
-//         writer: 'Sleep_more',
-//         category: 'cooking',
-//         likes: 20,
-//     },
-// ]
-
 
 
 function Search() {
@@ -79,10 +58,6 @@ function Search() {
                                                 <img src={image_link??img1} alt="" />
                                             </div>
                                             <div className="destFooter">
-                                                {/* <div className="heart">
-                                                    <BsHeartFill size={25} className='like-icon' />
-                                                    <p>{likes}</p>
-                                                </div> */}
                                                 <div className="destText">
                                                     <h4>
                                                         <Link to={`/${category}/${id}`}>{title}</Link>

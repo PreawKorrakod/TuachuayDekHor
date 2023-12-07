@@ -15,16 +15,13 @@ function ContactModal() {
   return (
     <>
       <img src="/mail-outline.svg" alt="" onClick={handleShow} className='mail_edit' />
-      {/* <Button variant="primary" onClick={handleShow}>
-        Launch demo modal
-      </Button> */}
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
           <Modal.Title>Contact</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <Form>
-            {/* mail user ต้องเอาเข้าตรงนี้  ไปแสดงในปุ๋มยัง*/}
+            {/* mail user */}
             <Form.Group className="mb-3" controlId={mail_user}>
               <Form.Label>To:</Form.Label>
               <Form.Control
@@ -53,7 +50,6 @@ function ContactModal() {
               className="mb-3"
               controlId="exampleForm.ControlTextarea1"
             >
-              {/* <Form.Label></Form.Label> */}
               <Form.Control as="textarea" rows={3} placeholder='type message here'/>
             </Form.Group>
           </Form>

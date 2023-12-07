@@ -7,10 +7,6 @@ const Footer = () => {
   return (
     <footer className="footer">
       <div className="footer-content">
-        {/* <div className="footer-section">
-          <h3>About Us</h3>
-          <p>Learn more about our company and mission.</p>
-        </div> */}
         <div className="footer-section1">
           <div className='title_footer1'>
             <h3 className= 'title1'>Contact Us</h3>

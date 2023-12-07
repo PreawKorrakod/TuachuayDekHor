@@ -10,13 +10,10 @@ import CheckDelete from './CheckDelete'
 import { General } from '../App';
 
 
-////////////แก้///////////////////////////////////////////
 function PostSlide(props){
     const { supabase_for_use: supabase, session, user } = useContext(General);
     const [data, setData] = useState([]);
     console.log(props.id)
-    // const [title, setTitle] = useState("")
-    // console.log(user?.id)
     useEffect(() => {
         if (props.id) {
             axios.get("http://localhost:3300/posttoprofile?id=" + props.id)
@@ -29,9 +26,9 @@ function PostSlide(props){
                 alert(err)
             })
         } else {
-            // ในกรณีที่ props.id เป็นค่าว่างหรือไม่ถูกต้อง
+            
             console.log("props.id is empty or invalid");
-            // สามารถดำเนินการอื่น ๆ ที่ต้องการในกรณีนี้
+           
         }
     }, [props.id])
 
@@ -46,10 +43,6 @@ function PostSlide(props){
                                     <img src={image_link??img1} alt="" />
                                 </div>
                                 <div className="destFooter">
-                                    {/* <div className="delete"  >
-                                        {/* {CheckDelete && <BsFillTrashFill size={25} type='submit' className='icon-delete'onSubmit={data}  onClick={handledelete}/>} */}
-                                        {/* <CheckDelete/>
-                                    </div> */} 
                                     <div className="destText">
                                         <h4>
                                             <Link to={`/${category}/${id}`}>{title}</Link>

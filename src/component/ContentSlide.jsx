@@ -16,70 +16,7 @@ import axios from 'axios';
 
 
 
-
-
-
-// const Data =[
-//         {
-//             id:1,
-//             imgSrc: img1,
-//             destTitle: 'ห้องน่ารักๆ สำหรับเด็กหอ',
-//             writer: 'Pikachu',
-//             heart : 123,
-//             category:'decoration',
-//         },
-
-//         {
-//             id:2,
-//             imgSrc: img2,
-//             destTitle: 'How to study by DekHor',
-//             writer: 'PumZaZa',
-//             heart : 143,
-//             category:'story',
-//         },
-
-//         {
-//             id:3,
-//             imgSrc: img3,
-//             destTitle: '10 Awesome Books',
-//             writer: 'Narak',
-//             heart : 423,
-//             category:'story',
-//         },
-
-//         {
-//             id:4,
-//             imgSrc: img3,
-//             destTitle: '10 Awesome Books',
-//             writer: 'Narak',
-//             heart : 423,
-//             category:'cleaning',
-//         },
-
-//         {
-//             id:5,
-//             imgSrc: img4,
-//             destTitle: '10 Awesome Books',
-//             writer: 'Narak',
-//             heart : 423,
-//             category:'cooking',
-//         },
-
-//         {
-//             id:6,
-//             imgSrc: img1,
-//             destTitle: 'ห้องน่ารักๆ สำหรับเด็กหอ',
-//             writer: 'Pikachu',
-//             heart : 123,
-//             category:'cooking',
-//         },
-
-//     ]
-
-
 function ContentSlide(props) {
-    // const [data, setData] = useState([]);
-    // console.log(props.name);
     const [data, setData] = useState([]);
 
     useEffect(() => {
@@ -94,21 +31,6 @@ function ContentSlide(props) {
     }, [props.name]);
     const category = props.name
 
-    // const { name } = useParams();
-    //   const { supabase_for_use: supabase, session, user } = useContext(General);
-    // const [title, setTitle] = useState("")
-    // useEffect(() => {
-    //     axios.get("http://localhost:3300/posttocategory?category=" + props.name)
-    //     .then(res => {
-    //         console.log(props.name);
-    //         console.log(res.data)
-    //         setData(res.data);
-    //     })
-    //     .catch((err) => {
-    //         alert(err)
-    //     })
-
-    // },[])
 
 
 
@@ -123,9 +45,6 @@ function ContentSlide(props) {
                                     <img src={image_link??img1} alt="" />
                                 </div>
                                 <div className="destFooter">
-                                    {/* <div className="heart">
-                                        <BsHeartFill size={25} /><p>{like}</p>
-                                    </div> */}
                                     <div className="destText">
                                         <h4>
                                             <Link to={`/${category}/${id}`}>{title}</Link>
@@ -147,24 +66,3 @@ function ContentSlide(props) {
     )
 };
 export default ContentSlide;
-
-{/* <div className="singleDest">
-                        <div className="dastImage">
-                            <img src= {imgSrc} alt="" />
-                        </div>
-                        <div className="destFooter">
-                            <div className="heart">
-                                <BsHeartFill size={25}/><p>{heart}</p>
-                            </div>
-                            <div className="destText">
-                                <h4>
-                                    <Link to={`/cleaning/${id}`}>{destTitle}</Link>
-                                </h4>
-                                <span className="flex">
-                                    <span className="name">
-                                        {writer}
-                                    </span>
-                                </span>
-                            </div>
-                        </div>
-                    </div> */}

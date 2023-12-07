@@ -9,25 +9,7 @@ import {BiSolidPencil} from "react-icons/bi";
 import './LikeSlide.scoped.css'
 import { General } from '../App';
 import axios from 'axios';
-// import "./ContentSlide.scoped.css"
 
-// const Data =[
-//         {
-//             id:1,
-//             imgSrc: img3,
-//             destTitle: '10 Awesome Books',
-//             writer: 'Narak',
-//             category:'story',
-//         },
-    
-//         {
-//             id:2,
-//             imgSrc: img4,
-//             destTitle: 'Pasta by DekHor',
-//             writer: 'Sleep_more',
-//             category:'cooking',
-//         },
-//     ]
 
 function LikeSlide (props){
     const { supabase_for_use: supabase, session, user } = useContext(General);
@@ -45,20 +27,9 @@ function LikeSlide (props){
                 alert(err)
             })
         } else {
-            // ในกรณีที่ props.id เป็นค่าว่างหรือไม่ถูกต้อง
             console.log("props.id is empty or invalid");
-            // สามารถดำเนินการอื่น ๆ ที่ต้องการในกรณีนี้
         }
     }, [props.id])
-
-
-    // const [like,setLike] = useState(0);
-
-    // console.log(like)
-
-    // const addlike = () =>{
-    
-    // }
 
   return (
     <div className="content">

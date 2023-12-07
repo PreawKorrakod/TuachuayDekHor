@@ -9,9 +9,7 @@ import { General } from '../App';
 import { Link,useParams } from 'react-router-dom';
 import axios from 'axios';
 
-// const startComment = {
-//   content:'', Username: 'Username'
-// }
+
 
 function OffCanvasExample({ name, ...props }) {
   const [show, setShow] = useState(false);
@@ -111,7 +109,7 @@ function OffCanvasExample({ name, ...props }) {
   );
 }
 
-//show frontend เฉยๆ 
+//show frontend 
 function Comments() {
   return (
     <>

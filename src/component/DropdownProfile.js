@@ -6,9 +6,7 @@ import { Link,useNavigate } from "react-router-dom";
 import { General } from '../App';
 import Profile_img from '../../src/Assets/person-circle-outline.svg'
 
-// const supabaseUrl = "https://kykxspcgnsbnzvbofapj.supabase.co";
-// const supabaseKey = process.env.REACT_APP_SUPABASE_ANON_KEY;
-// const supabase = createClient(supabaseUrl,supabaseKey);
+
 
 
 
@@ -36,10 +34,10 @@ function DropdownProfile(){
            {open && 
            <div className="menus" ref={menuRef} onClick={()=>setOpen(!open)}>
                 <ul className="menu_wrapper">
-                    {/* <Link to={`/profile/${user.id}`}><li><BiUserCircle className="icon-profile" size={20}/>My profile</li></Link> */}
+                    
                     <Link to={`/profile/${user?.id}`}><li><BiUserCircle className="icon-profile" size={25}/>My Profile</li></Link>
                     <Link to={'/home'}><li><BiLogOut size={25} className="icon-logOut"/><a href="/home" id="logout" onClick={sign__out}>Log out</a></li></Link>
-                    {/* <li><BiLogOut size={25} className="icon-logOut"/><a href="/home" id="logout" onClick={sign__out}>Log out</a></li> */}
+                    
                 </ul>
            </div>
            }

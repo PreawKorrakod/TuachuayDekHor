@@ -50,9 +50,7 @@ function Editprofile(props) {
 
 
         
-        // if (newDescribe !== props.describe) {
-        //     props.setDescribe(newDescribe);
-        // }
+        
         handleClose();
     }
 
@@ -88,18 +86,6 @@ function Editprofile(props) {
                                                 <input type="text" name='username' id='username' className='input_user' defaultValue={props.name} />
                                             </div>
                                         </div>
-
-                                        {/* <div className='descisbe__text'>
-                                            <label for="descisbe" className='descisbe'>Describe about yoursellf</label>
-                                            <div className='describe__box'>
-                                                <textarea
-                                                    name="describe" id="describe"
-                                                    rows="3" className='describe__box__2'
-                                                    placeholder='Write a few sentences about yourself...'
-                                                    defaultValue={props.describe} >
-                                                </textarea>
-                                            </div>
-                                        </div> */}
                                     </div>
                                 </div>
                                 <div class="input__Image">

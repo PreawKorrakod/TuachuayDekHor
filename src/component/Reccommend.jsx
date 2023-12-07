@@ -6,7 +6,7 @@ import { BiSolidPencil } from 'react-icons/bi';
 import axios from 'axios';
 
 function Reccommend() {
-  const [data, setData] = useState([]); // Initialize Data as an empty array
+  const [data, setData] = useState([]); 
 
   const countToShow = 6;
   const limitedData = data.slice(0, countToShow);

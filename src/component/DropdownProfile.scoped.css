@@ -29,19 +29,6 @@
     width: 125px;
     /* width: max-content; */
     box-shadow:rgba(108, 105, 105, 0.747) ;
-    /* margin-top: 0.5rem;
-    height: 100px;
-    width: max-content;
-    position: absolute;
-    display: block;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-start;
-    /* margin-top: 0.5rem; */
-    /* padding: 1rem 0; */
-    /* background-color: #e7e5e5;
-    box-shadow: rgba(108, 105, 105, 0.747) ;
-    border-radius: 10px; */ 
 }
 
 .menus a{
